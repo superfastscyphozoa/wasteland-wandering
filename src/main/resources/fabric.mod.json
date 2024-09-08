@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "wasteland-wandering",
+	"version": "${version}",
+	"name": "Wasteland Wandering",
+	"description": "Nuclear fallout comes to the overworld.",
+	"authors": [
+		"Pip",
+		"Chell"
+	],
+	"license": "MIT",
+	"icon": "assets/wasteland-wandering/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"pipandchell.wastelandwandering.WastelandWandering"
+		],
+		"fabric-datagen": [
+			"pipandchell.wastelandwandering.data.WastelandWanderingDataGenerator"
+		]
+	},
+	"mixins": [
+		"wasteland-wandering.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "pipandchell.wastelandwandering.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"WWMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
