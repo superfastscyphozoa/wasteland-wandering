@@ -4,6 +4,8 @@ import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pipandchell.wastelandwandering.registry.RegisterBlocks;
+import pipandchell.wastelandwandering.registry.RegisterItems;
 import pipandchell.wastelandwandering.world.gen.WastelandWanderingWorldGeneration;
 
 public class WastelandWandering implements ModInitializer {
@@ -19,6 +21,9 @@ public class WastelandWandering implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+
+		RegisterItems.registerWawaItems();
+		RegisterBlocks.registerWawaBlocks();
 
 		WastelandWanderingWorldGeneration.generateWawaWorldgen();
 

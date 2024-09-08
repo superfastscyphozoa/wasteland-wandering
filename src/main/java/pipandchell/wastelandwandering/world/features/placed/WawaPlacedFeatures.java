@@ -15,14 +15,14 @@ import java.util.List;
 public class WawaPlacedFeatures {
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
-
+        WawaTreePlacedFeatures.bootstrap(context);
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(WastelandWandering.MOD_ID, name));
     }
 
-    private static void register(Registerable<PlacedFeature> context, RegistryKey<PlacedFeature> key, RegistryEntry<ConfiguredFeature<?, ?>> configuration,
+    protected static void register(Registerable<PlacedFeature> context, RegistryKey<PlacedFeature> key, RegistryEntry<ConfiguredFeature<?, ?>> configuration,
                                  List<PlacementModifier> modifiers) {
         context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
     }
