@@ -12,7 +12,7 @@ public class RegisterItems {
 
     //registry
 
-    public static final Item STIMPACK = registerItem("stimpack", new Item(new Item.Settings()));
+    public static final Item STIMPAK = registerItem("stimpak", new Item(new Item.Settings()));
 
     //registry end
 
@@ -25,7 +25,7 @@ public class RegisterItems {
 
         //tells the game where to put the items in the inventory
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
-            entries.add(STIMPACK);
+            entries.add(STIMPAK);
         });
     }
 }

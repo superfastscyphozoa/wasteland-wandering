@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "wasteland-wandering:block/wastewood_sapling"
+  }
+}

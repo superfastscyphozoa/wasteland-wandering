@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "wasteland-wandering:block/irradiated_tall_grass_bottom"
+    },
+    "half=upper": {
+      "model": "wasteland-wandering:block/irradiated_tall_grass_top"
+    }
+  }
+}

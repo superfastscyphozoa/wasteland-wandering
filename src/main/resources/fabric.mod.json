@@ -5,8 +5,8 @@
 	"name": "Wasteland Wandering",
 	"description": "Nuclear fallout comes to the overworld.",
 	"authors": [
-		"Pip",
-		"Chell"
+		"Chell",
+		"Pip"
 	],
 	"license": "MIT",
 	"icon": "assets/wasteland-wandering/icon.png",
@@ -14,6 +14,9 @@
 	"entrypoints": {
 		"main": [
 			"pipandchell.wastelandwandering.WastelandWandering"
+		],
+		"client": [
+			"pipandchell.wastelandwandering.client.WastelandWanderingClient"
 		],
 		"fabric-datagen": [
 			"pipandchell.wastelandwandering.data.WastelandWanderingDataGenerator"

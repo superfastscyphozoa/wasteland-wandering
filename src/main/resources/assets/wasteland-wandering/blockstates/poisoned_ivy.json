@@ -1,7 +1,146 @@
 {
-  "variants": {
-    "": {
-      "model": "wasteland-wandering:block/poisoned_ivy_top"
+  "multipart": [
+    {
+      "apply": {
+        "model": "wasteland-wandering:block/poisoned_ivy_side"
+      },
+      "when": {
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "wasteland-wandering:block/poisoned_ivy_side"
+      },
+      "when": {
+        "down": "false",
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "wasteland-wandering:block/poisoned_ivy_side",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "wasteland-wandering:block/poisoned_ivy_side",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "down": "false",
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "wasteland-wandering:block/poisoned_ivy_side",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "wasteland-wandering:block/poisoned_ivy_side",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "down": "false",
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "wasteland-wandering:block/poisoned_ivy_side",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "wasteland-wandering:block/poisoned_ivy_side",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "down": "false",
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "wasteland-wandering:block/poisoned_ivy_bottom"
+      },
+      "when": {
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "wasteland-wandering:block/poisoned_ivy_side",
+        "uvlock": true,
+        "x": 270
+      },
+      "when": {
+        "down": "false",
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "wasteland-wandering:block/poisoned_ivy_top"
+      },
+      "when": {
+        "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "wasteland-wandering:block/poisoned_ivy_side",
+        "uvlock": true,
+        "x": 90
+      },
+      "when": {
+        "down": "false",
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
     }
-  }
+  ]
 }

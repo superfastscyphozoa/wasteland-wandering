@@ -1,9 +1,10 @@
 {
 	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
 	"texture_size": [32, 16],
 	"textures": {
-		"0": "Minecraft art:fallout/poisoned_ivy",
-		"particle": "Minecraft art:fallout/poisoned_ivy"
+		"0": "wasteland-wandering:block/poisoned_ivy",
+		"particle": "wasteland-wandering:block/poisoned_ivy"
 	},
 	"elements": [
 		{
