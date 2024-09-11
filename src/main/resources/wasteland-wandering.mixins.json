@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "pipandchell.wastelandwandering.mixin",
+	"package": "net.superfastscyphozoa.wastelandwandering.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"WawaMixin"
