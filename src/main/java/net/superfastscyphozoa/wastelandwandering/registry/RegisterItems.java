@@ -8,6 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
+import net.superfastscyphozoa.wastelandwandering.item.OilItem;
 import net.superfastscyphozoa.wastelandwandering.item.WawaFoodComponents;
 
 public class RegisterItems {
@@ -25,7 +26,7 @@ public class RegisterItems {
 
     //materials
 
-    public static final Item OIL = registerItem("oil", new Item(new Item.Settings()));
+    public static final Item OIL = registerItem("oil", new OilItem(new Item.Settings()));
 
     //registry end
 
@@ -45,6 +46,10 @@ public class RegisterItems {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.addBefore(Items.CLAY_BALL, OIL);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+            entries.addAfter(Items.WIND_CHARGE, OIL);
         });
     }
 }

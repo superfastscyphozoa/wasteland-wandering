@@ -24,14 +24,14 @@ public class RegisterBlocks {
 
     public static final Block IRRADIATED_GRASS_BLOCK = registerBlock("irradiated_grass_block",
             new IrradiatedGrassBlock(AbstractBlock.Settings.create()
-                    .mapColor(MapColor.TERRACOTTA_YELLOW)
+                    .mapColor(MapColor.ORANGE)
                     .ticksRandomly()
                     .strength(0.6F)
                     .sounds(BlockSoundGroup.GRASS)));
 
     public static final Block IRRADIATED_SHORT_GRASS = registerBlock("irradiated_short_grass",
             new IrradiatedShortPlantBlock(AbstractBlock.Settings.create()
-                    .mapColor(MapColor.BROWN)
+                    .mapColor(MapColor.ORANGE)
                     .replaceable()
                     .noCollision()
                     .breakInstantly()
@@ -42,7 +42,7 @@ public class RegisterBlocks {
 
     public static final Block IRRADIATED_TALL_GRASS = registerBlock("irradiated_tall_grass",
             new TallPlantBlock(AbstractBlock.Settings.create()
-                    .mapColor(MapColor.BROWN)
+                    .mapColor(MapColor.ORANGE)
                     .replaceable()
                     .noCollision()
                     .breakInstantly()

@@ -3,6 +3,7 @@ package net.superfastscyphozoa.wastelandwandering;
 import net.fabricmc.api.ModInitializer;
 
 import net.superfastscyphozoa.wastelandwandering.item.WawaFuels;
+import net.superfastscyphozoa.wastelandwandering.util.WawaTrades;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterBlocks;
@@ -23,6 +24,7 @@ public class WastelandWandering implements ModInitializer {
 		RegisterBlocks.registerWawaBlocks();
 
 		WawaFuels.registerFuels();
+		WawaTrades.registerTrades();
 
 		WastelandWanderingWorldGeneration.generateWawaWorldgen();
 
