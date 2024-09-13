@@ -15,6 +15,7 @@ import java.util.List;
 public class WawaPlacedFeatures {
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
+        WawaVegetationPlacedFeatures.bootstrap(context);
         WawaTreePlacedFeatures.bootstrap(context);
     }
 

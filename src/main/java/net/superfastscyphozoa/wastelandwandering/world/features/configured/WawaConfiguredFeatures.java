@@ -12,6 +12,7 @@ import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 public class WawaConfiguredFeatures {
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
+        WawaVegetationConfiguredFeatures.bootstrap(context);
         WawaTreeConfiguredFeatures.bootstrap(context);
     }
 

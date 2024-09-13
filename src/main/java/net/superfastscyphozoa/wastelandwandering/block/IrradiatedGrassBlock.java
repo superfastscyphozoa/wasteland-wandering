@@ -14,8 +14,8 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.RandomPatchFeatureConfig;
-import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterBlocks;
+import net.superfastscyphozoa.wastelandwandering.world.features.placed.WawaVegetationPlacedFeatures;
 
 import java.util.List;
 import java.util.Optional;
@@ -48,7 +48,7 @@ public class IrradiatedGrassBlock extends SpreadableBlock implements Fertilizabl
         BlockState blockState = RegisterBlocks.IRRADIATED_SHORT_GRASS.getDefaultState();
         Optional<RegistryEntry.Reference<PlacedFeature>> optional = world.getRegistryManager()
                 .get(RegistryKeys.PLACED_FEATURE)
-                .getEntry(VegetationPlacedFeatures.GRASS_BONEMEAL);
+                .getEntry(WawaVegetationPlacedFeatures.RAD_GRASS_BONEMEAL_PLACED_KEY);
 
         label49:
         for (int i = 0; i < 128; i++) {

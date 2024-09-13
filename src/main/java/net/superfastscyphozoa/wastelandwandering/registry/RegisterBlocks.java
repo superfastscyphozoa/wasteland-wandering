@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 import net.superfastscyphozoa.wastelandwandering.block.IrradiatedGrassBlock;
 import net.superfastscyphozoa.wastelandwandering.block.IvyBlock;
+import net.superfastscyphozoa.wastelandwandering.block.IrradiatedShortPlantBlock;
 import net.superfastscyphozoa.wastelandwandering.world.tree.WawaSaplingGenerators;
 
 public class RegisterBlocks {
@@ -29,7 +30,7 @@ public class RegisterBlocks {
                     .sounds(BlockSoundGroup.GRASS)));
 
     public static final Block IRRADIATED_SHORT_GRASS = registerBlock("irradiated_short_grass",
-            new ShortPlantBlock(AbstractBlock.Settings.create()
+            new IrradiatedShortPlantBlock(AbstractBlock.Settings.create()
                     .mapColor(MapColor.BROWN)
                     .replaceable()
                     .noCollision()

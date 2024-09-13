@@ -1,0 +1,12 @@
+{
+  "feature": "wasteland-wandering:single_rad_short_grass",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
+      }
+    }
+  ]
+}
