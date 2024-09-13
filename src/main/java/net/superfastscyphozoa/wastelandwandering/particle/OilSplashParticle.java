@@ -13,7 +13,7 @@ public class OilSplashParticle extends SpriteBillboardParticle {
         super(clientWorld, x, y, z);
         this.spriteProvider = spriteProvider;
         this.setSpriteForAge(spriteProvider);
-        this.maxAge = 12 + this.random.nextInt(4);
+        this.maxAge = 9 + this.random.nextInt(4);
         this.scale = 1.0F;
         this.setBoundingBoxSpacing(1.0F, 1.0F);
     }

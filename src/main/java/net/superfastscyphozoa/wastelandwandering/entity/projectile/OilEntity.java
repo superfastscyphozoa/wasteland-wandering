@@ -9,7 +9,6 @@ import net.minecraft.entity.mob.BlazeEntity;
 import net.minecraft.entity.mob.MagmaCubeEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
@@ -23,6 +22,7 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.AdvancedExplosionBehavior;
 import net.minecraft.world.explosion.ExplosionBehavior;
+import net.superfastscyphozoa.wastelandwandering.particle.WastelandWanderingParticles;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterEntities;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
 
@@ -118,7 +118,7 @@ public class OilEntity extends ThrownItemEntity {
     // explosions
 
     private static final ExplosionBehavior OIL_SPLASH_BEHAVIOR = new AdvancedExplosionBehavior(
-            true, false, Optional.of(1.22F),  Registries.BLOCK.getEntryList(BlockTags.BLOCKS_WIND_CHARGE_EXPLOSIONS).map(Function.identity()));
+            true, false, Optional.of(0.0F),  Registries.BLOCK.getEntryList(BlockTags.BLOCKS_WIND_CHARGE_EXPLOSIONS).map(Function.identity()));
 
     protected void createOilSplash(Vec3d pos) {
         this.getWorld()
@@ -132,8 +132,8 @@ public class OilEntity extends ThrownItemEntity {
                         1.2F,
                         false,
                         World.ExplosionSourceType.TRIGGER,
-                        ParticleTypes.GUST_EMITTER_SMALL,
-                        ParticleTypes.GUST_EMITTER_LARGE,
+                        WastelandWanderingParticles.OIL_SPLASH,
+                        WastelandWanderingParticles.OIL_DRIP,
                         SoundEvents.ENTITY_WIND_CHARGE_WIND_BURST
                 );
     }
@@ -147,7 +147,7 @@ public class OilEntity extends ThrownItemEntity {
                         pos.getX(),
                         pos.getY(),
                         pos.getZ(),
-                        2.0F,
+                        2.5F,
                         bl,
                         World.ExplosionSourceType.MOB
                 );
