@@ -1,3 +1,18 @@
 {
-  "block.wasteland-wandering.wastewood_sapling": "Wastewood Sapling"
+  "block.wasteland-wandering.wastewood_sapling": "Wastewood Sapling",
+  "block.wasteland-wandering.radpine_sapling": "Radpine Sapling",
+
+  "block.wasteland-wandering.irradiated_grass_block": "Irradiated Grass Block",
+  "block.wasteland-wandering.irradiated_short_grass": "Irradiated Short Grass",
+  "block.wasteland-wandering.irradiated_tall_grass": "Irradiated Tall Grass",
+
+  "block.wasteland-wandering.wasteshrub": "Wasteshrub",
+
+  "block.wasteland-wandering.poisoned_ivy": "Poisoned Ivy",
+
+  "item.wasteland-wandering.stimpak": "Stimpak",
+
+  "item.wasteland-wandering.mutfruit": "Mutfruit",
+
+  "item.wasteland-wandering.oil": "Oil"
 }

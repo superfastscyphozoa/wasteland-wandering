@@ -19,16 +19,18 @@ public class RegisterBlocks {
 
     //registry
 
+    //irradiated grass
+
     public static final Block IRRADIATED_GRASS_BLOCK = registerBlock("irradiated_grass_block",
             new IrradiatedGrassBlock(AbstractBlock.Settings.create()
-                    .mapColor(MapColor.PALE_YELLOW)
+                    .mapColor(MapColor.TERRACOTTA_YELLOW)
                     .ticksRandomly()
                     .strength(0.6F)
                     .sounds(BlockSoundGroup.GRASS)));
 
     public static final Block IRRADIATED_SHORT_GRASS = registerBlock("irradiated_short_grass",
             new ShortPlantBlock(AbstractBlock.Settings.create()
-                    .mapColor(MapColor.YELLOW)
+                    .mapColor(MapColor.BROWN)
                     .replaceable()
                     .noCollision()
                     .breakInstantly()
@@ -39,7 +41,7 @@ public class RegisterBlocks {
 
     public static final Block IRRADIATED_TALL_GRASS = registerBlock("irradiated_tall_grass",
             new TallPlantBlock(AbstractBlock.Settings.create()
-                    .mapColor(MapColor.YELLOW)
+                    .mapColor(MapColor.BROWN)
                     .replaceable()
                     .noCollision()
                     .breakInstantly()
@@ -48,14 +50,35 @@ public class RegisterBlocks {
                     .burnable()
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
+    //foliage
+
+    public static final Block WASTESHRUB = registerBlock("wasteshrub",
+            new TallPlantBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.ORANGE)
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.GRASS)
+                    .offset(AbstractBlock.OffsetType.XZ)
+                    .burnable()
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block POISONED_IVY = registerBlock("poisoned_ivy",
+            new IvyBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.ORANGE)
+                    .replaceable()
+                    .noCollision()
+                    .strength(0.2F)
+                    .sounds(BlockSoundGroup.GLOW_LICHEN)
+                    .burnable()
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+
+    //wood
+
     public static final Block WASTEWOOD_SAPLING = registerBlock("wastewood_sapling",
             new SaplingBlock(WawaSaplingGenerators.WASTEWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
     public static final Block RADPINE_SAPLING = registerBlock("radpine_sapling",
             new SaplingBlock(WawaSaplingGenerators.RADPINE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-    public static final Block POISONED_IVY = registerBlock("poisoned_ivy",
-            new IvyBlock(AbstractBlock.Settings.copy(Blocks.VINE)));
 
     //registry end
 
@@ -84,6 +107,8 @@ public class RegisterBlocks {
             entries.addAfter(RegisterBlocks.WASTEWOOD_SAPLING, RegisterBlocks.RADPINE_SAPLING);
 
             entries.addAfter(Blocks.VINE, RegisterBlocks.POISONED_IVY);
+
+            entries.addAfter(Blocks.DEAD_BUSH, RegisterBlocks.WASTESHRUB);
 
         });
     }

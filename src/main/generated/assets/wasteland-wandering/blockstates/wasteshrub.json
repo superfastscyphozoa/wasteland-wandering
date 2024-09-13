@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "wasteland-wandering:block/wasteshrub_bottom"
+    },
+    "half=upper": {
+      "model": "wasteland-wandering:block/wasteshrub_top"
+    }
+  }
+}
