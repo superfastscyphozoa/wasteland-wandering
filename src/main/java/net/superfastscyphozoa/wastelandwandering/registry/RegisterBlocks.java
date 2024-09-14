@@ -14,6 +14,7 @@ import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 import net.superfastscyphozoa.wastelandwandering.block.IrradiatedGrassBlock;
 import net.superfastscyphozoa.wastelandwandering.block.IvyBlock;
 import net.superfastscyphozoa.wastelandwandering.block.IrradiatedShortPlantBlock;
+import net.superfastscyphozoa.wastelandwandering.block.SootBlock;
 import net.superfastscyphozoa.wastelandwandering.world.tree.WawaSaplingGenerators;
 
 public class RegisterBlocks {
@@ -51,6 +52,14 @@ public class RegisterBlocks {
                     .burnable()
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
+    //soil
+
+    public static final Block SCORCHED_SOIL = registerBlock("scorched_soil",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DIRT_BROWN)
+                    .strength(0.5F)
+                    .sounds(BlockSoundGroup.GRAVEL)));
+
     //foliage
 
     public static final Block WASTESHRUB = registerBlock("wasteshrub",
@@ -81,6 +90,25 @@ public class RegisterBlocks {
     public static final Block RADPINE_SAPLING = registerBlock("radpine_sapling",
             new SaplingBlock(WawaSaplingGenerators.RADPINE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
+    // soot
+
+    public static final Block SOOT_BLOCK = registerBlock("soot_block",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.BLACK)
+                    .requiresTool()
+                    .strength(0.2F)
+                    .sounds(BlockSoundGroup.SNOW)));
+
+    public static final Block SOOT = registerBlock("soot",
+            new SootBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.BLACK)
+                    .replaceable()
+                    .strength(0.1F)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.SNOW)
+                    .blockVision((state, world, pos) -> state.get(SootBlock.LAYERS) >= 8)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+
     //registry end
 
     private static Block registerBlock(String name, Block block) {
@@ -104,12 +132,17 @@ public class RegisterBlocks {
             entries.addAfter(Blocks.SHORT_GRASS, RegisterBlocks.IRRADIATED_SHORT_GRASS);
             entries.addAfter(Blocks.TALL_GRASS, RegisterBlocks.IRRADIATED_TALL_GRASS);
 
+            entries.addAfter(Blocks.DIRT, RegisterBlocks.SCORCHED_SOIL);
+
             entries.addAfter(Blocks.OAK_SAPLING, RegisterBlocks.WASTEWOOD_SAPLING);
             entries.addAfter(RegisterBlocks.WASTEWOOD_SAPLING, RegisterBlocks.RADPINE_SAPLING);
 
             entries.addAfter(Blocks.VINE, RegisterBlocks.POISONED_IVY);
 
             entries.addAfter(Blocks.DEAD_BUSH, RegisterBlocks.WASTESHRUB);
+
+            entries.addAfter(Blocks.MOSS_CARPET, RegisterBlocks.SOOT_BLOCK);
+            entries.addAfter(RegisterBlocks.SOOT_BLOCK, RegisterBlocks.SOOT);
 
         });
     }

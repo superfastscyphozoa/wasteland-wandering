@@ -23,5 +23,8 @@ public class WawaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.VALID_SPAWN)
                 .add(RegisterBlocks.IRRADIATED_GRASS_BLOCK);
+
+        getOrCreateTagBuilder(BlockTags.REPLACEABLE)
+                .add(RegisterBlocks.SOOT, RegisterBlocks.IRRADIATED_SHORT_GRASS, RegisterBlocks.IRRADIATED_TALL_GRASS);
     }
 }

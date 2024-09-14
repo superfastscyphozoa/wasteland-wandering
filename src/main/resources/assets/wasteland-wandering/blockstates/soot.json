@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "layers=1": {
+      "model": "wasteland-wandering:block/soot_height2"
+    },
+    "layers=2": {
+      "model": "wasteland-wandering:block/soot_height4"
+    },
+    "layers=3": {
+      "model": "wasteland-wandering:block/soot_height6"
+    },
+    "layers=4": {
+      "model": "wasteland-wandering:block/soot_height8"
+    },
+    "layers=5": {
+      "model": "wasteland-wandering:block/soot_height10"
+    },
+    "layers=6": {
+      "model": "wasteland-wandering:block/soot_height12"
+    },
+    "layers=7": {
+      "model": "wasteland-wandering:block/soot_height14"
+    },
+    "layers=8": {
+      "model": "wasteland-wandering:block/soot_block"
+    }
+  }
+}
