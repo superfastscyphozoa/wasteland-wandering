@@ -9,6 +9,7 @@ import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 import net.superfastscyphozoa.wastelandwandering.entity.projectile.OilEntity;
 
 public class RegisterEntities {
+
     public static final EntityType<OilEntity> OIL_PROJECTILE = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(WastelandWandering.MOD_ID, "oil_projectile"),
             EntityType.Builder.<OilEntity>create(OilEntity::new, SpawnGroup.MISC)

@@ -14,5 +14,7 @@
 
   "item.wasteland-wandering.mutfruit": "Mutfruit",
 
-  "item.wasteland-wandering.oil": "Oil"
+  "item.wasteland-wandering.oil": "Oil",
+
+  "effect.wasteland-wandering.slick": "Slick"
 }

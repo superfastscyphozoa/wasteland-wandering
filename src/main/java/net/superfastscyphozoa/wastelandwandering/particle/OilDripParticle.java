@@ -7,16 +7,18 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.SimpleParticleType;
 
 @Environment(EnvType.CLIENT)
-public class OilSplashParticle extends SpriteBillboardParticle {
+public class OilDripParticle extends SpriteBillboardParticle {
     private final SpriteProvider spriteProvider;
 
-    protected OilSplashParticle(ClientWorld clientWorld, double x, double y, double z, SpriteProvider spriteProvider) {
+    public OilDripParticle(ClientWorld clientWorld, double x, double y, double z, SpriteProvider spriteProvider) {
         super(clientWorld, x, y, z);
+
         this.spriteProvider = spriteProvider;
         this.setSpriteForAge(spriteProvider);
         this.maxAge = 9 + this.random.nextInt(4);
-        this.scale = 1.0F;
         this.setBoundingBoxSpacing(1.0F, 1.0F);
+
+        this.gravityStrength = 1.0F;
     }
 
     @Override
@@ -39,15 +41,15 @@ public class OilSplashParticle extends SpriteBillboardParticle {
     }
 
     @Environment(EnvType.CLIENT)
-    public static class OilSplashFactory implements ParticleFactory<SimpleParticleType> {
-        private final SpriteProvider splashSpriteProvider;
+    public static class OilDripFactory implements ParticleFactory<SimpleParticleType> {
+        private final SpriteProvider dripSpriteProvider;
 
-        public OilSplashFactory(SpriteProvider spriteProvider) {
-            this.splashSpriteProvider = spriteProvider;
+        public OilDripFactory(SpriteProvider spriteProvider) {
+            this.dripSpriteProvider = spriteProvider;
         }
 
         public Particle createParticle(SimpleParticleType simpleParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
-            return new OilSplashParticle(clientWorld, d, e, f, this.splashSpriteProvider);
+            return new OilDripParticle(clientWorld, d, e, f, this.dripSpriteProvider);
         }
     }
 }

@@ -1,17 +1,15 @@
 package net.superfastscyphozoa.wastelandwandering.entity.projectile;
 
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.BlazeEntity;
 import net.minecraft.entity.mob.MagmaCubeEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
@@ -22,7 +20,7 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.AdvancedExplosionBehavior;
 import net.minecraft.world.explosion.ExplosionBehavior;
-import net.superfastscyphozoa.wastelandwandering.particle.WastelandWanderingParticles;
+import net.superfastscyphozoa.wastelandwandering.registry.RegisterParticles;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterEntities;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
 
@@ -55,31 +53,27 @@ public class OilEntity extends ThrownItemEntity {
         Entity entity = entityHitResult.getEntity();
 
         int i;
-        boolean flameMob;
+        boolean fieryMob;
         if (entity instanceof BlazeEntity || entity instanceof MagmaCubeEntity || entity.isOnFire()){
-            i = 25;
-            flameMob = true;
+            if (entity instanceof PlayerEntity) {
+                i = 5;
+            } else {
+                i = 25;
+            }
+            fieryMob = true;
         } else {
             i = 0;
-            flameMob = false;
+            fieryMob = false;
         }
 
         if (!this.getWorld().isClient) {
 
-            LivingEntity livingEntity2 = this.getOwner() instanceof LivingEntity livingEntity ? livingEntity : null;
-            if (livingEntity2 != null) {
-                livingEntity2.onAttacking(entity);
-            }
+            entity.damage(entity.getDamageSources().generic(), (float) i);
 
-            DamageSource damageSource = this.getDamageSources().thrown(this, livingEntity2);
-            if (entity.damage(damageSource, (float)i) && entity instanceof LivingEntity livingEntity3) {
-                EnchantmentHelper.onTargetDamaged((ServerWorld)this.getWorld(), livingEntity3, damageSource);
-            }
-
-            if (!flameMob){
-                this.createOilSplash(this.getPos());
-            } else {
+            if (fieryMob){
                 this.createExplosion(this.getPos());
+            } else {
+                this.createOilSplash(this.getPos());
             }
         }
     }
@@ -132,8 +126,8 @@ public class OilEntity extends ThrownItemEntity {
                         1.2F,
                         false,
                         World.ExplosionSourceType.TRIGGER,
-                        WastelandWanderingParticles.OIL_SPLASH,
-                        WastelandWanderingParticles.OIL_DRIP,
+                        RegisterParticles.OIL_SPLASH,
+                        RegisterParticles.OIL_SPLASH,
                         SoundEvents.ENTITY_WIND_CHARGE_WIND_BURST
                 );
     }
@@ -149,7 +143,7 @@ public class OilEntity extends ThrownItemEntity {
                         pos.getZ(),
                         2.5F,
                         bl,
-                        World.ExplosionSourceType.MOB
+                        World.ExplosionSourceType.TNT
                 );
     }
 }

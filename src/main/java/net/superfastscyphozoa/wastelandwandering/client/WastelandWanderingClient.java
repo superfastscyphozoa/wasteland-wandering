@@ -2,12 +2,10 @@ package net.superfastscyphozoa.wastelandwandering.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
-import net.superfastscyphozoa.wastelandwandering.particle.OilSplashParticle;
-import net.superfastscyphozoa.wastelandwandering.particle.WastelandWanderingParticles;
+import net.superfastscyphozoa.wastelandwandering.client.particle.WawaParticleFactories;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterEntities;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterBlocks;
 
@@ -26,7 +24,6 @@ public class WastelandWanderingClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(RegisterEntities.OIL_PROJECTILE, FlyingItemEntityRenderer::new);
 
-        ParticleFactoryRegistry.getInstance().register(WastelandWanderingParticles.OIL_SPLASH, OilSplashParticle.OilSplashFactory::new);
-        ParticleFactoryRegistry.getInstance().register(WastelandWanderingParticles.OIL_DRIP, OilSplashParticle.OilDripFactory::new);
+        WawaParticleFactories.registerParticleFactories();
     }
 }
