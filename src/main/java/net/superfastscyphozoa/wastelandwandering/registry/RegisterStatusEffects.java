@@ -17,4 +17,7 @@ public class RegisterStatusEffects {
         return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(WastelandWandering.MOD_ID, name), statusEffect);
     }
 
+    public static void registerWawaStatusEffects() {
+        WastelandWandering.LOGGER.info("Registering Status Effects for " + WastelandWandering.MOD_ID);
+    }
 }

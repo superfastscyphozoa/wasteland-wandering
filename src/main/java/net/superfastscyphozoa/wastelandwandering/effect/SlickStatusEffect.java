@@ -8,11 +8,12 @@ import net.minecraft.entity.mob.MagmaCubeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import net.superfastscyphozoa.wastelandwandering.registry.RegisterParticles;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterStatusEffects;
 
 public class SlickStatusEffect extends StatusEffect {
     public SlickStatusEffect(StatusEffectCategory category, int color) {
-        super(category, color);
+        super(category, color, RegisterParticles.OIL_DRIP);
     }
 
     @Override

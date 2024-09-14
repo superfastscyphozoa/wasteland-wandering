@@ -10,6 +10,7 @@ import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 public class RegisterParticles {
     public static final SimpleParticleType OIL_SPLASH = FabricParticleTypes.simple();
     public static final SimpleParticleType OIL_DRIP = FabricParticleTypes.simple();
+    public static final SimpleParticleType OIL_DRIP_LANDING = FabricParticleTypes.simple();
 
     public static void registerWawaParticles(){
         WastelandWandering.LOGGER.info("Registering Particles for " + WastelandWandering.MOD_ID);
@@ -18,5 +19,7 @@ public class RegisterParticles {
                 OIL_SPLASH);
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(WastelandWandering.MOD_ID, "oil_drip"),
                 OIL_DRIP);
+        Registry.register(Registries.PARTICLE_TYPE, Identifier.of(WastelandWandering.MOD_ID, "oil_drip_landing"),
+                OIL_DRIP_LANDING);
     }
 }

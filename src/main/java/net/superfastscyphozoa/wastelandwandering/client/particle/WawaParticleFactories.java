@@ -9,5 +9,6 @@ public class WawaParticleFactories {
     public static void registerParticleFactories(){
         ParticleFactoryRegistry.getInstance().register(RegisterParticles.OIL_SPLASH, OilSplashParticle.OilSplashFactory::new);
         ParticleFactoryRegistry.getInstance().register(RegisterParticles.OIL_DRIP, OilDripParticle.OilDripFactory::new);
+        ParticleFactoryRegistry.getInstance().register(RegisterParticles.OIL_DRIP_LANDING, OilDripParticle.OilDripLandingFactory::new);
     }
 }
