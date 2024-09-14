@@ -1,5 +1,7 @@
 {
   "values": [
-    "wasteland-wandering:irradiated_grass_block"
+    "wasteland-wandering:irradiated_grass_block",
+    "wasteland-wandering:patchy_irradiated_grass_block",
+    "wasteland-wandering:scorched_soil"
   ]
 }

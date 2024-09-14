@@ -1,12 +1,12 @@
 {
   "variants": {
-    "grassy=false": [
+    "": [
       {
         "model": "wasteland-wandering:block/scorched_soil_0"
       },
       {
         "model": "wasteland-wandering:block/scorched_soil_0",
-        "y": 180
+        "y": 90
       },
       {
         "model": "wasteland-wandering:block/scorched_soil_1",
@@ -30,22 +30,13 @@
       {
         "model": "wasteland-wandering:block/scorched_soil_3",
         "y": 270
-      }
-    ],
-    "grassy=true": [
-      {
-        "model": "wasteland-wandering:block/sparse_irradiated_grass_block"
       },
       {
-        "model": "wasteland-wandering:block/sparse_irradiated_grass_block",
-        "y": 90
-      },
-      {
-        "model": "wasteland-wandering:block/sparse_irradiated_grass_block",
+        "model": "wasteland-wandering:block/scorched_soil_4",
         "y": 180
       },
       {
-        "model": "wasteland-wandering:block/sparse_irradiated_grass_block",
+        "model": "wasteland-wandering:block/scorched_soil_4",
         "y": 270
       }
     ]

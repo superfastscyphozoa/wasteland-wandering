@@ -11,10 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
-import net.superfastscyphozoa.wastelandwandering.block.IrradiatedGrassBlock;
-import net.superfastscyphozoa.wastelandwandering.block.IvyBlock;
-import net.superfastscyphozoa.wastelandwandering.block.IrradiatedShortPlantBlock;
-import net.superfastscyphozoa.wastelandwandering.block.SootBlock;
+import net.superfastscyphozoa.wastelandwandering.block.*;
 import net.superfastscyphozoa.wastelandwandering.world.tree.WawaSaplingGenerators;
 
 public class RegisterBlocks {
@@ -25,6 +22,13 @@ public class RegisterBlocks {
 
     public static final Block IRRADIATED_GRASS_BLOCK = registerBlock("irradiated_grass_block",
             new IrradiatedGrassBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.ORANGE)
+                    .ticksRandomly()
+                    .strength(0.6F)
+                    .sounds(BlockSoundGroup.GRASS)));
+
+    public static final Block PATCHY_IRRADIATED_GRASS_BLOCK = registerBlock("patchy_irradiated_grass_block",
+            new Block(AbstractBlock.Settings.create()
                     .mapColor(MapColor.ORANGE)
                     .ticksRandomly()
                     .strength(0.6F)
@@ -128,6 +132,7 @@ public class RegisterBlocks {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
 
             entries.addAfter(Blocks.GRASS_BLOCK, RegisterBlocks.IRRADIATED_GRASS_BLOCK);
+            entries.addAfter(RegisterBlocks.IRRADIATED_GRASS_BLOCK, RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK);
 
             entries.addAfter(Blocks.SHORT_GRASS, RegisterBlocks.IRRADIATED_SHORT_GRASS);
             entries.addAfter(Blocks.TALL_GRASS, RegisterBlocks.IRRADIATED_TALL_GRASS);

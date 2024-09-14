@@ -9,6 +9,7 @@ import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 
 public class WawaTags {
     public static class Blocks {
+        public static final TagKey<Block> IRRADIATED_GRASS = createTag("irradiated_grass");
 
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(WastelandWandering.MOD_ID, name));
