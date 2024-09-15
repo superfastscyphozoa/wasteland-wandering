@@ -28,7 +28,7 @@ public class RegisterBlocks {
                     .sounds(BlockSoundGroup.GRASS)));
 
     public static final Block PATCHY_IRRADIATED_GRASS_BLOCK = registerBlock("patchy_irradiated_grass_block",
-            new Block(AbstractBlock.Settings.create()
+            new IrradiatedGrassBlock(AbstractBlock.Settings.create()
                     .mapColor(MapColor.ORANGE)
                     .ticksRandomly()
                     .strength(0.6F)

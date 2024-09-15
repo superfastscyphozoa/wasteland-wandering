@@ -25,7 +25,7 @@ public class SlickStatusEffect extends StatusEffect {
         boolean fieryMob;
         if (entity instanceof BlazeEntity || entity instanceof MagmaCubeEntity || entity.isOnFire()) {
             if (entity instanceof PlayerEntity) {
-                i = 5;
+                i = 8;
             } else {
                 i = 25;
             }

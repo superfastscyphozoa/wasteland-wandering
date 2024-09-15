@@ -83,7 +83,7 @@ public class OilDripParticle extends SpriteBillboardParticle {
     static class Landing extends OilDripParticle {
         Landing(ClientWorld clientWorld, double d, double e, double f, SpriteProvider spriteProvider) {
             super(clientWorld, d, e, f, spriteProvider);
-            this.maxAge = 10 + this.random.nextInt(4);
+            this.maxAge = 14 + this.random.nextInt(4);
         }
 
         @Override
