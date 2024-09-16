@@ -20,9 +20,9 @@
   "item.wasteland-wandering.mutfruit": "Mutfruit",
 
   "item.wasteland-wandering.oil": "Oil",
-
   "effect.wasteland-wandering.slick": "Slick",
 
+  "tooltip.wasteland-wandering.fuse_explosive": "Don't forget to bring a lighter",
   "item.wasteland-wandering.dynamite": "Dynamite",
   "item.wasteland-wandering.molotov_cocktail": "Molotov Cocktail"
 }

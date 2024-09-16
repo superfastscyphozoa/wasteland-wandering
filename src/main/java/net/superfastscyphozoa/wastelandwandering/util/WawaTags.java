@@ -20,6 +20,8 @@ public class WawaTags {
     public static class Items {
         public static final TagKey<Item> CHEMS = createTag("chems");
 
+        public static final TagKey<Item> FUSE_LIGHTER = createTag("fuse_lighter");
+
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(WastelandWandering.MOD_ID, name));
         }
