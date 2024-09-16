@@ -1,6 +1,8 @@
 package net.superfastscyphozoa.wastelandwandering.effect;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.boss.WitherEntity;
+import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.mob.BlazeEntity;
@@ -24,7 +26,7 @@ public class SlickStatusEffect extends StatusEffect {
         int i;
         boolean fieryMob;
         if (entity instanceof BlazeEntity || entity instanceof MagmaCubeEntity || entity.isOnFire()) {
-            if (entity instanceof PlayerEntity) {
+            if (entity instanceof PlayerEntity || entity instanceof WitherEntity || entity instanceof EnderDragonEntity) {
                 i = 8;
             } else {
                 i = 25;
@@ -37,16 +39,15 @@ public class SlickStatusEffect extends StatusEffect {
 
         if (!entity.getWorld().isClient) {
 
-            entity.damage(entity.getDamageSources().generic(), (float) i);
-
             if (fieryMob) {
+                entity.damage(entity.getDamageSources().generic(), (float) i);
 
                 entity.getWorld().createExplosion(
                         entity,
                         entity.getX(),
                         entity.getY(),
                         entity.getZ(),
-                        2.5F,
+                        2F,
                         bl,
                         World.ExplosionSourceType.MOB
                 );

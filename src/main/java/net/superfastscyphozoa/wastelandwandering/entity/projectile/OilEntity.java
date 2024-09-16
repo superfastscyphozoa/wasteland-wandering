@@ -1,31 +1,32 @@
 package net.superfastscyphozoa.wastelandwandering.entity.projectile;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityStatuses;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.boss.WitherEntity;
+import net.minecraft.entity.boss.dragon.EnderDragonEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.BlazeEntity;
 import net.minecraft.entity.mob.MagmaCubeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.AdvancedExplosionBehavior;
-import net.minecraft.world.explosion.ExplosionBehavior;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterParticles;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterEntities;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
+import net.superfastscyphozoa.wastelandwandering.registry.RegisterStatusEffects;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import java.util.Optional;
-import java.util.function.Function;
+import java.util.List;
 
 public class OilEntity extends ThrownItemEntity {
 
@@ -47,15 +48,26 @@ public class OilEntity extends ThrownItemEntity {
     }
 
     @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
+    public void handleStatus(byte status) {
+        if (status == EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES) {
 
+            ParticleEffect particleEffect = RegisterParticles.OIL_SPLASH;
+
+            //add sounds here eventually
+            this.getWorld().addParticle(particleEffect, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+        }
+    }
+
+    @Override
+    protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
+
         Entity entity = entityHitResult.getEntity();
 
         int i;
         boolean fieryMob;
         if (entity instanceof BlazeEntity || entity instanceof MagmaCubeEntity || entity.isOnFire()){
-            if (entity instanceof PlayerEntity) {
+            if (entity instanceof PlayerEntity || entity instanceof WitherEntity || entity instanceof EnderDragonEntity) {
                 i = 8;
             } else {
                 i = 25;
@@ -72,76 +84,71 @@ public class OilEntity extends ThrownItemEntity {
 
             if (fieryMob){
                 this.createExplosion(this.getPos());
-            } else {
-                this.createOilSplash(this.getPos());
             }
-        }
-    }
-
-    @Override
-    protected void onBlockHit(BlockHitResult blockHitResult) {
-        super.onBlockHit(blockHitResult);
-        if (!this.getWorld().isClient) {
-            Vec3i vec3i = blockHitResult.getSide().getVector();
-            Vec3d vec3d = Vec3d.of(vec3i).multiply(0.25, 0.25, 0.25);
-            Vec3d vec3d2 = blockHitResult.getPos().add(vec3d);
-
-            this.createOilSplash(vec3d2);
-            this.discard();
         }
     }
 
     @Override
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
+
         if (!this.getWorld().isClient) {
+
+            this.createOilSplash(hitResult.getType() == HitResult.Type.ENTITY ? ((EntityHitResult)hitResult).getEntity() : null);
+
+            this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES);
+
             this.discard();
         }
     }
 
-    @Override
-    public void tick() {
-        if (!this.getWorld().isClient && this.getBlockY() > this.getWorld().getTopY() + 30) {
-            this.createOilSplash(this.getPos());
-            this.discard();
-        } else {
-            super.tick();
+    // oil splash
+
+    private void createOilSplash(@Nullable Entity entity) {
+        Box box = this.getBoundingBox().expand(4.0, 2.0, 4.0);
+        List<LivingEntity> list = this.getWorld().getNonSpectatingEntities(LivingEntity.class, box);
+
+        if (!list.isEmpty()) {
+            Entity entity2 = this.getEffectCause();
+
+            for (LivingEntity livingEntity : list) {
+                if (livingEntity.isAffectedBySplashPotions()) {
+                    double d = this.squaredDistanceTo(livingEntity);
+                    if (d < 16.0) {
+
+                        StatusEffectInstance statusEffectInstance = getStatusEffectInstance(entity, livingEntity, d);
+
+                        if (!statusEffectInstance.isDurationBelow(20)) {
+                            livingEntity.addStatusEffect(statusEffectInstance, entity2);
+                        }
+                    }
+                }
+            }
         }
     }
 
-    // explosions
+    private static @NotNull StatusEffectInstance getStatusEffectInstance(@Nullable Entity entity, LivingEntity livingEntity, double d) {
+        double e;
+        if (livingEntity == entity) { e = 1.0; }
+        else { e = 1.0 - Math.sqrt(d) / 4.0; }
 
-    private static final ExplosionBehavior OIL_SPLASH_BEHAVIOR = new AdvancedExplosionBehavior(
-            true, false, Optional.of(0.0F),  Registries.BLOCK.getEntryList(BlockTags.BLOCKS_WIND_CHARGE_EXPLOSIONS).map(Function.identity()));
+        int i = ((int)(e * (double)500 + 0.5));
 
-    protected void createOilSplash(Vec3d pos) {
-        this.getWorld()
-                .createExplosion(
-                        this,
-                        null,
-                        OIL_SPLASH_BEHAVIOR,
-                        pos.getX(),
-                        pos.getY(),
-                        pos.getZ(),
-                        1.2F,
-                        false,
-                        World.ExplosionSourceType.TRIGGER,
-                        RegisterParticles.OIL_SPLASH,
-                        RegisterParticles.OIL_SPLASH,
-                        SoundEvents.ENTITY_WIND_CHARGE_WIND_BURST
-                );
+        return new StatusEffectInstance(RegisterStatusEffects.SLICK, i, 0, false, true);
     }
+
+    // explosion
 
     boolean bl = this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING);
 
-    protected void createExplosion(Vec3d pos) {
+    private void createExplosion(Vec3d pos) {
         this.getWorld()
                 .createExplosion(
                         this,
                         pos.getX(),
                         pos.getY(),
                         pos.getZ(),
-                        2.5F,
+                        2F,
                         bl,
                         World.ExplosionSourceType.TNT
                 );
