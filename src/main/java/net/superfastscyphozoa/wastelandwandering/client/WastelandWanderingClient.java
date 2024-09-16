@@ -23,6 +23,7 @@ public class WastelandWanderingClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.WASTESHRUB, RenderLayer.getCutout());
 
         EntityRendererRegistry.register(RegisterEntities.OIL_PROJECTILE, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(RegisterEntities.DYNAMITE_PROJECTILE, FlyingItemEntityRenderer::new);
 
         WawaParticleFactories.registerParticleFactories();
     }

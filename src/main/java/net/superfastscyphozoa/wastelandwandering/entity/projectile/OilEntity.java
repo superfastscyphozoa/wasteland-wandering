@@ -78,14 +78,15 @@ public class OilEntity extends ThrownItemEntity {
             fieryMob = false;
         }
 
-        if (!this.getWorld().isClient) {
-
+        if (fieryMob) {
             entity.damage(entity.getDamageSources().generic(), (float) i);
-
-            if (fieryMob){
+            if (!this.getWorld().isClient) {
                 this.createExplosion(this.getPos());
             }
+        } else {
+            entity.damage(entity.getDamageSources().thrown(this, this.getOwner()), (float) i);
         }
+
     }
 
     @Override

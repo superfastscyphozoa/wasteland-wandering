@@ -1,6 +1,7 @@
 package net.superfastscyphozoa.wastelandwandering.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
@@ -8,6 +9,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
+import net.superfastscyphozoa.wastelandwandering.item.DynamiteItem;
 import net.superfastscyphozoa.wastelandwandering.item.OilItem;
 import net.superfastscyphozoa.wastelandwandering.item.WawaFoodComponents;
 
@@ -27,6 +29,12 @@ public class RegisterItems {
     //materials
 
     public static final Item OIL = registerItem("oil", new OilItem(new Item.Settings()));
+
+    //combat
+
+    public static final Item DYNAMITE = registerItem("dynamite", new DynamiteItem(new Item.Settings()));
+
+    public static final Item MOLOTOV_COCKTAIL = registerItem("molotov_cocktail", new Item(new Item.Settings()));
 
     //registry end
 
@@ -50,6 +58,9 @@ public class RegisterItems {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
             entries.addAfter(Items.WIND_CHARGE, OIL);
+
+            entries.addAfter(Blocks.TNT, DYNAMITE);
+            entries.addAfter(DYNAMITE, MOLOTOV_COCKTAIL);
         });
     }
 }

@@ -25,8 +25,13 @@ public class WawaModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+
         itemModelGenerator.register(RegisterItems.STIMPAK, Models.GENERATED);
-        itemModelGenerator.register(RegisterItems.OIL, Models.GENERATED);
         itemModelGenerator.register(RegisterItems.MUTFRUIT, Models.GENERATED);
+
+        itemModelGenerator.register(RegisterItems.OIL, Models.GENERATED);
+
+        itemModelGenerator.register(RegisterItems.DYNAMITE, Models.GENERATED);
+        itemModelGenerator.register(RegisterItems.MOLOTOV_COCKTAIL, Models.GENERATED);
     }
 }
