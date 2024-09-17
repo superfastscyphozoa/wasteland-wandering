@@ -10,6 +10,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 import net.superfastscyphozoa.wastelandwandering.item.DynamiteItem;
+import net.superfastscyphozoa.wastelandwandering.item.MolotovCocktailItem;
 import net.superfastscyphozoa.wastelandwandering.item.OilItem;
 import net.superfastscyphozoa.wastelandwandering.item.WawaFoodComponents;
 
@@ -34,7 +35,7 @@ public class RegisterItems {
 
     public static final Item DYNAMITE = registerItem("dynamite", new DynamiteItem(new Item.Settings()));
 
-    public static final Item MOLOTOV_COCKTAIL = registerItem("molotov_cocktail", new Item(new Item.Settings()));
+    public static final Item MOLOTOV_COCKTAIL = registerItem("molotov_cocktail", new MolotovCocktailItem(new Item.Settings()));
 
     //registry end
 
