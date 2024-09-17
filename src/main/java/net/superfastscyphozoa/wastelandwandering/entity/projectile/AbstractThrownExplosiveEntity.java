@@ -1,18 +1,19 @@
 package net.superfastscyphozoa.wastelandwandering.entity.projectile;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MovementType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileUtil;
-import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.explosion.AdvancedExplosionBehavior;
+import net.minecraft.world.explosion.Explosion;
+import net.minecraft.world.explosion.ExplosionBehavior;
 
-public abstract class AbstractThrownExplosiveEntity extends ThrownItemEntity {
+import java.util.Optional;
 
+public abstract class AbstractThrownExplosiveEntity extends AbstractThrownPhysicsEntity {
     public AbstractThrownExplosiveEntity(EntityType<? extends AbstractThrownExplosiveEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -30,59 +31,61 @@ public abstract class AbstractThrownExplosiveEntity extends ThrownItemEntity {
         return true;
     }
 
-    @Override
-    protected boolean canHit(Entity entity) {
-        if (entity instanceof AbstractThrownExplosiveEntity) {
-            return false;
-        } else {
-            return super.canHit(entity);
-        }
-    }
-
-    private int hits = 0;
-
-    @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
-        super.onEntityHit(entityHitResult);
-        Entity entity = entityHitResult.getEntity();
-
-        if (hits == 0){
-            entity.damage(this.getDamageSources().thrown(this, this.getOwner()), 1f);
-            this.setVelocity(this.getVelocity().multiply(0.2, 0.6, 0.2));
-            hits++;
-        }
-    }
+    protected int fuse = 80;
+    private boolean fuseSoundPlayed = false;
 
     @Override
     public void tick() {
-        HitResult hitResult = ProjectileUtil.getCollision(this, this::canHit);
-        if (hitResult.getType() != HitResult.Type.MISS) {
-            this.hitOrDeflect(hitResult);
-        }
-        this.checkBlockCollision();
+        super.tick();
 
-        this.tickPortalTeleportation();
+       fuse--;
 
-        float h;
-        this.updateWaterState();
-        if (!this.isTouchingWater()) {
-            h = 0.98F;
+        if (fuse <= 0) {
+            this.discard();
+            if (!this.getWorld().isClient) {
+                this.explode();
+            }
         } else {
-            h = 0.8F;
-        }
-
-        explosiveParticleEffects();
-
-        this.applyGravity();
-        this.move(MovementType.SELF, this.getVelocity());
-        this.setVelocity(this.getVelocity().multiply(h));
-
-        if (this.isOnGround()) {
-            this.setVelocity(this.getVelocity().multiply(0.7, -0.5, 0.7));
+            if (this.getWorld().isClient) {
+                fuseParticleEffects();
+            }
+            if(!fuseSoundPlayed) {
+                if (this.getPos().equals(new Vec3d(this.prevX, this.prevY, this.prevZ))) {
+                    playFuseSounds();
+                    fuseSoundPlayed = true;
+                }
+            }
         }
     }
 
-    protected void explosiveParticleEffects(){
+    protected void playFuseSounds(){
+        this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(),
+                SoundEvents.ENTITY_TNT_PRIMED,
+                SoundCategory.NEUTRAL,
+                0.7F,
+                0.4F / (this.getWorld().getRandom().nextFloat() * 0.4F + 0.8F)
+        );
+    }
+
+    protected static final ExplosionBehavior EXPLOSION_BEHAVIOR = new AdvancedExplosionBehavior(
+            false, true, Optional.of(1.22F), Optional.empty());
+
+    protected void explode() {
+        this.getWorld()
+                .createExplosion(
+                        this,
+                        Explosion.createDamageSource(this.getWorld(), this),
+                        EXPLOSION_BEHAVIOR,
+                        this.getX(),
+                        this.getY(),
+                        this.getZ(),
+                        2.75F,
+                        false,
+                        World.ExplosionSourceType.TNT
+                );
+    }
+
+    protected void fuseParticleEffects(){
         if (!this.isTouchingWater()) {
             this.getWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.6, this.getZ(), 0.0, 0.0, 0.0);
             this.getWorld().addParticle(ParticleTypes.FLAME, this.getX(), this.getY() + 0.5, this.getZ(), 0.0, 0.0, 0.0);
