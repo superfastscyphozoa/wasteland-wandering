@@ -31,12 +31,12 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
         ItemStack handStack = user.getStackInHand(hand);
 
         boolean requiresLighter = handStack.isIn(WawaTags.Items.THROWN_EXPLOSIVE_NEEDS_LIGHTER);
-        boolean usingLighter = offHandStack.isIn(WawaTags.Items.FUSE_LIGHTER);
+        boolean usingLighter = offHandStack.isIn(WawaTags.Items.FUSE_LIGHTER) || mainHandStack.isIn(WawaTags.Items.FUSE_LIGHTER);
 
         if (requiresLighter){
             if (usingLighter){
                 if (!world.isClient) {
-                    spawnExplosiveEntity(world, user, mainHandStack);
+                    spawnExplosiveEntity(world, user, handStack);
                 }
 
                 damageLighter(user, hand);
@@ -45,9 +45,9 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
                 user.getItemCooldownManager().set(this, 10);
 
                 user.incrementStat(Stats.USED.getOrCreateStat(this));
-                mainHandStack.decrementUnlessCreative(1, user);
+                handStack.decrementUnlessCreative(1, user);
 
-                return TypedActionResult.success(mainHandStack, world.isClient());
+                return TypedActionResult.success(handStack, world.isClient());
             }
             else {
                 return TypedActionResult.fail(user.getStackInHand(hand));
@@ -72,11 +72,19 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
     protected void spawnExplosiveEntity(World world, PlayerEntity user, ItemStack itemStack) {}
 
     protected void damageLighter(PlayerEntity user, Hand hand) {
-        if (user.getOffHandStack().getItem() == Items.FLINT_AND_STEEL){
-            user.getOffHandStack().damage(1, user, LivingEntity.getSlotForHand(hand));
+        ItemStack lighterStack = user.getStackInHand(hand);
+
+        if (user.getOffHandStack().isIn(WawaTags.Items.FUSE_LIGHTER)){
+            lighterStack = user.getOffHandStack();
+        } else if (user.getMainHandStack().isIn(WawaTags.Items.FUSE_LIGHTER)){
+            lighterStack = user.getMainHandStack();
         }
-        else if (user.getOffHandStack().getItem() == Items.FIRE_CHARGE){
-            user.getOffHandStack().decrement(1);
+
+        if (lighterStack.getItem() == Items.FLINT_AND_STEEL){
+            lighterStack.damage(1, user, LivingEntity.getSlotForHand(hand));
+        }
+        else if (lighterStack.getItem() == Items.FIRE_CHARGE){
+            lighterStack.decrement(1);
         }
     }
 
@@ -88,14 +96,18 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
                 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F)
         );
 
-        if (user.getOffHandStack().getItem() == Items.FIRE_CHARGE && reqLighter) {
+        if ((user.getOffHandStack().getItem() == Items.FIRE_CHARGE ||
+                user.getMainHandStack().getItem() == Items.FIRE_CHARGE) && reqLighter) {
+
             world.playSound(null, user.getX(), user.getY(), user.getZ(),
                     SoundEvents.ITEM_FIRECHARGE_USE,
                     SoundCategory.NEUTRAL,
                     0.3F,
                     world.getRandom().nextFloat() * 0.4F + 0.8F
             );
-        } else {
+        }
+        else {
+
             world.playSound(null, user.getX(), user.getY(), user.getZ(),
                     SoundEvents.ITEM_FLINTANDSTEEL_USE,
                     SoundCategory.NEUTRAL,

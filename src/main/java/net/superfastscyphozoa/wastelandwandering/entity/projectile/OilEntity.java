@@ -17,7 +17,6 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterParticles;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterEntities;
@@ -140,8 +139,6 @@ public class OilEntity extends ThrownItemEntity {
 
     // explosion
 
-    boolean bl = this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING);
-
     private void createExplosion(Vec3d pos) {
         this.getWorld()
                 .createExplosion(
@@ -150,7 +147,7 @@ public class OilEntity extends ThrownItemEntity {
                         pos.getY(),
                         pos.getZ(),
                         2F,
-                        bl,
+                        true,
                         World.ExplosionSourceType.TNT
                 );
     }

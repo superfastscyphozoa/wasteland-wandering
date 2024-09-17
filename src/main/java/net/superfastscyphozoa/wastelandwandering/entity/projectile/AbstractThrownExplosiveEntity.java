@@ -68,7 +68,7 @@ public abstract class AbstractThrownExplosiveEntity extends AbstractThrownPhysic
     }
 
     protected static final ExplosionBehavior EXPLOSION_BEHAVIOR = new AdvancedExplosionBehavior(
-            false, true, Optional.of(1.22F), Optional.empty());
+            true, true, Optional.of(1.22F), Optional.empty());
 
     protected void explode() {
         this.getWorld()
