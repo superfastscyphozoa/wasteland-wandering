@@ -40,7 +40,7 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
                 }
 
                 damageLighter(user, hand);
-                playUseSounds(world, user);
+                playUseSounds(world, user, true);
 
                 user.getItemCooldownManager().set(this, 10);
 
@@ -58,7 +58,7 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
                 spawnExplosiveEntity(world, user, handStack);
             }
 
-            playUseSounds(world, user);
+            playUseSounds(world, user, false);
 
             user.getItemCooldownManager().set(this, 10);
 
@@ -80,7 +80,7 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
         }
     }
 
-    protected void playUseSounds(World world, PlayerEntity user) {
+    protected void playUseSounds(World world, PlayerEntity user, boolean reqLighter) {
         world.playSound(null, user.getX(), user.getY(), user.getZ(),
                 SoundEvents.ENTITY_SPLASH_POTION_THROW,
                 SoundCategory.NEUTRAL,
@@ -88,7 +88,7 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
                 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F)
         );
 
-        if (user.getOffHandStack().getItem() == Items.FIRE_CHARGE){
+        if (user.getOffHandStack().getItem() == Items.FIRE_CHARGE && reqLighter) {
             world.playSound(null, user.getX(), user.getY(), user.getZ(),
                     SoundEvents.ITEM_FIRECHARGE_USE,
                     SoundCategory.NEUTRAL,

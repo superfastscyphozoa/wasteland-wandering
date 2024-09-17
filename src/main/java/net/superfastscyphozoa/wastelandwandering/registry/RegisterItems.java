@@ -12,7 +12,7 @@ import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 import net.superfastscyphozoa.wastelandwandering.item.DynamiteItem;
 import net.superfastscyphozoa.wastelandwandering.item.MolotovCocktailItem;
 import net.superfastscyphozoa.wastelandwandering.item.OilItem;
-import net.superfastscyphozoa.wastelandwandering.item.WawaFoodComponents;
+import net.superfastscyphozoa.wastelandwandering.item.util.WawaFoodComponents;
 
 public class RegisterItems {
 

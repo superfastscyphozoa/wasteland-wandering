@@ -2,7 +2,7 @@ package net.superfastscyphozoa.wastelandwandering;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.superfastscyphozoa.wastelandwandering.item.WawaFuels;
+import net.superfastscyphozoa.wastelandwandering.item.util.WawaFuels;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterParticles;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterStatusEffects;
 import net.superfastscyphozoa.wastelandwandering.util.WawaTrades;

@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.wastelandwandering.item;
+package net.superfastscyphozoa.wastelandwandering.item.util;
 
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;

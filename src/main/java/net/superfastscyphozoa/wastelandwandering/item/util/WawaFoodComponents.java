@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.wastelandwandering.item;
+package net.superfastscyphozoa.wastelandwandering.item.util;
 
 import net.minecraft.component.type.FoodComponent;
 
