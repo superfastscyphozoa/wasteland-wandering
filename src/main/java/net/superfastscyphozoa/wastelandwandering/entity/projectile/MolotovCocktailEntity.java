@@ -87,7 +87,7 @@ public class MolotovCocktailEntity extends ThrownExplosiveOnHitEntity {
                 Explosion.createDamageSource(this.getWorld(), this),
                 FIRE_EXPLOSION_BEHAVIOR,
                 this.getX(), this.getY(), this.getZ(),
-                2.25F,
+                2F,
                 true,
                 World.ExplosionSourceType.NONE,
                 ParticleTypes.FLASH,

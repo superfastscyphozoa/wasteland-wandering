@@ -1,5 +1,8 @@
 package net.superfastscyphozoa.wastelandwandering.entity.projectile;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityStatuses;
 import net.minecraft.entity.EntityType;
@@ -13,17 +16,17 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleEffect;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.superfastscyphozoa.wastelandwandering.registry.RegisterParticles;
-import net.superfastscyphozoa.wastelandwandering.registry.RegisterEntities;
-import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
-import net.superfastscyphozoa.wastelandwandering.registry.RegisterStatusEffects;
+import net.superfastscyphozoa.wastelandwandering.registry.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -109,7 +112,43 @@ public class OilEntity extends ThrownItemEntity {
         }
     }
 
-    // oil splash
+    //create asphalt
+
+    @Override
+    protected void onBlockHit(BlockHitResult blockHitResult) {
+        super.onBlockHit(blockHitResult);
+
+        if (!this.getWorld().isClient){
+            replaceConcretePowderOnSplash(blockHitResult);
+        }
+    }
+
+    protected void replaceConcretePowderOnSplash(@NotNull BlockHitResult blockHitResult){
+        BlockPos blockPos = blockHitResult.getBlockPos();
+        BlockState blockState = this.getWorld().getBlockState(blockPos);
+
+        if (blockState.isIn(BlockTags.CONCRETE_POWDER)){
+
+            for (int i = 0; i < 64; i++){
+                BlockPos blockPos2 = blockPos;
+
+                for (int j = 0; j < i / 16; j++) {
+
+                    blockPos2 = blockPos2.add(
+                            random.nextInt(3) - 1,
+                            (random.nextInt(3) - 1) * random.nextInt(3) / 2,
+                            random.nextInt(3) - 1
+                    );
+
+                    if (this.getWorld().getBlockState(blockPos2).isIn(BlockTags.CONCRETE_POWDER)) {
+                        this.getWorld().setBlockState(blockPos2, Blocks.BLACK_CONCRETE.getDefaultState(), Block.NOTIFY_LISTENERS);
+                    }
+                }
+            }
+        }
+    }
+
+    // apply status effect
 
     private void createOilSplash(@Nullable Entity entity) {
         Box box = this.getBoundingBox().expand(4.0, 2.0, 4.0);
@@ -146,7 +185,7 @@ public class OilEntity extends ThrownItemEntity {
 
     // explosion
 
-    private void explode(Vec3d pos) {
+    private void explode(@NotNull Vec3d pos) {
         this.getWorld()
                 .createExplosion(
                         this,
