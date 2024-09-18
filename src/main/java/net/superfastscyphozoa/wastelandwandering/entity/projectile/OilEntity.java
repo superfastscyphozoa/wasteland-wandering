@@ -52,16 +52,6 @@ public class OilEntity extends ThrownItemEntity {
     }
 
     @Override
-    public void handleStatus(byte status) {
-        if (status == EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES) {
-
-            ParticleEffect particleEffect = RegisterParticles.OIL_SPLASH;
-
-            this.getWorld().addParticle(particleEffect, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
-        }
-    }
-
-    @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
 
@@ -112,39 +102,15 @@ public class OilEntity extends ThrownItemEntity {
         }
     }
 
-    //create asphalt
+    // apply particles on hit
 
     @Override
-    protected void onBlockHit(BlockHitResult blockHitResult) {
-        super.onBlockHit(blockHitResult);
+    public void handleStatus(byte status) {
+        if (status == EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES) {
 
-        if (!this.getWorld().isClient){
-            replaceConcretePowderOnSplash(blockHitResult);
-        }
-    }
+            ParticleEffect particleEffect = RegisterParticles.OIL_SPLASH;
 
-    protected void replaceConcretePowderOnSplash(@NotNull BlockHitResult blockHitResult){
-        BlockPos blockPos = blockHitResult.getBlockPos();
-        BlockState blockState = this.getWorld().getBlockState(blockPos);
-
-        if (blockState.isIn(BlockTags.CONCRETE_POWDER)){
-
-            for (int i = 0; i < 96; i++){
-                BlockPos blockPos2 = blockPos;
-
-                for (int j = 0; j < i / 16; j++) {
-
-                    blockPos2 = blockPos2.add(
-                            random.nextInt(3) - 1,
-                            (random.nextInt(3) - 1) * random.nextInt(3) / 2,
-                            random.nextInt(3) - 1
-                    );
-
-                    if (this.getWorld().getBlockState(blockPos2).isIn(BlockTags.CONCRETE_POWDER)) {
-                        this.getWorld().setBlockState(blockPos2, concretePowderType(blockPos2), Block.NOTIFY_LISTENERS);
-                    }
-                }
-            }
+            this.getWorld().addParticle(particleEffect, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
         }
     }
 
@@ -197,6 +163,44 @@ public class OilEntity extends ThrownItemEntity {
                         World.ExplosionSourceType.TNT
                 );
     }
+
+    //create asphalt
+
+    @Override
+    protected void onBlockHit(BlockHitResult blockHitResult) {
+        super.onBlockHit(blockHitResult);
+
+        if (!this.getWorld().isClient){
+            replaceConcretePowderOnSplash(blockHitResult);
+        }
+    }
+
+    protected void replaceConcretePowderOnSplash(@NotNull BlockHitResult blockHitResult){
+        BlockPos blockPos = blockHitResult.getBlockPos();
+        BlockState blockState = this.getWorld().getBlockState(blockPos);
+
+        if (blockState.isIn(BlockTags.CONCRETE_POWDER)){
+
+            for (int i = 0; i < 96; i++){
+                BlockPos blockPos2 = blockPos;
+
+                for (int j = 0; j < i / 16; j++) {
+
+                    blockPos2 = blockPos2.add(
+                            random.nextInt(3) - 1,
+                            (random.nextInt(3) - 1) * random.nextInt(3) / 2,
+                            random.nextInt(3) - 1
+                    );
+
+                    if (this.getWorld().getBlockState(blockPos2).isIn(BlockTags.CONCRETE_POWDER)) {
+                        this.getWorld().setBlockState(blockPos2, concretePowderType(blockPos2), Block.NOTIFY_LISTENERS);
+                    }
+                }
+            }
+        }
+    }
+
+    // the worst piece of code i've ever written lmao
 
     protected BlockState concretePowderType(BlockPos blockPos){
         BlockState concretePowder = this.getWorld().getBlockState(blockPos);
