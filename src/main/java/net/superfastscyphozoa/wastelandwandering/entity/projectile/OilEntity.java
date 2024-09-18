@@ -13,6 +13,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleEffect;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Box;
@@ -52,7 +54,6 @@ public class OilEntity extends ThrownItemEntity {
 
             ParticleEffect particleEffect = RegisterParticles.OIL_SPLASH;
 
-            //add sounds here eventually
             this.getWorld().addParticle(particleEffect, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
         }
     }
@@ -80,7 +81,7 @@ public class OilEntity extends ThrownItemEntity {
         if (fieryMob) {
             entity.damage(entity.getDamageSources().generic(), (float) i);
             if (!this.getWorld().isClient) {
-                this.createExplosion(this.getPos());
+                this.explode(this.getPos());
             }
         } else {
             entity.damage(entity.getDamageSources().thrown(this, this.getOwner()), (float) i);
@@ -97,6 +98,12 @@ public class OilEntity extends ThrownItemEntity {
             this.createOilSplash(hitResult.getType() == HitResult.Type.ENTITY ? ((EntityHitResult)hitResult).getEntity() : null);
 
             this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES);
+            this.getWorld().playSound(
+                    null, this.getX(), this.getY(), this.getZ(),
+                    SoundEvents.BLOCK_HONEY_BLOCK_PLACE,
+                    SoundCategory.NEUTRAL, 1.0F,
+                    1.0F
+            );
 
             this.discard();
         }
@@ -139,7 +146,7 @@ public class OilEntity extends ThrownItemEntity {
 
     // explosion
 
-    private void createExplosion(Vec3d pos) {
+    private void explode(Vec3d pos) {
         this.getWorld()
                 .createExplosion(
                         this,

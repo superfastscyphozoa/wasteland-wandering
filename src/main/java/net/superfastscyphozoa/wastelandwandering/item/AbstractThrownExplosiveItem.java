@@ -16,6 +16,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import net.superfastscyphozoa.wastelandwandering.util.WawaTags;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    public TypedActionResult<ItemStack> use(World world, @NotNull PlayerEntity user, Hand hand) {
         ItemStack mainHandStack = user.getMainHandStack();
         ItemStack offHandStack = user.getOffHandStack();
         ItemStack handStack = user.getStackInHand(hand);
@@ -37,10 +38,10 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
             if (usingLighter){
                 if (!world.isClient) {
                     spawnExplosiveEntity(world, user, handStack);
+                    playUseSounds(world, user, true);
                 }
 
                 damageLighter(user, hand);
-                playUseSounds(world, user, true);
 
                 user.getItemCooldownManager().set(this, 10);
 
@@ -56,9 +57,8 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
         else {
             if (!world.isClient) {
                 spawnExplosiveEntity(world, user, handStack);
+                playUseSounds(world, user, false);
             }
-
-            playUseSounds(world, user, false);
 
             user.getItemCooldownManager().set(this, 10);
 
@@ -71,7 +71,7 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
 
     protected void spawnExplosiveEntity(World world, PlayerEntity user, ItemStack itemStack) {}
 
-    protected void damageLighter(PlayerEntity user, Hand hand) {
+    protected void damageLighter(@NotNull PlayerEntity user, Hand hand) {
         ItemStack lighterStack = user.getStackInHand(hand);
 
         if (user.getOffHandStack().isIn(WawaTags.Items.FUSE_LIGHTER)){
@@ -84,11 +84,11 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
             lighterStack.damage(1, user, LivingEntity.getSlotForHand(hand));
         }
         else if (lighterStack.getItem() == Items.FIRE_CHARGE){
-            lighterStack.decrement(1);
+            lighterStack.decrementUnlessCreative(1, user);
         }
     }
 
-    protected void playUseSounds(World world, PlayerEntity user, boolean reqLighter) {
+    protected void playUseSounds(@NotNull World world, @NotNull PlayerEntity user, boolean reqLighter) {
         world.playSound(null, user.getX(), user.getY(), user.getZ(),
                 SoundEvents.ENTITY_SPLASH_POTION_THROW,
                 SoundCategory.NEUTRAL,
@@ -118,7 +118,7 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+    public void appendTooltip(@NotNull ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         if (stack.isIn(WawaTags.Items.THROWN_EXPLOSIVE_NEEDS_LIGHTER)){
             tooltip.add(Text.translatable("tooltip.wasteland-wandering.fuse_explosive").formatted(Formatting.GRAY));
             super.appendTooltip(stack, context, tooltip, type);

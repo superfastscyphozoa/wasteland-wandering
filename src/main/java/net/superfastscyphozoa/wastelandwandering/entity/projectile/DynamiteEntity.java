@@ -7,17 +7,17 @@ import net.minecraft.world.World;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterEntities;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
 
-public class DynamiteEntity extends AbstractThrownExplosiveEntity {
+public class DynamiteEntity extends ThrownExplosiveFuseEntity {
 
     public DynamiteEntity(EntityType<? extends DynamiteEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public DynamiteEntity(World world, PlayerEntity owner) {
+    public DynamiteEntity(PlayerEntity owner, World world) {
         super(RegisterEntities.DYNAMITE_PROJECTILE, owner, world);
     }
 
-    public DynamiteEntity(World world, double x, double y, double z) {
+    public DynamiteEntity(double x, double y, double z, World world) {
         super(RegisterEntities.DYNAMITE_PROJECTILE, x, y, z, world);
     }
 

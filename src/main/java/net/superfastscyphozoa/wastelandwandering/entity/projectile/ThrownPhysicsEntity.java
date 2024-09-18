@@ -10,22 +10,22 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
 
-public abstract class AbstractThrownPhysicsEntity extends ThrownItemEntity {
-    public AbstractThrownPhysicsEntity(EntityType<? extends AbstractThrownPhysicsEntity> entityType, World world) {
+public abstract class ThrownPhysicsEntity extends ThrownItemEntity {
+    public ThrownPhysicsEntity(EntityType<? extends ThrownPhysicsEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public AbstractThrownPhysicsEntity(EntityType<? extends AbstractThrownPhysicsEntity> projectileEntity, PlayerEntity owner, World world) {
+    public ThrownPhysicsEntity(EntityType<? extends ThrownPhysicsEntity> projectileEntity, PlayerEntity owner, World world) {
         super(projectileEntity, owner, world);
     }
 
-    public AbstractThrownPhysicsEntity(EntityType<? extends AbstractThrownPhysicsEntity> projectileEntity, double x, double y, double z, World world) {
+    public ThrownPhysicsEntity(EntityType<? extends ThrownPhysicsEntity> projectileEntity, double x, double y, double z, World world) {
         super(projectileEntity, x, y, z, world);
     }
 
     @Override
     protected boolean canHit(Entity entity) {
-        if (entity instanceof AbstractThrownPhysicsEntity) {
+        if (entity instanceof ThrownPhysicsEntity) {
             return false;
         } else {
             return super.canHit(entity);

@@ -14,6 +14,7 @@ public class WastelandWanderingClient implements ClientModInitializer {
     public void onInitializeClient() {
 
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.WASTEWOOD_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.RADPINE_SAPLING, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.POISONED_IVY, RenderLayer.getCutout());
 
@@ -24,6 +25,7 @@ public class WastelandWanderingClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(RegisterEntities.OIL_PROJECTILE, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(RegisterEntities.DYNAMITE_PROJECTILE, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(RegisterEntities.MOLOTOV_COCKTAIL_PROJECTILE, FlyingItemEntityRenderer::new);
 
         WawaParticleFactories.registerParticleFactories();
     }

@@ -23,6 +23,6 @@ public class WawaItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.FIRE_CHARGE, Items.FLINT_AND_STEEL);
 
         getOrCreateTagBuilder(WawaTags.Items.THROWN_EXPLOSIVE_NEEDS_LIGHTER)
-                .add(RegisterItems.DYNAMITE);
+                .add(RegisterItems.DYNAMITE, RegisterItems.MOLOTOV_COCKTAIL);
     }
 }
