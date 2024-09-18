@@ -129,7 +129,7 @@ public class OilEntity extends ThrownItemEntity {
 
         if (blockState.isIn(BlockTags.CONCRETE_POWDER)){
 
-            for (int i = 0; i < 64; i++){
+            for (int i = 0; i < 96; i++){
                 BlockPos blockPos2 = blockPos;
 
                 for (int j = 0; j < i / 16; j++) {
@@ -141,7 +141,7 @@ public class OilEntity extends ThrownItemEntity {
                     );
 
                     if (this.getWorld().getBlockState(blockPos2).isIn(BlockTags.CONCRETE_POWDER)) {
-                        this.getWorld().setBlockState(blockPos2, Blocks.BLACK_CONCRETE.getDefaultState(), Block.NOTIFY_LISTENERS);
+                        this.getWorld().setBlockState(blockPos2, concretePowderType(blockPos2), Block.NOTIFY_LISTENERS);
                     }
                 }
             }
@@ -196,5 +196,58 @@ public class OilEntity extends ThrownItemEntity {
                         true,
                         World.ExplosionSourceType.TNT
                 );
+    }
+
+    protected BlockState concretePowderType(BlockPos blockPos){
+        BlockState concretePowder = this.getWorld().getBlockState(blockPos);
+
+        if (concretePowder.isOf(Blocks.RED_CONCRETE_POWDER)){
+            return Blocks.RED_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.ORANGE_CONCRETE_POWDER)){
+            return Blocks.ORANGE_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.YELLOW_CONCRETE_POWDER)){
+            return Blocks.YELLOW_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.LIME_CONCRETE_POWDER)){
+            return Blocks.LIME_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.GREEN_CONCRETE_POWDER)){
+            return Blocks.GREEN_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.CYAN_CONCRETE_POWDER)){
+            return Blocks.CYAN_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.LIGHT_BLUE_CONCRETE_POWDER)){
+            return Blocks.LIGHT_BLUE_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.BLUE_CONCRETE_POWDER)){
+            return Blocks.BLUE_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.PURPLE_CONCRETE_POWDER)){
+            return Blocks.PURPLE_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.MAGENTA_CONCRETE_POWDER)){
+            return Blocks.MAGENTA_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.PINK_CONCRETE_POWDER)){
+            return Blocks.PINK_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.BROWN_CONCRETE_POWDER)){
+            return Blocks.BROWN_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.GRAY_CONCRETE_POWDER)){
+            return Blocks.GRAY_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.LIGHT_GRAY_CONCRETE_POWDER)){
+            return Blocks.LIGHT_GRAY_CONCRETE.getDefaultState();
+        }
+        else if(concretePowder.isOf(Blocks.WHITE_CONCRETE_POWDER)){
+            return Blocks.WHITE_CONCRETE.getDefaultState();
+        }
+        else {
+            return Blocks.BLACK_CONCRETE.getDefaultState();
+        }
     }
 }
