@@ -1,4 +1,7 @@
 {
+  "itemgroup.wasteland-wandering.wawa_blocks_group": "Wawa Blocks",
+  "itemgroup.wasteland-wandering.wawa_items_group": "Wawa Items",
+
   "block.wasteland-wandering.wastewood_sapling": "Wastewood Sapling",
   "block.wasteland-wandering.radpine_sapling": "Radpine Sapling",
 
@@ -21,6 +24,23 @@
 
   "item.wasteland-wandering.oil": "Oil",
   "effect.wasteland-wandering.slick": "Slick",
+
+  "block.wasteland-wandering.white_asphalt": "White Asphalt",
+  "block.wasteland-wandering.orange_asphalt": "Orange Asphalt",
+  "block.wasteland-wandering.magenta_asphalt": "Magenta Asphalt",
+  "block.wasteland-wandering.light_blue_asphalt": "Light Blue Asphalt",
+  "block.wasteland-wandering.yellow_asphalt": "Yellow Asphalt",
+  "block.wasteland-wandering.lime_asphalt": "Lime Asphalt",
+  "block.wasteland-wandering.pink_asphalt": "Pink Asphalt",
+  "block.wasteland-wandering.gray_asphalt": "Gray Asphalt",
+  "block.wasteland-wandering.light_gray_asphalt": "Light Gray Asphalt",
+  "block.wasteland-wandering.cyan_asphalt": "Cyan Asphalt",
+  "block.wasteland-wandering.purple_asphalt": "Purple Asphalt",
+  "block.wasteland-wandering.blue_asphalt": "Blue Asphalt",
+  "block.wasteland-wandering.brown_asphalt": "Brown Asphalt",
+  "block.wasteland-wandering.green_asphalt": "Green Asphalt",
+  "block.wasteland-wandering.red_asphalt": "Red Asphalt",
+  "block.wasteland-wandering.black_asphalt": "Black Asphalt",
 
   "tooltip.wasteland-wandering.fuse_explosive": "Don't forget to bring a lighter",
   "item.wasteland-wandering.dynamite": "Dynamite",

@@ -27,4 +27,8 @@ public class RegisterEntities {
             EntityType.Builder.<MolotovCocktailEntity>create(MolotovCocktailEntity::new, SpawnGroup.MISC)
                     .dimensions(0.25F, 0.25F).maxTrackingRange(4).trackingTickInterval(10).build());
 
+    public static void registerWawaEntities() {
+        WastelandWandering.LOGGER.info("Registering Entities for " + WastelandWandering.MOD_ID);
+    }
+
 }

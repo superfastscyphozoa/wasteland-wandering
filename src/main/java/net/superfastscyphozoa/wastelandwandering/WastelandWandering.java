@@ -3,13 +3,11 @@ package net.superfastscyphozoa.wastelandwandering;
 import net.fabricmc.api.ModInitializer;
 
 import net.superfastscyphozoa.wastelandwandering.item.util.WawaFuels;
-import net.superfastscyphozoa.wastelandwandering.registry.RegisterParticles;
-import net.superfastscyphozoa.wastelandwandering.registry.RegisterStatusEffects;
+import net.superfastscyphozoa.wastelandwandering.item.util.WawaItemGroups;
+import net.superfastscyphozoa.wastelandwandering.registry.*;
 import net.superfastscyphozoa.wastelandwandering.util.WawaTrades;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import net.superfastscyphozoa.wastelandwandering.registry.RegisterBlocks;
-import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
 import net.superfastscyphozoa.wastelandwandering.world.gen.WastelandWanderingWorldGeneration;
 
 public class WastelandWandering implements ModInitializer {
@@ -22,6 +20,8 @@ public class WastelandWandering implements ModInitializer {
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 
+		WawaItemGroups.registerWawaItemGroups();
+
 		RegisterItems.registerWawaItems();
 		RegisterBlocks.registerWawaBlocks();
 
@@ -30,6 +30,8 @@ public class WastelandWandering implements ModInitializer {
 
 		RegisterParticles.registerWawaParticles();
 		RegisterStatusEffects.registerWawaStatusEffects();
+
+		RegisterEntities.registerWawaEntities();
 
 		WastelandWanderingWorldGeneration.generateWawaWorldgen();
 

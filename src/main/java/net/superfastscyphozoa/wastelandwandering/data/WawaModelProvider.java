@@ -15,6 +15,7 @@ public class WawaModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+
         blockStateModelGenerator.registerTintableCross(RegisterBlocks.WASTEWOOD_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(RegisterBlocks.RADPINE_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
 
@@ -22,6 +23,23 @@ public class WawaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerDoubleBlock(RegisterBlocks.IRRADIATED_TALL_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerDoubleBlock(RegisterBlocks.WASTESHRUB, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.BLACK_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.GRAY_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.LIGHT_GRAY_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.WHITE_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.BROWN_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.PURPLE_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.MAGENTA_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.PINK_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.RED_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.ORANGE_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.YELLOW_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.LIME_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.GREEN_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.BLUE_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.LIGHT_BLUE_ASPHALT);
+        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.CYAN_ASPHALT);
     }
 
     @Override

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "wasteland-wandering:block/orange_asphalt"
+  }
+}

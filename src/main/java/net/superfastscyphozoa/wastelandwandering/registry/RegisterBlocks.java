@@ -2,6 +2,7 @@ package net.superfastscyphozoa.wastelandwandering.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -9,6 +10,7 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 import net.superfastscyphozoa.wastelandwandering.block.*;
@@ -113,6 +115,41 @@ public class RegisterBlocks {
                     .blockVision((state, world, pos) -> state.get(SootBlock.LAYERS) >= 8)
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
+    // asphalt
+
+    public static final Block WHITE_ASPHALT = registerBlock("white_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.WHITE).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block ORANGE_ASPHALT = registerBlock("orange_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.ORANGE).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block MAGENTA_ASPHALT = registerBlock("magenta_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.MAGENTA).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block LIGHT_BLUE_ASPHALT = registerBlock("light_blue_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block YELLOW_ASPHALT = registerBlock("yellow_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.YELLOW).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block LIME_ASPHALT = registerBlock("lime_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.LIME).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block PINK_ASPHALT = registerBlock("pink_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.PINK).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block GRAY_ASPHALT = registerBlock("gray_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block LIGHT_GRAY_ASPHALT = registerBlock("light_gray_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.LIGHT_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block CYAN_ASPHALT = registerBlock("cyan_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.CYAN).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block PURPLE_ASPHALT = registerBlock("purple_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.PURPLE).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block BLUE_ASPHALT = registerBlock("blue_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.BLUE).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block BROWN_ASPHALT = registerBlock("brown_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.BROWN).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block GREEN_ASPHALT = registerBlock("green_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.GREEN).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block RED_ASPHALT = registerBlock("red_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.RED).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+    public static final Block BLACK_ASPHALT = registerBlock("black_asphalt",
+            new Block(AbstractBlock.Settings.create().mapColor(DyeColor.BLACK).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.8F)));
+
     //registry end
 
     private static Block registerBlock(String name, Block block) {
@@ -148,7 +185,25 @@ public class RegisterBlocks {
 
             entries.addAfter(Blocks.MOSS_CARPET, RegisterBlocks.SOOT_BLOCK);
             entries.addAfter(RegisterBlocks.SOOT_BLOCK, RegisterBlocks.SOOT);
+        });
 
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
+            entries.addAfter(Blocks.PINK_CONCRETE, WHITE_ASPHALT);
+            entries.addAfter(WHITE_ASPHALT, LIGHT_GRAY_ASPHALT);
+            entries.addAfter(LIGHT_GRAY_ASPHALT, GRAY_ASPHALT);
+            entries.addAfter(GRAY_ASPHALT, BLACK_ASPHALT);
+            entries.addAfter(BLACK_ASPHALT, BROWN_ASPHALT);
+            entries.addAfter(BROWN_ASPHALT, RED_ASPHALT);
+            entries.addAfter(RED_ASPHALT, ORANGE_ASPHALT);
+            entries.addAfter(ORANGE_ASPHALT, YELLOW_ASPHALT);
+            entries.addAfter(YELLOW_ASPHALT, LIME_ASPHALT);
+            entries.addAfter(LIME_ASPHALT, GREEN_ASPHALT);
+            entries.addAfter(GREEN_ASPHALT, CYAN_ASPHALT);
+            entries.addAfter(CYAN_ASPHALT, LIGHT_BLUE_ASPHALT);
+            entries.addAfter(LIGHT_BLUE_ASPHALT, BLUE_ASPHALT);
+            entries.addAfter(BLUE_ASPHALT, PURPLE_ASPHALT);
+            entries.addAfter(PURPLE_ASPHALT, MAGENTA_ASPHALT);
+            entries.addAfter(MAGENTA_ASPHALT, PINK_ASPHALT);
         });
     }
 }
