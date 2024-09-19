@@ -3,7 +3,7 @@
 	"package": "net.superfastscyphozoa.wastelandwandering.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"WawaMixin"
+		"biome.BiomeParametersMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
