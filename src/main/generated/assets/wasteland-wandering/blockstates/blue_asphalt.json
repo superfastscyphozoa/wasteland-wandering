@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "wasteland-wandering:block/blue_asphalt"
-    }
+    "": [
+      {
+        "model": "wasteland-wandering:block/blue_asphalt"
+      },
+      {
+        "model": "wasteland-wandering:block/blue_asphalt",
+        "y": 90
+      },
+      {
+        "model": "wasteland-wandering:block/blue_asphalt",
+        "y": 180
+      },
+      {
+        "model": "wasteland-wandering:block/blue_asphalt",
+        "y": 270
+      }
+    ]
   }
 }

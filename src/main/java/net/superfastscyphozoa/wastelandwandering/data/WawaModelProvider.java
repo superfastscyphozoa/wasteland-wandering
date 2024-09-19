@@ -24,22 +24,22 @@ public class WawaModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerDoubleBlock(RegisterBlocks.WASTESHRUB, BlockStateModelGenerator.TintType.NOT_TINTED);
 
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.BLACK_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.GRAY_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.LIGHT_GRAY_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.WHITE_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.BROWN_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.PURPLE_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.MAGENTA_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.PINK_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.RED_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.ORANGE_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.YELLOW_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.LIME_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.GREEN_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.BLUE_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.LIGHT_BLUE_ASPHALT);
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.CYAN_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.BLACK_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.GRAY_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.LIGHT_GRAY_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.WHITE_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.BROWN_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.PURPLE_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.MAGENTA_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.PINK_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.RED_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.ORANGE_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.YELLOW_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.LIME_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.GREEN_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.BLUE_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.LIGHT_BLUE_ASPHALT);
+        blockStateModelGenerator.registerRotatable(RegisterBlocks.CYAN_ASPHALT);
     }
 
     @Override

@@ -1,6 +1,6 @@
-// 1.21.1	2024-09-19T23:37:31.6523437	Wasteland Wandering/Tags for minecraft:block
-7cc918cf1d960af78934334849115f94e32987a6 data\minecraft\tags\block\climbable.json
+// 1.21.1	2024-09-20T00:01:14.9157217	Wasteland Wandering/Tags for minecraft:block
 735fd43c92f761afa4f9816b50f02b55cab011df data\minecraft\tags\block\valid_spawn.json
+7cc918cf1d960af78934334849115f94e32987a6 data\minecraft\tags\block\climbable.json
 327ef04f2fbd112d0a5dac8b6512ea5d3ad7c7d9 data\minecraft\tags\block\replaceable.json
 20b1dd5f4af5f47f14eae6f2fef92ece52cb3d8d data\wasteland-wandering\tags\block\asphalt.json
 735fd43c92f761afa4f9816b50f02b55cab011df data\wasteland-wandering\tags\block\irradiated_grass.json
