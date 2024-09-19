@@ -6,6 +6,7 @@ import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 import net.superfastscyphozoa.wastelandwandering.data.tags.WawaBlockTagProvider;
 import net.superfastscyphozoa.wastelandwandering.data.tags.WawaItemTagProvider;
+import net.superfastscyphozoa.wastelandwandering.world.biome.WawaBiomes;
 import net.superfastscyphozoa.wastelandwandering.world.features.configured.WawaConfiguredFeatures;
 import net.superfastscyphozoa.wastelandwandering.world.features.placed.WawaPlacedFeatures;
 
@@ -29,5 +30,6 @@ public class WastelandWanderingDataGenerator implements DataGeneratorEntrypoint 
 	public void buildRegistry(RegistryBuilder registryBuilder){
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, WawaConfiguredFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, WawaPlacedFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.BIOME, WawaBiomes::bootstrap);
 	}
 }
