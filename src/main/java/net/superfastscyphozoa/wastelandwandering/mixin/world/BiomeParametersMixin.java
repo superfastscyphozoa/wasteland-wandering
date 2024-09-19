@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.wastelandwandering.mixin.biome;
+package net.superfastscyphozoa.wastelandwandering.mixin.world;
 
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
