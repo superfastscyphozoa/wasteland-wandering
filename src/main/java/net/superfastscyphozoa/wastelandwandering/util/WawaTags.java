@@ -11,6 +11,8 @@ public class WawaTags {
     public static class Blocks {
         public static final TagKey<Block> IRRADIATED_GRASS = createTag("irradiated_grass");
 
+        public static final TagKey<Block> ASPHALT = createTag("asphalt");
+
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(WastelandWandering.MOD_ID, name));
         }

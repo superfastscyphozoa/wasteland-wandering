@@ -30,5 +30,24 @@ public class WawaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.REPLACEABLE)
                 .add(RegisterBlocks.SOOT, RegisterBlocks.IRRADIATED_SHORT_GRASS, RegisterBlocks.IRRADIATED_TALL_GRASS);
+
+        getOrCreateTagBuilder(WawaTags.Blocks.ASPHALT)
+                .add(
+                        RegisterBlocks.BLACK_ASPHALT,
+                        RegisterBlocks.BLUE_ASPHALT,
+                        RegisterBlocks.LIGHT_BLUE_ASPHALT,
+                        RegisterBlocks.LIME_ASPHALT,
+                        RegisterBlocks.LIGHT_GRAY_ASPHALT,
+                        RegisterBlocks.GRAY_ASPHALT,
+                        RegisterBlocks.GREEN_ASPHALT,
+                        RegisterBlocks.BROWN_ASPHALT,
+                        RegisterBlocks.MAGENTA_ASPHALT,
+                        RegisterBlocks.CYAN_ASPHALT,
+                        RegisterBlocks.PINK_ASPHALT,
+                        RegisterBlocks.PURPLE_ASPHALT,
+                        RegisterBlocks.YELLOW_ASPHALT,
+                        RegisterBlocks.RED_ASPHALT,
+                        RegisterBlocks.ORANGE_ASPHALT,
+                        RegisterBlocks.WHITE_ASPHALT);
     }
 }

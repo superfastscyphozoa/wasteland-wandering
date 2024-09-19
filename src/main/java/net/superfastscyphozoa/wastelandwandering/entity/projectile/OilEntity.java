@@ -27,6 +27,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.superfastscyphozoa.wastelandwandering.registry.*;
+import net.superfastscyphozoa.wastelandwandering.util.WawaTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -179,7 +180,7 @@ public class OilEntity extends ThrownItemEntity {
         BlockPos blockPos = blockHitResult.getBlockPos();
         BlockState blockState = this.getWorld().getBlockState(blockPos);
 
-        if (blockState.isIn(BlockTags.CONCRETE_POWDER)){
+        if (blockState.isIn(BlockTags.CONCRETE_POWDER) || blockState.isIn(WawaTags.Blocks.ASPHALT)){
 
             for (int i = 0; i < 96; i++){
                 BlockPos blockPos2 = blockPos;

@@ -1,11 +1,11 @@
-// 1.21.1	2024-09-19T23:19:01.4280091	Wasteland Wandering/Model Definitions
+// 1.21.1	2024-09-19T23:37:31.6483558	Wasteland Wandering/Model Definitions
 9ecd97f2f11ac6ee9ee76e744f8a2b2c72e5fd2d assets\wasteland-wandering\models\item\purple_asphalt.json
 3e4dc49a031486012aafcfbb4427c4980367dc9c assets\wasteland-wandering\models\item\oil.json
 3d10543f40d058264623c7e8b3d3e78ac98de7a4 assets\wasteland-wandering\models\block\red_asphalt.json
 a32b75b0430a863cba7bfbe2afcd737a42b66259 assets\wasteland-wandering\models\item\stimpak.json
 ce0a7b03b0f8a3712711a8adc9ac81a7195144a0 assets\wasteland-wandering\models\item\yellow_asphalt.json
-713e88c09a82a30178e163a6f9d96d5b0b31807e assets\wasteland-wandering\blockstates\lime_asphalt.json
 a4cd2b2620c03fb6d3e506f374282eeb36a23aed assets\wasteland-wandering\blockstates\magenta_asphalt.json
+713e88c09a82a30178e163a6f9d96d5b0b31807e assets\wasteland-wandering\blockstates\lime_asphalt.json
 8caa0ed717afbd0270e394dc9ee30ceb6e7dec6d assets\wasteland-wandering\models\item\wastewood_sapling.json
 2e7c34922290a87aedcc25ecc9c3244f3686fa67 assets\wasteland-wandering\models\item\wasteshrub.json
 db2d86a577730d182cc2ff355d475c72beb1a40d assets\wasteland-wandering\blockstates\wasteshrub.json
