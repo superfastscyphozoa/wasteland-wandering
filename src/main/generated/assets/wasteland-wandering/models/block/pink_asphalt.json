@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "wasteland-wandering:block/pink_asphalt"
+    "all": "wasteland-wandering:block/dyed/pink_asphalt"
   }
 }

@@ -1,6 +1,8 @@
 {
-  "itemgroup.wasteland-wandering.wawa_blocks_group": "Wawa Blocks",
-  "itemgroup.wasteland-wandering.wawa_items_group": "Wawa Items",
+  "itemgroup.wasteland-wandering.wawa_natural_blocks": "Wawa Natural Blocks",
+  "itemgroup.wasteland-wandering.wawa_building_blocks": "Wawa Building Blocks",
+  "itemgroup.wasteland-wandering.wawa_combat": "Wawa Combat",
+  "itemgroup.wasteland-wandering.wawa_misc_items": "Wawa Misc",
 
   "block.wasteland-wandering.wastewood_sapling": "Wastewood Sapling",
   "block.wasteland-wandering.radpine_sapling": "Radpine Sapling",

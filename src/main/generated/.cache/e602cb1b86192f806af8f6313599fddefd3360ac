@@ -1,4 +1,4 @@
-// 1.21.1	2024-09-20T00:01:14.9107354	Wasteland Wandering/Model Definitions
+// 1.21.1	2024-09-21T19:22:59.7214272	Wasteland Wandering/Model Definitions
 9ecd97f2f11ac6ee9ee76e744f8a2b2c72e5fd2d assets\wasteland-wandering\models\item\purple_asphalt.json
 3e4dc49a031486012aafcfbb4427c4980367dc9c assets\wasteland-wandering\models\item\oil.json
 3d10543f40d058264623c7e8b3d3e78ac98de7a4 assets\wasteland-wandering\models\block\red_asphalt.json
@@ -53,8 +53,8 @@ e58fb200aa24ee9930a30c9e51a916f61a07b40e assets\wasteland-wandering\blockstates\
 9f5b72e8fd5d52245f0dc931cb2296575549c51f assets\wasteland-wandering\models\block\irradiated_tall_grass_top.json
 b4abf793e1832258d4dc84b9eda08f0d331ee503 assets\wasteland-wandering\blockstates\green_asphalt.json
 ecf218b6bc75ddbc32960faf0047ad8c910e5dab assets\wasteland-wandering\models\item\green_asphalt.json
-27b964adfc25068991355b3819c7f19d03868684 assets\wasteland-wandering\models\block\magenta_asphalt.json
 3ed621b2932a413d88430e40c41b5a26821fb2b5 assets\wasteland-wandering\models\item\mutfruit.json
+27b964adfc25068991355b3819c7f19d03868684 assets\wasteland-wandering\models\block\magenta_asphalt.json
 3bcce2ac1c22c2cae4e037d2d8cf5de7bf26fe71 assets\wasteland-wandering\models\item\irradiated_short_grass.json
 442ffcc54beec1334c00f7dc8dd987eb510f38a1 assets\wasteland-wandering\models\item\light_blue_asphalt.json
 48ee747db07c8dd9954c29f7d3e2e667a6e828c3 assets\wasteland-wandering\models\item\lime_asphalt.json

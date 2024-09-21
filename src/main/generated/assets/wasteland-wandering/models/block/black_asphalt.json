@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "wasteland-wandering:block/black_asphalt"
+    "all": "wasteland-wandering:block/dyed/black_asphalt"
   }
 }
