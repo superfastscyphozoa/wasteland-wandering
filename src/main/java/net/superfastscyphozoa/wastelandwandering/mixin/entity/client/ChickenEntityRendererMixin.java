@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 import net.superfastscyphozoa.wastelandwandering.entity.variant.ChickenVariant;
-import net.superfastscyphozoa.wastelandwandering.entity.variant.ChickenVariantGetterInterface;
+import net.superfastscyphozoa.wastelandwandering.entity.variant.ChickenVariantInterface;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -31,8 +31,8 @@ public class ChickenEntityRendererMixin {
     @Redirect(method = "getTexture(Lnet/minecraft/entity/passive/ChickenEntity;)Lnet/minecraft/util/Identifier;", at = @At(value = "FIELD",
             target = "Lnet/minecraft/client/render/entity/ChickenEntityRenderer;TEXTURE:Lnet/minecraft/util/Identifier;"))
     public Identifier getTexture(ChickenEntity chickenEntity) {
-        if (chickenEntity instanceof ChickenVariantGetterInterface){
-            return LOCATION_BY_VARIANT.get(((ChickenVariantGetterInterface) chickenEntity).wasteland_wandering$getVariant());
+        if (chickenEntity instanceof ChickenVariantInterface){
+            return LOCATION_BY_VARIANT.get(((ChickenVariantInterface) chickenEntity).wasteland_wandering$getVariant());
         } else {
             return Identifier.of(WastelandWandering.MOD_ID, "textures/entity/chicken/semi_rad_chicken.png");
         }

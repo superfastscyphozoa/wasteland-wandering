@@ -6,23 +6,24 @@ import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.ChickenEntity;
+import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Util;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import net.superfastscyphozoa.wastelandwandering.entity.variant.ChickenVariant;
-import net.superfastscyphozoa.wastelandwandering.entity.variant.ChickenVariantGetterInterface;
+import net.superfastscyphozoa.wastelandwandering.entity.variant.ChickenVariantInterface;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(ChickenEntity.class)
-public class ChickenEntityMixin extends MobEntity implements ChickenVariantGetterInterface {
+public class ChickenEntityMixin extends PassiveEntity implements ChickenVariantInterface {
 
-    protected ChickenEntityMixin(EntityType<? extends MobEntity> entityType, World world) {
+    protected ChickenEntityMixin(EntityType<? extends PassiveEntity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -48,16 +49,30 @@ public class ChickenEntityMixin extends MobEntity implements ChickenVariantGette
         return ChickenVariant.byId(this.getTypeVariant() & 255);
     }
 
-    @Unique
-    public void setVariant(ChickenVariant variant) {
+    @Override
+    public void wasteland_wandering$setVariant(ChickenVariant variant) {
         this.dataTracker.set(VARIANT, variant.getId() & 255);
     }
 
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData) {
         ChickenVariant variant = Util.getRandom(ChickenVariant.values(), this.random);
-        setVariant(variant);
+        wasteland_wandering$setVariant(variant);
         return super.initialize(world, difficulty, spawnReason, entityData);
+    }
+
+    @Nullable
+    @Override
+    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
+        ChickenEntity baby = EntityType.CHICKEN.create(world);
+        ChickenVariant variant = Util.getRandom(ChickenVariant.values(), this.random);
+        assert baby != null;
+        if (baby instanceof ChickenVariantInterface) {
+            ((ChickenVariantInterface) baby).wasteland_wandering$setVariant(variant);
+            return baby;
+        } else {
+            return null;
+        }
     }
 
     @Override

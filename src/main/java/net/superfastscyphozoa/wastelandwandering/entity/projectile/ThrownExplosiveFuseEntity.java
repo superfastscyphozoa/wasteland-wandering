@@ -6,11 +6,6 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.AdvancedExplosionBehavior;
-import net.minecraft.world.explosion.Explosion;
-import net.minecraft.world.explosion.ExplosionBehavior;
-
-import java.util.Optional;
 
 public abstract class ThrownExplosiveFuseEntity extends ThrownPhysicsEntity {
     public ThrownExplosiveFuseEntity(EntityType<? extends ThrownExplosiveFuseEntity> entityType, World world) {
@@ -68,23 +63,7 @@ public abstract class ThrownExplosiveFuseEntity extends ThrownPhysicsEntity {
         }
     }
 
-    protected static final ExplosionBehavior EXPLOSION_BEHAVIOR = new AdvancedExplosionBehavior(
-            false, true, Optional.of(1.22F), Optional.empty());
-
-    protected void explode() {
-        this.getWorld()
-                .createExplosion(
-                        this,
-                        Explosion.createDamageSource(this.getWorld(), this),
-                        EXPLOSION_BEHAVIOR,
-                        this.getX(),
-                        this.getY(),
-                        this.getZ(),
-                        2.75F,
-                        false,
-                        World.ExplosionSourceType.TNT
-                );
-    }
+    protected void explode() {}
 
     protected void fuseParticleEffects() {
         if (!this.isTouchingWater()) {

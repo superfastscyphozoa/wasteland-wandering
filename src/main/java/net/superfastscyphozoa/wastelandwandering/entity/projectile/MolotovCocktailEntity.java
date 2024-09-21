@@ -67,7 +67,7 @@ public class MolotovCocktailEntity extends ThrownExplosiveOnHitEntity {
 
     @Override
     protected void onCollisionParticleEffects() {
-        this.getWorld().syncWorldEvent(WorldEvents.SPLASH_POTION_SPLASHED, this.getBlockPos(), -13083194);
+        this.getWorld().syncWorldEvent(WorldEvents.SPLASH_POTION_SPLASHED, this.getBlockPos(), -0);
     }
 
     //explosion
@@ -87,7 +87,7 @@ public class MolotovCocktailEntity extends ThrownExplosiveOnHitEntity {
                 Explosion.createDamageSource(this.getWorld(), this),
                 FIRE_EXPLOSION_BEHAVIOR,
                 this.getX(), this.getY(), this.getZ(),
-                2F,
+                1.75F,
                 true,
                 World.ExplosionSourceType.NONE,
                 ParticleTypes.FLASH,
