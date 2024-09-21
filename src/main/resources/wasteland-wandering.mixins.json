@@ -1,11 +1,15 @@
 {
-	"required": true,
-	"package": "net.superfastscyphozoa.wastelandwandering.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"world.BiomeParametersMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	}
+  "required": true,
+  "package": "net.superfastscyphozoa.wastelandwandering.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "entity.ChickenEntityMixin",
+    "world.BiomeParametersMixin"
+  ],
+  "client": [
+    "entity.client.ChickenEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
