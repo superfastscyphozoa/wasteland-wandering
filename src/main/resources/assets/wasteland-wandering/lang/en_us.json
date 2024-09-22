@@ -47,5 +47,7 @@
 
   "tooltip.wasteland-wandering.fuse_explosive": "Don't forget to bring a lighter",
   "item.wasteland-wandering.dynamite": "Dynamite",
-  "item.wasteland-wandering.molotov_cocktail": "Molotov Cocktail"
+  "item.wasteland-wandering.molotov_cocktail": "Molotov Cocktail",
+
+  "item.wasteland-wandering.bumper_sword": "Bumper Sword"
 }

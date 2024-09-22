@@ -82,9 +82,11 @@ public class WawaItemGroups {
             }).build();
 
     public static final ItemGroup WAWA_COMBAT = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(RegisterItems.DYNAMITE))
+            .icon(() -> new ItemStack(RegisterItems.BUMPER_SWORD))
             .displayName(Text.translatable("itemgroup.wasteland-wandering.wawa_combat"))
             .entries((displayContext, entries) -> {
+
+                entries.add(RegisterItems.BUMPER_SWORD);
 
                 entries.add(RegisterItems.DYNAMITE);
                 entries.add(RegisterItems.MOLOTOV_COCKTAIL);

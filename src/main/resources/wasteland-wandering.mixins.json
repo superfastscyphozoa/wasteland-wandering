@@ -7,6 +7,9 @@
     "world.BiomeParametersMixin"
   ],
   "client": [
+    "ItemRendererAccessor",
+    "ItemRendererMixin",
+    "ModelLoaderMixin",
     "entity.client.ChickenEntityRendererMixin"
   ],
   "injectors": {

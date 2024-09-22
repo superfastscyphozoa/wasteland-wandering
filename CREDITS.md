@@ -6,3 +6,7 @@ Linguardium made a comment on reddit a few years ago that really helped when imp
 
 - Link to the comment - https://www.reddit.com/r/fabricmc/comments/ko2den/comment/ghnw1sy/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 
+@br_matias_br made a comment under a KaupenJoe YouTube video that helped when implementing 2d items in inventory with a 3d model ingame
+
+- The comment in question - https://www.youtube.com/watch?v=0OtQqtquxMM&lc=UgxbOBj71H7mflyQg2l4AaABAg
+

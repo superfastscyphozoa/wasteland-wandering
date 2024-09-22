@@ -2,13 +2,16 @@ package net.superfastscyphozoa.wastelandwandering.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
+import net.superfastscyphozoa.wastelandwandering.item.BumperSwordItem;
 import net.superfastscyphozoa.wastelandwandering.item.DynamiteItem;
 import net.superfastscyphozoa.wastelandwandering.item.MolotovCocktailItem;
 import net.superfastscyphozoa.wastelandwandering.item.OilItem;
@@ -32,6 +35,16 @@ public class RegisterItems {
     public static final Item OIL = registerItem("oil", new OilItem(new Item.Settings()));
 
     //combat
+
+    //melee
+
+    public static final Item BUMPER_SWORD = registerItem("bumper_sword", new BumperSwordItem(new Item.Settings()
+            .rarity(Rarity.EPIC)
+            .component(DataComponentTypes.TOOL, BumperSwordItem.createToolComponent())
+            .attributeModifiers(BumperSwordItem.createAttributeModifiers())
+    ));
+
+    //throwable
 
     public static final Item DYNAMITE = registerItem("dynamite", new DynamiteItem(new Item.Settings()));
 
@@ -58,6 +71,8 @@ public class RegisterItems {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+            entries.addAfter(Items.MACE, BUMPER_SWORD);
+
             entries.addAfter(Items.WIND_CHARGE, OIL);
 
             entries.addAfter(Blocks.TNT, DYNAMITE);
