@@ -25,6 +25,8 @@ public class WawaTags {
         public static final TagKey<Item> FUSE_LIGHTER = createTag("fuse_lighter");
         public static final TagKey<Item> THROWN_EXPLOSIVE_NEEDS_LIGHTER = createTag("thrown_explosive_needs_lighter");
 
+        public static final TagKey<Item> SWEEPING_WEAPON = createTag("sweeping_weapon");
+
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(WastelandWandering.MOD_ID, name));
         }

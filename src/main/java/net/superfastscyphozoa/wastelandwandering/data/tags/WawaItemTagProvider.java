@@ -26,6 +26,9 @@ public class WawaItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(WawaTags.Items.THROWN_EXPLOSIVE_NEEDS_LIGHTER)
                 .add(RegisterItems.DYNAMITE, RegisterItems.MOLOTOV_COCKTAIL);
 
+        getOrCreateTagBuilder(WawaTags.Items.SWEEPING_WEAPON)
+                .add(RegisterItems.BUMPER_SWORD);
+
         getOrCreateTagBuilder(ItemTags.SWORDS)
                 .add(RegisterItems.BUMPER_SWORD);
     }

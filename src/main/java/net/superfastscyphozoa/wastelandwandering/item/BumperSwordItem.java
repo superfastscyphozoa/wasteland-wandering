@@ -26,6 +26,13 @@ public class BumperSwordItem extends Item {
 
     //tool stuff
 
+    public static ToolComponent createToolComponent() {
+        return new ToolComponent(List.of(
+                ToolComponent.Rule.ofAlwaysDropping(List.of(Blocks.COBWEB), 15.0F),
+                ToolComponent.Rule.of(BlockTags.SWORD_EFFICIENT, 1.5F)),
+                1.0F, 2);
+    }
+
     public static AttributeModifiersComponent createAttributeModifiers() {
         return AttributeModifiersComponent.builder()
                 .add(
@@ -39,13 +46,6 @@ public class BumperSwordItem extends Item {
                         AttributeModifierSlot.MAINHAND
                 )
                 .build();
-    }
-
-    public static ToolComponent createToolComponent() {
-        return new ToolComponent(List.of(
-                ToolComponent.Rule.ofAlwaysDropping(List.of(Blocks.COBWEB), 15.0F),
-                ToolComponent.Rule.of(BlockTags.SWORD_EFFICIENT, 1.5F)),
-                1.0F, 2);
     }
 
     @Override

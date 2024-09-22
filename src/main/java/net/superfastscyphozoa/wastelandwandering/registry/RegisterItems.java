@@ -40,6 +40,7 @@ public class RegisterItems {
 
     public static final Item BUMPER_SWORD = registerItem("bumper_sword", new BumperSwordItem(new Item.Settings()
             .rarity(Rarity.EPIC)
+            .maxDamage(250)
             .component(DataComponentTypes.TOOL, BumperSwordItem.createToolComponent())
             .attributeModifiers(BumperSwordItem.createAttributeModifiers())
     ));

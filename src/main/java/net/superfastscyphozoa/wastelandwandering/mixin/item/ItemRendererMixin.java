@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.wastelandwandering.mixin;
+package net.superfastscyphozoa.wastelandwandering.mixin.item;
 
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemRenderer;
@@ -20,7 +20,10 @@ public class ItemRendererMixin {
     @ModifyVariable(method = "renderItem", at = @At(value = "HEAD"), argsOnly = true)
     public BakedModel useBumperSwordModel(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
 
-        if (stack.isOf(RegisterItems.BUMPER_SWORD) && renderMode != ModelTransformationMode.GUI && renderMode != ModelTransformationMode.GROUND) {
+        if (stack.isOf(RegisterItems.BUMPER_SWORD) &&
+                renderMode != ModelTransformationMode.GUI &&
+                renderMode != ModelTransformationMode.GROUND &&
+                renderMode != ModelTransformationMode.FIXED) {
             return ((ItemRendererAccessor) this).wasteland_wandering$getModels().getModelManager()
                     .getModel(ModelIdentifier.ofInventoryVariant(Identifier.of(WastelandWandering.MOD_ID,"bumper_sword_large")));
         }

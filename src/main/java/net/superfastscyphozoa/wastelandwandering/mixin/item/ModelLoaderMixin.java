@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.wastelandwandering.mixin;
+package net.superfastscyphozoa.wastelandwandering.mixin.item;
 
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.render.model.BlockStatesLoader;

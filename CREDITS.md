@@ -10,3 +10,4 @@ Linguardium made a comment on reddit a few years ago that really helped when imp
 
 - The comment in question - https://www.youtube.com/watch?v=0OtQqtquxMM&lc=UgxbOBj71H7mflyQg2l4AaABAg
 
+dicedpixels helped me figure out how the mace handles item durability on the fabric discord
