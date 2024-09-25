@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "wasteland-wandering:item/bumper_sword_large",
-		"particle": "wasteland-wandering:item/bumper_sword_large"
+		"0": "wasteland-wandering:item/bumper_sword",
+		"particle": "wasteland-wandering:item/bumper_sword_inventory"
 	},
 	"elements": [
 		{
@@ -469,6 +469,7 @@
 			}
 		}
 	],
+	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [0, -90, 45],
@@ -479,12 +480,12 @@
 			"translation": [-0.75, 2.75, 1.5]
 		},
 		"firstperson_righthand": {
-			"rotation": [0, -90, 25],
-			"translation": [5, -0.25, -5.75]
+			"rotation": [0, -20, 90],
+			"translation": [0.75, -0.25, -5.75]
 		},
 		"firstperson_lefthand": {
-			"rotation": [0, 90, -25],
-			"translation": [4, -0.25, -5.75]
+			"rotation": [0, 160, -90],
+			"translation": [0.5, -0.25, -5.75]
 		}
 	},
 	"groups": [

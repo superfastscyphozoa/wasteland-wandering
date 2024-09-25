@@ -29,6 +29,9 @@ public class WawaItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(WawaTags.Items.SWEEPING_WEAPON)
                 .add(RegisterItems.BUMPER_SWORD);
 
+        getOrCreateTagBuilder(WawaTags.Items.TWO_HANDED_WEAPON)
+                .add(RegisterItems.BUMPER_SWORD);
+
         getOrCreateTagBuilder(ItemTags.SWORDS)
                 .add(RegisterItems.BUMPER_SWORD);
     }

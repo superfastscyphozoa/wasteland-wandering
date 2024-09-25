@@ -25,7 +25,7 @@ public abstract class ModelLoaderMixin {
     @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/model/ModelLoader;loadItemModel(Lnet/minecraft/client/util/ModelIdentifier;)V", ordinal = 1, shift = At.Shift.AFTER))
     public void addBumperSword(BlockColors blockColors, Profiler profiler, Map<Identifier, JsonUnbakedModel> jsonUnbakedModels, Map<Identifier, List<BlockStatesLoader.SourceTrackedData>> blockStates, CallbackInfo ci) {
 
-        this.loadItemModel(ModelIdentifier.ofInventoryVariant(Identifier.of(WastelandWandering.MOD_ID, "bumper_sword_large")));
+        this.loadItemModel(ModelIdentifier.ofInventoryVariant(Identifier.of(WastelandWandering.MOD_ID, "bumper_sword_inventory")));
 
     }
 

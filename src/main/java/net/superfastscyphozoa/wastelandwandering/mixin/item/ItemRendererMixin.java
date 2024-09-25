@@ -20,14 +20,13 @@ public class ItemRendererMixin {
     @ModifyVariable(method = "renderItem", at = @At(value = "HEAD"), argsOnly = true)
     public BakedModel useBumperSwordModel(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
 
-        if (stack.isOf(RegisterItems.BUMPER_SWORD) &&
-                renderMode != ModelTransformationMode.GUI &&
-                renderMode != ModelTransformationMode.GROUND &&
-                renderMode != ModelTransformationMode.FIXED) {
-            return ((ItemRendererAccessor) this).wasteland_wandering$getModels().getModelManager()
-                    .getModel(ModelIdentifier.ofInventoryVariant(Identifier.of(WastelandWandering.MOD_ID,"bumper_sword_large")));
-        }
+        if(renderMode == ModelTransformationMode.GROUND || renderMode == ModelTransformationMode.GUI || renderMode == ModelTransformationMode.FIXED) {
 
+            if (stack.isOf(RegisterItems.BUMPER_SWORD)) {
+                return ((ItemRendererAccessor) this).wasteland_wandering$getModels().getModelManager()
+                        .getModel(ModelIdentifier.ofInventoryVariant(Identifier.of(WastelandWandering.MOD_ID, "bumper_sword_inventory")));
+            }
+        }
         return value;
     }
 }
