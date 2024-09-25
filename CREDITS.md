@@ -15,3 +15,5 @@ dicedpixels helped me figure out how the mace handles item durability on the fab
 Megal helped by allowing me to use their sword sweeping ability mixin code. **Thanks, Megal! I appreciate it a lot :D**
 
 - LlamaLad7 and Benonardo helped Megal figure out how to write parts of said code on the fabric discord, subsequently helping me
+
+d_iscord_made_me_do_it on the fabric discord helped me figure out why my datagenned recipe advancements weren't unlocking properly
