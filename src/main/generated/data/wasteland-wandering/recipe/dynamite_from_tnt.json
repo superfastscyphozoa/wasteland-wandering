@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "dynamite",
+  "ingredients": [
+    {
+      "item": "minecraft:tnt"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "wasteland-wandering:dynamite"
+  }
+}

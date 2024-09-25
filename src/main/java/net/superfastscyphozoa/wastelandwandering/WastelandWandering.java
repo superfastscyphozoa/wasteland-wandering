@@ -3,7 +3,7 @@ package net.superfastscyphozoa.wastelandwandering;
 import net.fabricmc.api.ModInitializer;
 
 import net.superfastscyphozoa.wastelandwandering.item.util.WawaFuels;
-import net.superfastscyphozoa.wastelandwandering.item.util.WawaItemGroups;
+import net.superfastscyphozoa.wastelandwandering.util.WawaItemGroups;
 import net.superfastscyphozoa.wastelandwandering.registry.*;
 import net.superfastscyphozoa.wastelandwandering.util.WawaTrades;
 import org.slf4j.Logger;

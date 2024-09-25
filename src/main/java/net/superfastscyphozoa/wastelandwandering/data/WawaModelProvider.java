@@ -48,6 +48,9 @@ public class WawaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(RegisterItems.STIMPAK, Models.GENERATED);
         itemModelGenerator.register(RegisterItems.MUTFRUIT, Models.GENERATED);
 
+        itemModelGenerator.register(RegisterItems.BEER, Models.GENERATED);
+        itemModelGenerator.register(RegisterItems.VODKA, Models.GENERATED);
+
         itemModelGenerator.register(RegisterItems.OIL, Models.GENERATED);
 
         itemModelGenerator.register(RegisterItems.DYNAMITE, Models.GENERATED);

@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.wastelandwandering.item.util;
+package net.superfastscyphozoa.wastelandwandering.util;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
@@ -31,6 +31,9 @@ public class WawaItemGroups {
 
                 entries.add(RegisterItems.MUTFRUIT);
                 entries.add(RegisterItems.STIMPAK);
+
+                entries.add(RegisterItems.BEER);
+                entries.add(RegisterItems.VODKA);
 
             }).build();
 
@@ -100,6 +103,8 @@ public class WawaItemGroups {
             .entries((displayContext, entries) -> {
 
                 entries.add(RegisterItems.OIL);
+
+                entries.add(RegisterItems.VODKA);
 
             }).build();
 

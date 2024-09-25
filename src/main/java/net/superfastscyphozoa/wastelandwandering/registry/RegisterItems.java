@@ -11,10 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
-import net.superfastscyphozoa.wastelandwandering.item.BumperSwordItem;
-import net.superfastscyphozoa.wastelandwandering.item.DynamiteItem;
-import net.superfastscyphozoa.wastelandwandering.item.MolotovCocktailItem;
-import net.superfastscyphozoa.wastelandwandering.item.OilItem;
+import net.superfastscyphozoa.wastelandwandering.item.*;
 import net.superfastscyphozoa.wastelandwandering.item.util.WawaFoodComponents;
 
 public class RegisterItems {
@@ -29,6 +26,16 @@ public class RegisterItems {
 
     public static final Item MUTFRUIT = registerItem("mutfruit", new Item(new Item.Settings()
             .food(WawaFoodComponents.MUTFRUIT)));
+
+    //alcohol
+
+    public static final Item BEER = registerItem("beer", new AlcoholBottleItem(new Item.Settings()
+            .food(WawaFoodComponents.ALCOHOL)
+            .maxCount(16)));
+
+    public static final Item VODKA = registerItem("vodka", new AlcoholBottleItem(new Item.Settings()
+            .food(WawaFoodComponents.ALCOHOL)
+            .maxCount(16)));
 
     //materials
 
@@ -65,10 +72,16 @@ public class RegisterItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
             entries.add(STIMPAK);
             entries.addAfter(Items.APPLE, MUTFRUIT);
+
+            //alcohol
+            entries.addAfter(Items.HONEY_BOTTLE, BEER);
+            entries.addAfter(BEER, VODKA);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.addBefore(Items.CLAY_BALL, OIL);
+
+            entries.addAfter(Items.GLASS_BOTTLE, VODKA);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {

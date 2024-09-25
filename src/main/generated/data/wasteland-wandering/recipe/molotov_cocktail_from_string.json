@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "molotov_cocktail",
+  "ingredients": [
+    {
+      "item": "wasteland-wandering:vodka"
+    },
+    {
+      "item": "minecraft:string"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "wasteland-wandering:molotov_cocktail"
+  }
+}

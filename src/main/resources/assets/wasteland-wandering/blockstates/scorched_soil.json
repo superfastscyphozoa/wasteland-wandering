@@ -2,42 +2,83 @@
   "variants": {
     "": [
       {
-        "model": "wasteland-wandering:block/scorched_soil_0"
+        "model": "wasteland-wandering:block/scorched_soil_0",
+        "weight": 2
       },
       {
         "model": "wasteland-wandering:block/scorched_soil_0",
-        "y": 90
+        "y": 90,
+        "weight": 2
+      },
+      {
+        "model": "wasteland-wandering:block/scorched_soil_0",
+        "y": 180,
+        "weight": 2
+      },
+      {
+        "model": "wasteland-wandering:block/scorched_soil_0",
+        "y": 270,
+        "weight": 2
+      },
+
+      {
+        "model": "wasteland-wandering:block/scorched_soil_1",
+        "weight": 1
       },
       {
         "model": "wasteland-wandering:block/scorched_soil_1",
-        "y": 90
+        "y": 90,
+        "weight": 1
       },
       {
         "model": "wasteland-wandering:block/scorched_soil_1",
-        "y": 270
+        "y": 180,
+        "weight": 1
       },
       {
-        "model": "wasteland-wandering:block/scorched_soil_2"
+        "model": "wasteland-wandering:block/scorched_soil_1",
+        "y": 270,
+        "weight": 1
+      },
+
+      {
+        "model": "wasteland-wandering:block/scorched_soil_2",
+        "weight": 1
       },
       {
         "model": "wasteland-wandering:block/scorched_soil_2",
-        "y": 180
+        "y": 90,
+        "weight": 1
+      },
+      {
+        "model": "wasteland-wandering:block/scorched_soil_2",
+        "y": 180,
+        "weight": 1
+      },
+      {
+        "model": "wasteland-wandering:block/scorched_soil_2",
+        "y": 270,
+        "weight": 1
+      },
+
+      {
+        "model": "wasteland-wandering:block/scorched_soil_3",
+        "weight": 1
       },
       {
         "model": "wasteland-wandering:block/scorched_soil_3",
-        "y": 90
+        "y": 90,
+        "weight": 1
       },
       {
         "model": "wasteland-wandering:block/scorched_soil_3",
-        "y": 270
+        "y": 180,
+        "weight": 1
       },
       {
-        "model": "wasteland-wandering:block/scorched_soil_4",
-        "y": 180
-      },
-      {
-        "model": "wasteland-wandering:block/scorched_soil_4",
-        "y": 270
+        "model": "wasteland-wandering:block/scorched_soil_3",
+        "y": 270,
+        "weight": 1
       }
     ]
   }
