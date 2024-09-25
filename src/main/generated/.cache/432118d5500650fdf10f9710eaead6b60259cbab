@@ -1,7 +1,7 @@
-// 1.21.1	2024-09-26T03:22:56.6812516	Wasteland Wandering/Recipes
-a3fd6b1376e6385e8170a098a07d567952e24254 data\wasteland-wandering\advancement\recipes\combat\molotov_cocktail_from_string.json
-04a5257f909cb5b04aee6da7e12de2d175cc5c28 data\wasteland-wandering\advancement\recipes\combat\dynamite_from_tnt.json
-c7dcc33c82deaf7770d21af8ca14bac3edca6168 data\wasteland-wandering\advancement\recipes\combat\molotov_cocktail_from_paper.json
+// 1.21.1	2024-09-26T05:16:23.4563671	Wasteland Wandering/Recipes
+91a44bbea57b9a1fb9ecbd8e1847e7bf21bf5790 data\wasteland-wandering\advancement\recipes\combat\molotov_cocktail_from_string.json
+4deb061e91e61e0fe166c8f086acb76be6c44b33 data\wasteland-wandering\advancement\recipes\combat\dynamite_from_tnt.json
+cbbdfb048e5c32a87ba8d91b1d32332c06207d8e data\wasteland-wandering\advancement\recipes\combat\molotov_cocktail_from_paper.json
 3495b6430777ad1fc83b3f3fe13ed84e9bd06275 data\wasteland-wandering\recipe\dynamite_from_tnt.json
 a69af6705ca914df0210e014e300b20eeae77abf data\wasteland-wandering\recipe\molotov_cocktail_from_paper.json
 4741511355bf5a831bb8e33889515576e52ee1f1 data\wasteland-wandering\recipe\molotov_cocktail_from_string.json
