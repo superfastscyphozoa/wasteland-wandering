@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.wastelandwandering.mixin.item.weapon;
+package net.superfastscyphozoa.wastelandwandering.mixin.entity.client;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(PlayerEntityRenderer.class)
-public class ArmPoseMixin {
+public class PlayerEntityRendererMixin {
     @WrapOperation(
             method = "getArmPose",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z")

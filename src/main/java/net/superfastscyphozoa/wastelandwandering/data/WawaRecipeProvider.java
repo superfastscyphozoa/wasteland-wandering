@@ -9,6 +9,7 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
 import org.jetbrains.annotations.Nullable;
@@ -40,7 +41,7 @@ public class WawaRecipeProvider extends FabricRecipeProvider {
                 .input(input)
                 .group(group)
                 .criterion(hasItem(input), conditionsFromItem(input))
-                .offerTo(exporter, WastelandWandering.MOD_ID + ":" + convertBetween(output, input));
+                .offerTo(exporter, Identifier.of(WastelandWandering.MOD_ID, convertBetween(output, input)));
     }
 
     public static void molotovRecipe(
@@ -52,6 +53,6 @@ public class WawaRecipeProvider extends FabricRecipeProvider {
                 .input(input).input(input2)
                 .group("molotov_cocktail")
                 .criterion(hasItem(input), conditionsFromItem(input))
-                .offerTo(exporter, WastelandWandering.MOD_ID + ":" + convertBetween(output, input2));
+                .offerTo(exporter, Identifier.of(WastelandWandering.MOD_ID, convertBetween(output, input2)));
     }
 }

@@ -74,7 +74,7 @@ public abstract class ThrownExplosiveOnHitEntity extends ThrownItemEntity {
                 explode();
             }
 
-            onCollisionParticleEffects();
+            onCollisionEffects();
 
             this.discard();
         }
@@ -84,7 +84,7 @@ public abstract class ThrownExplosiveOnHitEntity extends ThrownItemEntity {
 
     protected void flyingParticleEffects() {}
 
-    protected void onCollisionParticleEffects() {}
+    protected void onCollisionEffects() {}
 
     //explosion
 

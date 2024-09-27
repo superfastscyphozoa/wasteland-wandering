@@ -18,6 +18,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
+import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
 
 public class AlcoholBottleItem extends Item {
 
@@ -105,7 +106,7 @@ public class AlcoholBottleItem extends Item {
 
         // give broken bottle on hit
 
-        ItemStack brokenBottle = new ItemStack(Items.BONE_MEAL);
+        ItemStack brokenBottle = new ItemStack(RegisterItems.BROKEN_BOTTLE);
 
         if (attacker instanceof PlayerEntity playerEntity && !playerEntity.isInCreativeMode()) {
             if (stack.isEmpty()) {

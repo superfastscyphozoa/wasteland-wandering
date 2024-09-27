@@ -5,9 +5,9 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldEvents;
 import net.minecraft.world.explosion.AdvancedExplosionBehavior;
 import net.minecraft.world.explosion.Explosion;
 import net.minecraft.world.explosion.ExplosionBehavior;
@@ -66,8 +66,13 @@ public class MolotovCocktailEntity extends ThrownExplosiveOnHitEntity {
     }
 
     @Override
-    protected void onCollisionParticleEffects() {
-        this.getWorld().syncWorldEvent(WorldEvents.SPLASH_POTION_SPLASHED, this.getBlockPos(), -0);
+    protected void onCollisionEffects() {
+        this.getWorld().playSound(
+                null, this.getX(), this.getY(), this.getZ(),
+                SoundEvents.BLOCK_GLASS_BREAK,
+                SoundCategory.NEUTRAL, 1.0F,
+                1.0F
+        );
     }
 
     //explosion

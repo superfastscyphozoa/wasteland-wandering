@@ -1,7 +1,12 @@
-// 1.21.1	2024-09-26T05:16:23.4623504	Wasteland Wandering/Tags for minecraft:item
+// 1.21.1	2024-09-27T10:10:45.4450697	Wasteland Wandering/Tags for minecraft:item
 3cd5f894760c8cdb3bfaeed4aa78c8e39c06bd85 data\wasteland-wandering\tags\item\thrown_explosive_needs_lighter.json
 94ab47ae9e18f773f04d176f449c3fe5e61ab5cb data\wasteland-wandering\tags\item\chems.json
 6be7f6e8bf1050e010b1e9b8916d71555e196c56 data\wasteland-wandering\tags\item\two_handed_weapon.json
+ca2611ff7584aa172f4cb27f76e1e66fabcfe0b9 data\minecraft\tags\item\enchantable\durability.json
+ca2611ff7584aa172f4cb27f76e1e66fabcfe0b9 data\minecraft\tags\item\enchantable\fire_aspect.json
 a989e52a30a9388a5e7f8e50e4b904ee082df21a data\wasteland-wandering\tags\item\fuse_lighter.json
+6be7f6e8bf1050e010b1e9b8916d71555e196c56 data\wasteland-wandering\tags\item\shielding_item.json
+ca2611ff7584aa172f4cb27f76e1e66fabcfe0b9 data\minecraft\tags\item\enchantable\sharp_weapon.json
 6be7f6e8bf1050e010b1e9b8916d71555e196c56 data\minecraft\tags\item\swords.json
+88483caba67c39fc37d2d83d04c08d747b840c75 data\wasteland-wandering\tags\item\glass.json
 6be7f6e8bf1050e010b1e9b8916d71555e196c56 data\wasteland-wandering\tags\item\sweeping_weapon.json

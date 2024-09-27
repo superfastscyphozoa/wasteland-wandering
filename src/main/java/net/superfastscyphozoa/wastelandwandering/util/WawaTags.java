@@ -20,6 +20,7 @@ public class WawaTags {
     }
 
     public static class Items {
+
         public static final TagKey<Item> CHEMS = createTag("chems");
 
         public static final TagKey<Item> FUSE_LIGHTER = createTag("fuse_lighter");
@@ -27,6 +28,9 @@ public class WawaTags {
 
         public static final TagKey<Item> SWEEPING_WEAPON = createTag("sweeping_weapon");
         public static final TagKey<Item> TWO_HANDED_WEAPON = createTag("two_handed_weapon");
+        public static final TagKey<Item> SHIELDING_ITEM = createTag("shielding_item");
+
+        public static final TagKey<Item> GLASS = createTag("glass");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(WastelandWandering.MOD_ID, name));

@@ -37,10 +37,6 @@ public class RegisterItems {
             .food(WawaFoodComponents.ALCOHOL)
             .maxCount(16)));
 
-    //materials
-
-    public static final Item OIL = registerItem("oil", new OilItem(new Item.Settings()));
-
     //combat
 
     //melee
@@ -52,11 +48,21 @@ public class RegisterItems {
             .attributeModifiers(BumperSwordItem.createAttributeModifiers())
     ));
 
+    public static final Item BROKEN_BOTTLE = registerItem("broken_bottle", new BrokenBottleItem(new Item.Settings()
+            .maxDamage(7)
+            .component(DataComponentTypes.TOOL, BrokenBottleItem.createToolComponent())
+            .attributeModifiers(BrokenBottleItem.createAttributeModifiers())
+    ));
+
     //throwable
 
     public static final Item DYNAMITE = registerItem("dynamite", new DynamiteItem(new Item.Settings()));
 
     public static final Item MOLOTOV_COCKTAIL = registerItem("molotov_cocktail", new MolotovCocktailItem(new Item.Settings()));
+
+    //materials
+
+    public static final Item OIL = registerItem("oil", new OilItem(new Item.Settings()));
 
     //registry end
 
@@ -86,6 +92,7 @@ public class RegisterItems {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
             entries.addAfter(Items.MACE, BUMPER_SWORD);
+            entries.addAfter(BUMPER_SWORD, BROKEN_BOTTLE);
 
             entries.addAfter(Items.WIND_CHARGE, OIL);
 

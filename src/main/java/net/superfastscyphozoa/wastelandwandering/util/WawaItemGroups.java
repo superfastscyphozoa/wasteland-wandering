@@ -91,6 +91,8 @@ public class WawaItemGroups {
 
                 entries.add(RegisterItems.BUMPER_SWORD);
 
+                entries.add(RegisterItems.BROKEN_BOTTLE);
+
                 entries.add(RegisterItems.DYNAMITE);
                 entries.add(RegisterItems.MOLOTOV_COCKTAIL);
                 entries.add(RegisterItems.OIL);
