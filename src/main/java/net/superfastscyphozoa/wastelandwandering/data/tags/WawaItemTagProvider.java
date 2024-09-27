@@ -36,7 +36,6 @@ public class WawaItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(RegisterItems.BUMPER_SWORD);
 
         getOrCreateTagBuilder(WawaTags.Items.SHIELDING_ITEM)
-                //.add(Items.SHIELD)
                 .add(RegisterItems.BUMPER_SWORD);
 
         //tool type

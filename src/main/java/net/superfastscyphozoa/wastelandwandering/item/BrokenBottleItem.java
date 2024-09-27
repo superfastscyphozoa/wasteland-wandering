@@ -29,17 +29,14 @@ public class BrokenBottleItem extends Item {
     //tool stuff
 
     public static ToolComponent createToolComponent() {
-        return new ToolComponent(List.of(
-                ToolComponent.Rule.ofAlwaysDropping(List.of(Blocks.COBWEB), 15.0F),
-                ToolComponent.Rule.of(BlockTags.SWORD_EFFICIENT, 1.5F)),
-                1.0F, 2);
+        return new ToolComponent(List.of(), 1.0F, 2);
     }
 
     public static AttributeModifiersComponent createAttributeModifiers() {
         return AttributeModifiersComponent.builder()
                 .add(
                         EntityAttributes.GENERIC_ATTACK_DAMAGE,
-                        new EntityAttributeModifier(BASE_ATTACK_DAMAGE_MODIFIER_ID, 6, EntityAttributeModifier.Operation.ADD_VALUE),
+                        new EntityAttributeModifier(BASE_ATTACK_DAMAGE_MODIFIER_ID, 5, EntityAttributeModifier.Operation.ADD_VALUE),
                         AttributeModifierSlot.MAINHAND
                 )
                 .add(

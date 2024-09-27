@@ -49,7 +49,7 @@ public class RegisterItems {
     ));
 
     public static final Item BROKEN_BOTTLE = registerItem("broken_bottle", new BrokenBottleItem(new Item.Settings()
-            .maxDamage(7)
+            .maxDamage(8)
             .component(DataComponentTypes.TOOL, BrokenBottleItem.createToolComponent())
             .attributeModifiers(BrokenBottleItem.createAttributeModifiers())
     ));
@@ -91,8 +91,12 @@ public class RegisterItems {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+            //melee
+
             entries.addAfter(Items.MACE, BUMPER_SWORD);
             entries.addAfter(BUMPER_SWORD, BROKEN_BOTTLE);
+
+            //throwable
 
             entries.addAfter(Items.WIND_CHARGE, OIL);
 
