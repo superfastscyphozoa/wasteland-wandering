@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "wasteland-wandering:block/wasteshrub_bottom"
-  }
-}

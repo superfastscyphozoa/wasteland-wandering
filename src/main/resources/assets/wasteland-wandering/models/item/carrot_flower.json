@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "wasteland-wandering:block/wasteshrub_top"
+    "layer0": "wasteland-wandering:item/carrot_flower"
   }
 }

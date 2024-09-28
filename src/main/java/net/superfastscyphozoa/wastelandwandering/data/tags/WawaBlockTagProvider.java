@@ -49,5 +49,13 @@ public class WawaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                         RegisterBlocks.RED_ASPHALT,
                         RegisterBlocks.ORANGE_ASPHALT,
                         RegisterBlocks.WHITE_ASPHALT);
+
+        //mineable
+
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .addTag(WawaTags.Blocks.ASPHALT);
+
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(RegisterBlocks.IRRADIATED_GRASS_BLOCK, RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK, RegisterBlocks.SCORCHED_SOIL);
     }
 }

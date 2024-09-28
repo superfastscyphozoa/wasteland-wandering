@@ -22,8 +22,6 @@ public class WawaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(RegisterBlocks.IRRADIATED_SHORT_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(RegisterBlocks.IRRADIATED_TALL_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
 
-        blockStateModelGenerator.registerDoubleBlock(RegisterBlocks.WASTESHRUB, BlockStateModelGenerator.TintType.NOT_TINTED);
-
         blockStateModelGenerator.registerRotatable(RegisterBlocks.BLACK_ASPHALT);
         blockStateModelGenerator.registerRotatable(RegisterBlocks.GRAY_ASPHALT);
         blockStateModelGenerator.registerRotatable(RegisterBlocks.LIGHT_GRAY_ASPHALT);

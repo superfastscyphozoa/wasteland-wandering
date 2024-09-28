@@ -33,11 +33,10 @@ public class WastelandWanderingClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.RADPINE_SAPLING, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.POISONED_IVY, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.CARROT_FLOWER, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.IRRADIATED_SHORT_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.IRRADIATED_TALL_GRASS, RenderLayer.getCutout());
-
-        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.WASTESHRUB, RenderLayer.getCutout());
 
         EntityRendererRegistry.register(RegisterEntities.OIL_PROJECTILE, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(RegisterEntities.DYNAMITE_PROJECTILE, FlyingItemEntityRenderer::new);

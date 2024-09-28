@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -68,16 +69,6 @@ public class RegisterBlocks {
 
     //foliage
 
-    public static final Block WASTESHRUB = registerBlock("wasteshrub",
-            new TallPlantBlock(AbstractBlock.Settings.create()
-                    .mapColor(MapColor.ORANGE)
-                    .noCollision()
-                    .breakInstantly()
-                    .sounds(BlockSoundGroup.GRASS)
-                    .offset(AbstractBlock.OffsetType.XZ)
-                    .burnable()
-                    .pistonBehavior(PistonBehavior.DESTROY)));
-
     public static final Block POISONED_IVY = registerBlock("poisoned_ivy",
             new IvyBlock(AbstractBlock.Settings.create()
                     .mapColor(MapColor.ORANGE)
@@ -87,6 +78,19 @@ public class RegisterBlocks {
                     .sounds(BlockSoundGroup.GLOW_LICHEN)
                     .burnable()
                     .pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block CARROT_FLOWER = registerBlock("carrot_flower",
+            new BushyFlowerBlock(
+                    StatusEffects.JUMP_BOOST,
+                    6.0F,
+                    AbstractBlock.Settings.create()
+                            .mapColor(MapColor.DARK_GREEN)
+                            .noCollision()
+                            .breakInstantly()
+                            .sounds(BlockSoundGroup.GRASS)
+                            .pistonBehavior(PistonBehavior.DESTROY)
+            )
+    );
 
     //wood
 
@@ -181,7 +185,7 @@ public class RegisterBlocks {
 
             entries.addAfter(Blocks.VINE, RegisterBlocks.POISONED_IVY);
 
-            entries.addAfter(Blocks.DEAD_BUSH, RegisterBlocks.WASTESHRUB);
+            entries.addAfter(Blocks.LILY_OF_THE_VALLEY, RegisterBlocks.CARROT_FLOWER);
 
             entries.addAfter(Blocks.MOSS_CARPET, RegisterBlocks.SOOT_BLOCK);
             entries.addAfter(RegisterBlocks.SOOT_BLOCK, RegisterBlocks.SOOT);

@@ -49,8 +49,8 @@ public class WawaItemGroups {
                 entries.add(RegisterBlocks.IRRADIATED_SHORT_GRASS);
                 entries.add(RegisterBlocks.IRRADIATED_TALL_GRASS);
 
-                entries.add(RegisterBlocks.WASTESHRUB);
                 entries.add(RegisterBlocks.POISONED_IVY);
+                entries.add(RegisterBlocks.CARROT_FLOWER);
 
                 entries.add(RegisterBlocks.WASTEWOOD_SAPLING);
                 entries.add(RegisterBlocks.RADPINE_SAPLING);
