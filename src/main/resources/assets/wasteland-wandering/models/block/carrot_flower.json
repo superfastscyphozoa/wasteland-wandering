@@ -4,7 +4,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "wasteland-wandering:block/carrot_flower",
-		"particle": "wasteland-wandering:block/carrot_flower"
+		"particle": "wasteland-wandering:item/carrot_flower"
 	},
 	"elements": [
 		{

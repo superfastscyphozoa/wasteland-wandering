@@ -48,7 +48,7 @@ public class WawaLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(RegisterBlocks.POISONED_IVY, multifaceGrowthDrops(RegisterBlocks.POISONED_IVY, WITH_SHEARS));
 
-        addDrop(RegisterBlocks.CARROT_FLOWER, wildPlantDrops(RegisterBlocks.CARROT_FLOWER, Items.CARROT));
+        addDrop(RegisterBlocks.CARROT_FLOWER);
 
         addDrop(RegisterBlocks.WASTEWOOD_SAPLING);
         addDrop(RegisterBlocks.RADPINE_SAPLING);
@@ -89,6 +89,7 @@ public class WawaLootTableProvider extends FabricBlockLootTableProvider {
 
     //grass
 
+    // change this value lmao - change to razorgrain maybe when its added
     private final ItemConvertible grassSeeds = Items.PUMPKIN_SEEDS;
 
     public LootTable.Builder irradiatedShortPlantDrops(Block withShears) {

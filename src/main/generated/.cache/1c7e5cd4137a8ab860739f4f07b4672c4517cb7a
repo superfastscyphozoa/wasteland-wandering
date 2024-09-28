@@ -1,9 +1,9 @@
-// 1.21.1	2024-09-28T17:24:07.0652649	Wasteland Wandering/Tags for minecraft:block
+// 1.21.1	2024-09-29T01:12:09.4172554	Wasteland Wandering/Tags for minecraft:block
 7cc918cf1d960af78934334849115f94e32987a6 data\minecraft\tags\block\climbable.json
 735fd43c92f761afa4f9816b50f02b55cab011df data\minecraft\tags\block\valid_spawn.json
 8324e12e12cbaad40685755faa5ef95ba146f25a data\minecraft\tags\block\mineable\shovel.json
 327ef04f2fbd112d0a5dac8b6512ea5d3ad7c7d9 data\minecraft\tags\block\replaceable.json
 20b1dd5f4af5f47f14eae6f2fef92ece52cb3d8d data\wasteland-wandering\tags\block\asphalt.json
-735fd43c92f761afa4f9816b50f02b55cab011df data\wasteland-wandering\tags\block\irradiated_grass.json
 8324e12e12cbaad40685755faa5ef95ba146f25a data\minecraft\tags\block\dirt.json
+735fd43c92f761afa4f9816b50f02b55cab011df data\wasteland-wandering\tags\block\irradiated_grass.json
 23ce399c22d9814e0593f92e8c0456c670c18f82 data\minecraft\tags\block\mineable\pickaxe.json

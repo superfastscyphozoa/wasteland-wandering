@@ -80,7 +80,7 @@ public class RegisterBlocks {
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
     public static final Block CARROT_FLOWER = registerBlock("carrot_flower",
-            new BushyFlowerBlock(
+            new CarrotFlowerBlock(
                     StatusEffects.JUMP_BOOST,
                     6.0F,
                     AbstractBlock.Settings.create()
