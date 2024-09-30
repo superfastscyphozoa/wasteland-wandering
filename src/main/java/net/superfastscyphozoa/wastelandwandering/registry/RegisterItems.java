@@ -69,7 +69,7 @@ public class RegisterItems {
 
     public static final Item OIL = registerItem("oil", new OilItem(new Item.Settings()));
 
-    public static final Item IV_BAG = registerItem("iv_bag", new Item(new Item.Settings()));
+    public static final Item IV_BAG = registerItem("iv_bag", new IVBagItem(new Item.Settings()));
 
     //registry end
 

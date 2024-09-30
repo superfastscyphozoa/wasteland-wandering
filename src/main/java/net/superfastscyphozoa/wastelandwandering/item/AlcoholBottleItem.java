@@ -1,6 +1,7 @@
 package net.superfastscyphozoa.wastelandwandering.item;
 
 import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -17,6 +18,7 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
 
@@ -25,7 +27,6 @@ public class AlcoholBottleItem extends Item {
     public AlcoholBottleItem(Settings settings) {
         super(settings);
     }
-
 
     //drink
 
@@ -77,14 +78,12 @@ public class AlcoholBottleItem extends Item {
         return ItemUsage.consumeHeldItem(world, user, hand);
     }
 
-
     //damage entities
 
     @Override
     public float getBonusAttackDamage(Entity target, float baseAttackDamage, DamageSource damageSource) {
         return 3.0F;
     }
-
 
     //break bottle
 
@@ -95,23 +94,30 @@ public class AlcoholBottleItem extends Item {
 
     @Override
     public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        bottleBreak(stack, attacker);
+    }
 
-        stack.decrementUnlessCreative(1, attacker);
+    @Override
+    public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
+        bottleBreak(stack, miner);
+        return true;
+    }
 
-        // figure out how to add particles
+    protected void bottleBreak(ItemStack stack, LivingEntity player){
 
-        if (!attacker.getWorld().isClient){
-           playAttackSounds(target, attacker);
-        }
-
-        // give broken bottle on hit
+        stack.decrementUnlessCreative(1, player);
 
         ItemStack brokenBottle = new ItemStack(RegisterItems.BROKEN_BOTTLE);
 
-        if (attacker instanceof PlayerEntity playerEntity && !playerEntity.isInCreativeMode()) {
+        if (player instanceof PlayerEntity playerEntity && !playerEntity.isInCreativeMode()) {
+
+            if (!player.getWorld().isClient){
+                playBreakSounds(player);
+            }
+
             if (stack.isEmpty()) {
 
-                attacker.setStackInHand(attacker.getActiveHand(), brokenBottle);
+                player.setStackInHand(player.getActiveHand(), brokenBottle);
             } else {
 
                 if (!playerEntity.getInventory().insertStack(brokenBottle)) {
@@ -121,15 +127,14 @@ public class AlcoholBottleItem extends Item {
         }
     }
 
-
     //particles and sounds
 
-    protected void playAttackSounds(LivingEntity target, LivingEntity attacker){
-        attacker.getWorld().playSound(null, target.getX(), target.getY(), target.getZ(),
+    protected void playBreakSounds(LivingEntity entity){
+        entity.getWorld().playSound(null, entity.getX(), entity.getY(), entity.getZ(),
                 SoundEvents.BLOCK_GLASS_BREAK,
                 SoundCategory.NEUTRAL,
                 0.7F,
-                0.9F / (attacker.getWorld().getRandom().nextFloat() * 0.4F + 0.8F)
+                0.9F / (entity.getWorld().getRandom().nextFloat() * 0.4F + 0.8F)
         );
     }
 }

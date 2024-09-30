@@ -2,16 +2,22 @@ package net.superfastscyphozoa.wastelandwandering.mixin.entity;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
+import net.superfastscyphozoa.wastelandwandering.item.IVBagItem;
+import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
 import net.superfastscyphozoa.wastelandwandering.util.WawaTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
@@ -26,6 +32,18 @@ public abstract class PlayerEntityMixin {
         ItemStack stackInHand = player.getStackInHand(Hand.MAIN_HAND);
 
         return original.call(object) || stackInHand.isIn(WawaTags.Items.SWEEPING_WEAPON);
+    }
+
+    @Inject(
+            method = "onKilledOther",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;)V")
+    )
+    private void convertIVBag(ServerWorld world, LivingEntity other, CallbackInfoReturnable<Boolean> cir){
+        PlayerEntity player = (PlayerEntity) (Object) this;
+
+        if (player.getStackInHand(Hand.OFF_HAND).isOf(RegisterItems.IV_BAG)){
+            IVBagItem.convertToBloodPack(player);
+        }
     }
 
     @WrapOperation(
