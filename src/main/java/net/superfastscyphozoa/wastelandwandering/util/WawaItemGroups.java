@@ -25,12 +25,18 @@ public class WawaItemGroups {
     }
 
     public static final ItemGroup WAWA_AID = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(RegisterItems.MUTFRUIT))
+            .icon(() -> new ItemStack(RegisterItems.RADAWAY))
             .displayName(Text.translatable("itemgroup.wasteland-wandering.wawa_aid"))
             .entries((displayContext, entries) -> {
 
-                entries.add(RegisterItems.MUTFRUIT);
                 entries.add(RegisterItems.STIMPAK);
+
+                entries.add(RegisterItems.RADAWAY);
+
+                entries.add(RegisterItems.BLOOD_PACK);
+                entries.add(RegisterItems.GLOWING_BLOOD_PACK);
+
+                entries.add(RegisterItems.MUTFRUIT);
 
                 entries.add(RegisterItems.BEER);
                 entries.add(RegisterItems.VODKA);
@@ -105,6 +111,8 @@ public class WawaItemGroups {
             .entries((displayContext, entries) -> {
 
                 entries.add(RegisterItems.OIL);
+
+                entries.add(RegisterItems.IV_BAG);
 
                 entries.add(RegisterItems.VODKA);
 

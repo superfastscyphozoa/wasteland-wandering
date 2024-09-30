@@ -22,6 +22,11 @@ public class RegisterItems {
 
     public static final Item STIMPAK = registerItem("stimpak", new Item(new Item.Settings()));
 
+    public static final Item RADAWAY = registerItem("radaway", new Item(new Item.Settings()));
+
+    public static final Item BLOOD_PACK = registerItem("blood_pack", new Item(new Item.Settings()));
+    public static final Item GLOWING_BLOOD_PACK = registerItem("glowing_blood_pack", new Item(new Item.Settings()));
+
     //food
 
     public static final Item MUTFRUIT = registerItem("mutfruit", new Item(new Item.Settings()
@@ -64,6 +69,8 @@ public class RegisterItems {
 
     public static final Item OIL = registerItem("oil", new OilItem(new Item.Settings()));
 
+    public static final Item IV_BAG = registerItem("iv_bag", new Item(new Item.Settings()));
+
     //registry end
 
     private static Item registerItem(String name, Item item) {
@@ -76,7 +83,14 @@ public class RegisterItems {
         //tells the game where to put the items in the inventory
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
-            entries.add(STIMPAK);
+
+            //chems and healing items
+            entries.addAfter(Items.SPIDER_EYE, STIMPAK);
+            entries.addAfter(STIMPAK, RADAWAY);
+            entries.addAfter(RADAWAY, BLOOD_PACK);
+            entries.addAfter(BLOOD_PACK, GLOWING_BLOOD_PACK);
+
+            //food
             entries.addAfter(Items.APPLE, MUTFRUIT);
 
             //alcohol
@@ -85,7 +99,10 @@ public class RegisterItems {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+
             entries.addBefore(Items.CLAY_BALL, OIL);
+
+            entries.addBefore(Items.BOWL, IV_BAG);
 
             entries.addAfter(Items.GLASS_BOTTLE, VODKA);
         });

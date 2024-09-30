@@ -44,12 +44,20 @@ public class WawaModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
 
         itemModelGenerator.register(RegisterItems.STIMPAK, Models.GENERATED);
+
+        itemModelGenerator.register(RegisterItems.RADAWAY, Models.GENERATED);
+
+        itemModelGenerator.register(RegisterItems.BLOOD_PACK, Models.GENERATED);
+        itemModelGenerator.register(RegisterItems.GLOWING_BLOOD_PACK, Models.GENERATED);
+
         itemModelGenerator.register(RegisterItems.MUTFRUIT, Models.GENERATED);
 
         itemModelGenerator.register(RegisterItems.BEER, Models.GENERATED);
         itemModelGenerator.register(RegisterItems.VODKA, Models.GENERATED);
 
         itemModelGenerator.register(RegisterItems.BROKEN_BOTTLE, Models.HANDHELD);
+
+        itemModelGenerator.register(RegisterItems.IV_BAG, Models.GENERATED);
 
         itemModelGenerator.register(RegisterItems.OIL, Models.GENERATED);
 
