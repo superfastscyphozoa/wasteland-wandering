@@ -21,6 +21,7 @@ public class WawaVegetationConfiguredFeatures {
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         var placedFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
         RegistryEntry<PlacedFeature> wastewood = placedFeatureRegistryEntryLookup.getOrThrow(WawaTreePlacedFeatures.WASTEWOOD_PLACED_KEY);
+        RegistryEntry<PlacedFeature> largeWastewood = placedFeatureRegistryEntryLookup.getOrThrow(WawaTreePlacedFeatures.LARGE_WASTEWOOD_PLACED_KEY);
         RegistryEntry<PlacedFeature> radpine = placedFeatureRegistryEntryLookup.getOrThrow(WawaTreePlacedFeatures.RADPINE_PLACED_KEY);
 
         WawaConfiguredFeatures.register(
@@ -31,7 +32,7 @@ public class WawaVegetationConfiguredFeatures {
         WawaConfiguredFeatures.register(
                 context, TREES_WASTED_FOREST_KEY, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfig(List.of(
-                        new RandomFeatureEntry(radpine, 0.2F)),
+                        new RandomFeatureEntry(largeWastewood, 0.2F)),
                         wastewood)
         );
     }

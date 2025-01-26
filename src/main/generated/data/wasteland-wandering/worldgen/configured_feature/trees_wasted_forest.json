@@ -5,7 +5,7 @@
     "features": [
       {
         "chance": 0.2,
-        "feature": "wasteland-wandering:radpine_placed"
+        "feature": "wasteland-wandering:large_wastewood_placed"
       }
     ]
   }

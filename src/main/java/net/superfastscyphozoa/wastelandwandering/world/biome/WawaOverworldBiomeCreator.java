@@ -10,9 +10,6 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarver;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
-import net.superfastscyphozoa.wastelandwandering.world.features.configured.WawaVegetationConfiguredFeatures;
-import net.superfastscyphozoa.wastelandwandering.world.features.placed.WawaTreePlacedFeatures;
 import net.superfastscyphozoa.wastelandwandering.world.features.placed.WawaVegetationPlacedFeatures;
 import org.jetbrains.annotations.Nullable;
 

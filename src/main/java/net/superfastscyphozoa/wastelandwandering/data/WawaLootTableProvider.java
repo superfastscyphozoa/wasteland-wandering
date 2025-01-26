@@ -44,6 +44,8 @@ public class WawaLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(RegisterBlocks.IRRADIATED_SHORT_GRASS, irradiatedShortPlantDrops(RegisterBlocks.IRRADIATED_SHORT_GRASS));
         addDrop(RegisterBlocks.IRRADIATED_TALL_GRASS, irradiatedTallPlantDrops(RegisterBlocks.IRRADIATED_TALL_GRASS, RegisterBlocks.IRRADIATED_SHORT_GRASS));
 
+        addDrop(RegisterBlocks.WASTEWOOD_LITTER);
+
         addDrop(RegisterBlocks.SCORCHED_SOIL);
 
         addDrop(RegisterBlocks.POISONED_IVY, multifaceGrowthDrops(RegisterBlocks.POISONED_IVY, WITH_SHEARS));

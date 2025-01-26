@@ -9,9 +9,6 @@ import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 import net.minecraft.world.biome.source.util.VanillaBiomeParameters;
 import net.superfastscyphozoa.wastelandwandering.world.biome.WawaBiomeKeys;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(VanillaBiomeParameters.class)
 public abstract class BiomeParametersMixin {

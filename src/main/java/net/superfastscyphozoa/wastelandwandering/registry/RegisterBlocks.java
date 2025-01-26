@@ -67,6 +67,12 @@ public class RegisterBlocks {
                     .strength(0.5F)
                     .sounds(BlockSoundGroup.GRAVEL)));
 
+    public static final Block WASTEWOOD_LITTER = registerBlock("wastewood_litter",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.ORANGE)
+                    .strength(0.5F)
+                    .sounds(BlockSoundGroup.GRAVEL)));
+
     //foliage
 
     public static final Block POISONED_IVY = registerBlock("poisoned_ivy",
@@ -99,25 +105,6 @@ public class RegisterBlocks {
 
     public static final Block RADPINE_SAPLING = registerBlock("radpine_sapling",
             new SaplingBlock(WawaSaplingGenerators.RADPINE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-    // soot
-
-    public static final Block SOOT_BLOCK = registerBlock("soot_block",
-            new Block(AbstractBlock.Settings.create()
-                    .mapColor(MapColor.BLACK)
-                    .requiresTool()
-                    .strength(0.2F)
-                    .sounds(BlockSoundGroup.SNOW)));
-
-    public static final Block SOOT = registerBlock("soot",
-            new SootBlock(AbstractBlock.Settings.create()
-                    .mapColor(MapColor.BLACK)
-                    .replaceable()
-                    .strength(0.1F)
-                    .requiresTool()
-                    .sounds(BlockSoundGroup.SNOW)
-                    .blockVision((state, world, pos) -> state.get(SootBlock.LAYERS) >= 8)
-                    .pistonBehavior(PistonBehavior.DESTROY)));
 
     // asphalt
 
@@ -180,6 +167,8 @@ public class RegisterBlocks {
 
             entries.addAfter(Blocks.DIRT, RegisterBlocks.SCORCHED_SOIL);
 
+            entries.addAfter(Blocks.PODZOL, RegisterBlocks.WASTEWOOD_LITTER);
+
             entries.addAfter(Blocks.OAK_SAPLING, RegisterBlocks.WASTEWOOD_SAPLING);
             entries.addAfter(RegisterBlocks.WASTEWOOD_SAPLING, RegisterBlocks.RADPINE_SAPLING);
 
@@ -187,8 +176,6 @@ public class RegisterBlocks {
 
             entries.addAfter(Blocks.LILY_OF_THE_VALLEY, RegisterBlocks.CARROT_FLOWER);
 
-            entries.addAfter(Blocks.MOSS_CARPET, RegisterBlocks.SOOT_BLOCK);
-            entries.addAfter(RegisterBlocks.SOOT_BLOCK, RegisterBlocks.SOOT);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {

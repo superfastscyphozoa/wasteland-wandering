@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "wasteland-wandering:block/wastewood_litter"
+      },
+      {
+        "model": "wasteland-wandering:block/wastewood_litter",
+        "y": 90
+      },
+      {
+        "model": "wasteland-wandering:block/wastewood_litter",
+        "y": 180
+      },
+      {
+        "model": "wasteland-wandering:block/wastewood_litter",
+        "y": 270
+      }
+    ]
+  }
+}

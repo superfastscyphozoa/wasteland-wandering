@@ -3,13 +3,14 @@
   "package": "net.superfastscyphozoa.wastelandwandering.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "entity.PlayerEntityMixin",
     "entity.ChickenEntityMixin",
-    "world.BiomeParametersMixin"
+    "entity.PlayerEntityMixin",
+    "world.BiomeParametersMixin",
+    "world.VanillaSurfaceRulesMixin"
   ],
   "client": [
-    "entity.client.PlayerEntityRendererMixin",
     "entity.client.ChickenEntityRendererMixin",
+    "entity.client.PlayerEntityRendererMixin",
     "item.ItemRendererAccessor",
     "item.ItemRendererMixin",
     "item.ModelLoaderMixin"

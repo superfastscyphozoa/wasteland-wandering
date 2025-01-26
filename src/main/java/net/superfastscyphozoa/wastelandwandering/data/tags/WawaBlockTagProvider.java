@@ -23,13 +23,13 @@ public class WawaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(RegisterBlocks.POISONED_IVY);
 
         getOrCreateTagBuilder(BlockTags.DIRT)
-                .add(RegisterBlocks.IRRADIATED_GRASS_BLOCK, RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK, RegisterBlocks.SCORCHED_SOIL);
+                .add(RegisterBlocks.IRRADIATED_GRASS_BLOCK, RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK, RegisterBlocks.SCORCHED_SOIL, RegisterBlocks.WASTEWOOD_LITTER);
 
         getOrCreateTagBuilder(BlockTags.VALID_SPAWN)
-                .add(RegisterBlocks.IRRADIATED_GRASS_BLOCK, RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK);
+                .add(RegisterBlocks.IRRADIATED_GRASS_BLOCK, RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK, RegisterBlocks.WASTEWOOD_LITTER);
 
         getOrCreateTagBuilder(BlockTags.REPLACEABLE)
-                .add(RegisterBlocks.SOOT, RegisterBlocks.IRRADIATED_SHORT_GRASS, RegisterBlocks.IRRADIATED_TALL_GRASS);
+                .add(RegisterBlocks.IRRADIATED_SHORT_GRASS, RegisterBlocks.IRRADIATED_TALL_GRASS);
 
         getOrCreateTagBuilder(WawaTags.Blocks.ASPHALT)
                 .add(
@@ -56,6 +56,6 @@ public class WawaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addTag(WawaTags.Blocks.ASPHALT);
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
-                .add(RegisterBlocks.IRRADIATED_GRASS_BLOCK, RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK, RegisterBlocks.SCORCHED_SOIL);
+                .add(RegisterBlocks.IRRADIATED_GRASS_BLOCK, RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK, RegisterBlocks.SCORCHED_SOIL, RegisterBlocks.WASTEWOOD_LITTER);
     }
 }

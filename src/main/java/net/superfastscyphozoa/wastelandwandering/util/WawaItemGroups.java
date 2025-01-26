@@ -50,6 +50,9 @@ public class WawaItemGroups {
 
                 entries.add(RegisterBlocks.IRRADIATED_GRASS_BLOCK);
                 entries.add(RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK);
+
+                entries.add(RegisterBlocks.WASTEWOOD_LITTER);
+
                 entries.add(RegisterBlocks.SCORCHED_SOIL);
 
                 entries.add(RegisterBlocks.IRRADIATED_SHORT_GRASS);
@@ -60,9 +63,6 @@ public class WawaItemGroups {
 
                 entries.add(RegisterBlocks.WASTEWOOD_SAPLING);
                 entries.add(RegisterBlocks.RADPINE_SAPLING);
-
-                entries.add(RegisterBlocks.SOOT_BLOCK);
-                entries.add(RegisterBlocks.SOOT);
 
             }).build();
 
