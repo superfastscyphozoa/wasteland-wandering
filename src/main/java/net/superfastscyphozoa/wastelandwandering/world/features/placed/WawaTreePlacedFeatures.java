@@ -8,6 +8,8 @@ import net.minecraft.world.gen.feature.*;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterBlocks;
 import net.superfastscyphozoa.wastelandwandering.world.features.configured.WawaTreeConfiguredFeatures;
 
+import java.util.Collections;
+
 import static net.superfastscyphozoa.wastelandwandering.world.features.placed.WawaPlacedFeatures.registerKey;
 
 public class WawaTreePlacedFeatures {
@@ -19,12 +21,7 @@ public class WawaTreePlacedFeatures {
         RegistryEntry<ConfiguredFeature<?, ?>> wastewood = configuredFeatureRegistryEntryLookup.getOrThrow(WawaTreeConfiguredFeatures.WASTEWOOD_KEY);
         RegistryEntry<ConfiguredFeature<?, ?>> radpine = configuredFeatureRegistryEntryLookup.getOrThrow(WawaTreeConfiguredFeatures.RADPINE_KEY);
 
-        WawaPlacedFeatures.register(context, WASTEWOOD_PLACED_KEY, wastewood,
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(2, 0.1f, 2),
-                        RegisterBlocks.WASTEWOOD_SAPLING));
-
-        WawaPlacedFeatures.register(context, RADPINE_PLACED_KEY, radpine,
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(2, 0.1f, 2),
-                        RegisterBlocks.RADPINE_SAPLING));
+        WawaPlacedFeatures.register(context, WASTEWOOD_PLACED_KEY, wastewood, Collections.singletonList(PlacedFeatures.wouldSurvive(RegisterBlocks.WASTEWOOD_SAPLING)));
+        WawaPlacedFeatures.register(context, RADPINE_PLACED_KEY, radpine, Collections.singletonList(PlacedFeatures.wouldSurvive(RegisterBlocks.RADPINE_SAPLING)));
     }
 }

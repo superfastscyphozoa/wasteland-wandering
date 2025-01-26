@@ -11,6 +11,9 @@ import net.minecraft.world.gen.carver.ConfiguredCarver;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
+import net.superfastscyphozoa.wastelandwandering.world.features.configured.WawaVegetationConfiguredFeatures;
+import net.superfastscyphozoa.wastelandwandering.world.features.placed.WawaTreePlacedFeatures;
+import net.superfastscyphozoa.wastelandwandering.world.features.placed.WawaVegetationPlacedFeatures;
 import org.jetbrains.annotations.Nullable;
 
 public class WawaOverworldBiomeCreator {
@@ -67,20 +70,15 @@ public class WawaOverworldBiomeCreator {
     public static Biome createWastedForest(RegistryEntryLookup<PlacedFeature> featureLookup, RegistryEntryLookup<ConfiguredCarver<?>> carverLookup) {
         //spawns
         SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnSettings);
         DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
 
         //generation and features
         GenerationSettings.LookupBackedBuilder generationSettings = new GenerationSettings.LookupBackedBuilder(featureLookup, carverLookup);
         addBasicFeatures(generationSettings);
-        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.DARK_FOREST_VEGETATION);
-        DefaultBiomeFeatures.addForestFlowers(generationSettings);
+        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, WawaVegetationPlacedFeatures.TREES_WASTED_FOREST_PLACED_KEY);
         DefaultBiomeFeatures.addDefaultOres(generationSettings);
         DefaultBiomeFeatures.addDefaultDisks(generationSettings);
-        DefaultBiomeFeatures.addDefaultFlowers(generationSettings);
-        DefaultBiomeFeatures.addForestGrass(generationSettings);
         DefaultBiomeFeatures.addDefaultMushrooms(generationSettings);
-        DefaultBiomeFeatures.addDefaultVegetation(generationSettings);
 
         MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_FOREST);
 

@@ -21,7 +21,7 @@ public class WawaTreeConfiguredFeatures {
 
     private static TreeFeatureConfig.Builder wastewood() {
         return (new TreeFeatureConfig.Builder( BlockStateProvider.of(Blocks.OAK_LOG),
-                new MegaJungleTrunkPlacer(5, 4, 3),
+                new MegaJungleTrunkPlacer(5, 6, 5),
 
                 BlockStateProvider.of(Blocks.OAK_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0), 0),
