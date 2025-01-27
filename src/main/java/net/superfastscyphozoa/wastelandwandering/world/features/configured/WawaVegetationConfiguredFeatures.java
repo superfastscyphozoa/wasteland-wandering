@@ -32,7 +32,7 @@ public class WawaVegetationConfiguredFeatures {
         WawaConfiguredFeatures.register(
                 context, TREES_WASTED_FOREST_KEY, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfig(List.of(
-                        new RandomFeatureEntry(largeWastewood, 0.2F)),
+                        new RandomFeatureEntry(largeWastewood, 0.4F)),
                         wastewood)
         );
     }

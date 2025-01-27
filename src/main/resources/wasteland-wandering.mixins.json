@@ -6,7 +6,7 @@
     "entity.ChickenEntityMixin",
     "entity.PlayerEntityMixin",
     "world.BiomeParametersMixin",
-    "world.VanillaSurfaceRulesMixin"
+    "world.SurfaceRulesMixin"
   ],
   "client": [
     "entity.client.ChickenEntityRendererMixin",

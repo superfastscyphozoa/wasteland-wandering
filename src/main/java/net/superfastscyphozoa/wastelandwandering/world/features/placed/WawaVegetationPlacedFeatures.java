@@ -24,7 +24,7 @@ import static net.superfastscyphozoa.wastelandwandering.world.features.placed.Wa
 public class WawaVegetationPlacedFeatures {
     public static final RegistryKey<PlacedFeature> RAD_GRASS_BONEMEAL_PLACED_KEY = registerKey("rad_grass_bonemeal_placed");
 
-    public static final RegistryKey<PlacedFeature> TREES_WASTED_FOREST_PLACED_KEY = registerKey("trees_wasted_forest_placed");
+    public static final RegistryKey<PlacedFeature> TREES_WASTED_FOREST = registerKey("trees_wasted_forest");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -33,8 +33,8 @@ public class WawaVegetationPlacedFeatures {
 
         WawaPlacedFeatures.register(context, RAD_GRASS_BONEMEAL_PLACED_KEY, singeRadShortGrass, Collections.singletonList(PlacedFeatures.isAir()));
 
-        WawaPlacedFeatures.register(context, TREES_WASTED_FOREST_PLACED_KEY, wastedForestTrees,
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(2, 0.1f, 2),
+        WawaPlacedFeatures.register(context, TREES_WASTED_FOREST, wastedForestTrees,
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.5f, 3),
                         RegisterBlocks.WASTEWOOD_SAPLING));
     }
 }

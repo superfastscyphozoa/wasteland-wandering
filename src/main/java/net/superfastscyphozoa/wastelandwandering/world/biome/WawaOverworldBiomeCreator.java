@@ -72,7 +72,7 @@ public class WawaOverworldBiomeCreator {
         //generation and features
         GenerationSettings.LookupBackedBuilder generationSettings = new GenerationSettings.LookupBackedBuilder(featureLookup, carverLookup);
         addBasicFeatures(generationSettings);
-        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, WawaVegetationPlacedFeatures.TREES_WASTED_FOREST_PLACED_KEY);
+        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, WawaVegetationPlacedFeatures.TREES_WASTED_FOREST);
         DefaultBiomeFeatures.addDefaultOres(generationSettings);
         DefaultBiomeFeatures.addDefaultDisks(generationSettings);
         DefaultBiomeFeatures.addDefaultMushrooms(generationSettings);

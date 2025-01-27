@@ -17,14 +17,10 @@ public abstract class BiomeParametersMixin {
 			method = "getRegularBiome"
 	)
 	private RegistryKey<Biome> getWawaRegularBiomes(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness, Operation<RegistryKey<Biome>> original) {
-
 		if (temperature < 4) {
-
 			if (humidity == 0 || humidity == 1) {
 				return BiomeKeys.PLAINS;
-			}
-
-			else if (humidity >= 2) {
+			} else {
 
 				if (weirdness.max() >= 0L && humidity == 2 && temperature == 3) {
 					return BiomeKeys.PLAINS;
@@ -32,15 +28,57 @@ public abstract class BiomeParametersMixin {
 					return WawaBiomeKeys.WASTED_FOREST;
 				}
 			}
-
-			else {
-				return original.call(temperature, humidity, weirdness);
-			}
-
-		}
-
-		else {
+		} else {
 			return original.call(temperature, humidity, weirdness);
 		}
     }
+
+	@WrapMethod(
+			method = "getBiomeOrWindsweptSavanna"
+	)
+	private RegistryKey<Biome> disableWindsweptSavanna
+			(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness, RegistryKey<Biome> biomeKey, Operation<RegistryKey<Biome>> original)
+	{
+        return biomeKey;
+    }
+
+	@WrapMethod(
+			method = "getShoreBiome"
+	)
+	private RegistryKey<Biome> getWawaShoreBiomes(int temperature, int humidity, Operation<RegistryKey<Biome>> original)
+	{
+		if (temperature == 0) {
+			return BiomeKeys.BEACH;
+		} else {
+			return temperature == 4 ? BiomeKeys.DESERT : BiomeKeys.BEACH;
+		}
+	}
+
+	@WrapMethod(
+			method = "getNearMountainBiome"
+	)
+	private RegistryKey<Biome> getWawaNearMountainBiomes(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness, Operation<RegistryKey<Biome>> original)
+	{
+		if (temperature < 4) {
+			if (humidity >= 0 && humidity <= 2) {
+				return BiomeKeys.MEADOW;
+			} else {
+				return WawaBiomeKeys.WASTED_FOREST;
+			}
+		} else {
+			return original.call(temperature, humidity, weirdness);
+		}
+	}
+
+	@WrapMethod(
+			method = "getWindsweptOrRegularBiome"
+	)
+	private RegistryKey<Biome> getWawaWindsweptBiomes(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness, Operation<RegistryKey<Biome>> original)
+	{
+		if (humidity >= 0 && humidity <= 2) {
+			return BiomeKeys.WINDSWEPT_GRAVELLY_HILLS;
+		} else {
+			return BiomeKeys.WINDSWEPT_HILLS;
+		}
+	}
 }
