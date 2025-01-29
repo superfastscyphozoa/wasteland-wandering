@@ -1,0 +1,53 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "wasteland-wandering:block/stripped_mutfruit_log_side",
+		"1": "wasteland-wandering:block/stripped_mutfruit_log_top",
+		"particle": "wasteland-wandering:block/stripped_mutfruit_log_top"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 16, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 1]},
+			"faces": {
+				"north": {"uv": [2, 0, 14, 16], "texture": "#0"},
+				"east": {"uv": [2, 0, 14, 16], "texture": "#0"},
+				"south": {"uv": [2, 0, 14, 16], "texture": "#0"},
+				"west": {"uv": [2, 0, 14, 16], "texture": "#0"},
+				"up": {"uv": [2, 2, 14, 14], "texture": "#1"},
+				"down": {"uv": [2, 2, 14, 14], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 45, 0],
+			"translation": [0, 0.75, -1.25],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 45, 0],
+			"translation": [0, 0.75, -1.25],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"firstperson_righthand": {
+			"rotation": [-17, 39, 11],
+			"translation": [5.75, -5.5, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-17, 39, 11],
+			"translation": [5.75, -5.5, 0]
+		},
+		"ground": {
+			"translation": [-1, 0.25, 0]
+		},
+		"gui": {
+			"rotation": [28, 45, 0],
+			"scale": [0.65, 0.65, 0.65]
+		},
+		"head": {
+			"scale": [1.5, 1.5, 1.5]
+		}
+	}
+}

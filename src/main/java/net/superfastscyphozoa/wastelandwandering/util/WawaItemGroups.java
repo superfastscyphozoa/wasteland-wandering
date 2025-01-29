@@ -61,6 +61,8 @@ public class WawaItemGroups {
                 entries.add(RegisterBlocks.POISONED_IVY);
                 entries.add(RegisterBlocks.CARROT_FLOWER);
 
+                entries.add(RegisterBlocks.MUTFRUIT_LOG);
+
                 entries.add(RegisterBlocks.WASTEWOOD_SAPLING);
                 entries.add(RegisterBlocks.RADPINE_SAPLING);
 
@@ -70,6 +72,9 @@ public class WawaItemGroups {
             .icon(() -> new ItemStack(RegisterBlocks.GRAY_ASPHALT))
             .displayName(Text.translatable("itemgroup.wasteland-wandering.wawa_building_blocks"))
             .entries((displayContext, entries) -> {
+
+                entries.add(RegisterBlocks.MUTFRUIT_LOG);
+                entries.add(RegisterBlocks.STRIPPED_MUTFRUIT_LOG);
 
                 entries.add(RegisterBlocks.WHITE_ASPHALT);
                 entries.add(RegisterBlocks.LIGHT_GRAY_ASPHALT);

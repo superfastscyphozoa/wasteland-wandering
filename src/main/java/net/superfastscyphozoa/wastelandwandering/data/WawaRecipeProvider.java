@@ -11,6 +11,7 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
+import net.superfastscyphozoa.wastelandwandering.registry.RegisterBlocks;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
 import org.jetbrains.annotations.Nullable;
 
@@ -25,6 +26,9 @@ public class WawaRecipeProvider extends FabricRecipeProvider {
     public void generate(RecipeExporter exporter) {
 
         wawaShapelessRecipe(exporter, RegisterItems.DYNAMITE, 4, Blocks.TNT, RecipeCategory.COMBAT, "dynamite");
+
+        wawaShapelessRecipe(exporter, Items.STICK, 8, RegisterBlocks.MUTFRUIT_LOG, RecipeCategory.MISC, "stick");
+        wawaShapelessRecipe(exporter, Items.STICK, 8, RegisterBlocks.STRIPPED_MUTFRUIT_LOG, RecipeCategory.MISC, "stick");
 
         molotovRecipe(exporter, RegisterItems.MOLOTOV_COCKTAIL, RegisterItems.VODKA, Items.STRING);
         molotovRecipe(exporter, RegisterItems.MOLOTOV_COCKTAIL, RegisterItems.VODKA, Items.PAPER);

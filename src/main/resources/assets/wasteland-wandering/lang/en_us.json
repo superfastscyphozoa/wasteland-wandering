@@ -8,6 +8,9 @@
   "block.wasteland-wandering.wastewood_sapling": "Wastewood Sapling",
   "block.wasteland-wandering.radpine_sapling": "Radpine Sapling",
 
+  "block.wasteland-wandering.mutfruit_log": "Mutfruit Log",
+  "block.wasteland-wandering.stripped_mutfruit_log": "Stripped Mutfruit Log",
+
   "block.wasteland-wandering.irradiated_grass_block": "Irradiated Grass Block",
   "block.wasteland-wandering.patchy_irradiated_grass_block": "Patchy Irradiated Grass Block",
   "block.wasteland-wandering.irradiated_short_grass": "Irradiated Short Grass",

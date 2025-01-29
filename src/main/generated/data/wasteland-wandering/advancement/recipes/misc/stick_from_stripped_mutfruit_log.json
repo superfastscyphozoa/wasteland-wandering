@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stripped_mutfruit_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "wasteland-wandering:stripped_mutfruit_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "wasteland-wandering:stick_from_stripped_mutfruit_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_mutfruit_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "wasteland-wandering:stick_from_stripped_mutfruit_log"
+    ]
+  }
+}

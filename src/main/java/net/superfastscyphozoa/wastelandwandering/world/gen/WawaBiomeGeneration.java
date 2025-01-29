@@ -9,11 +9,15 @@ import net.superfastscyphozoa.wastelandwandering.world.biome.WawaBiomeKeys;
 public class WawaBiomeGeneration {
     public static void generateBiomes(){
 
+        //biomes
+
         BiomePlacement.replaceOverworld(BiomeKeys.FOREST, WawaBiomeKeys.WASTED_FOREST);
         BiomePlacement.replaceOverworld(BiomeKeys.FLOWER_FOREST, WawaBiomeKeys.WASTED_FOREST);
 
         BiomePlacement.replaceOverworld(BiomeKeys.PLAINS, WawaBiomeKeys.PRAIRIE);
         BiomePlacement.replaceOverworld(BiomeKeys.SUNFLOWER_PLAINS, WawaBiomeKeys.PRAIRIE);
+
+        //sub-biomes
 
         BiomePlacement.addSubOverworld(
                 WawaBiomeKeys.WASTED_FOREST,
@@ -25,6 +29,13 @@ public class WawaBiomeGeneration {
 
     public static void removeVanillaBiomes(){
 
+        //birch
+        BiomePlacement.removeOverworld(BiomeKeys.BIRCH_FOREST);
+        BiomePlacement.removeOverworld(BiomeKeys.OLD_GROWTH_BIRCH_FOREST);
+
+        //dark
+        BiomePlacement.removeOverworld(BiomeKeys.DARK_FOREST);
+
         //taiga
         BiomePlacement.removeOverworld(BiomeKeys.TAIGA);
         BiomePlacement.removeOverworld(BiomeKeys.OLD_GROWTH_PINE_TAIGA);
@@ -33,11 +44,8 @@ public class WawaBiomeGeneration {
         //snowy
         BiomePlacement.removeOverworld(BiomeKeys.SNOWY_TAIGA);
         BiomePlacement.removeOverworld(BiomeKeys.SNOWY_PLAINS);
-        BiomePlacement.removeOverworld(BiomeKeys.SNOWY_BEACH);
-        BiomePlacement.removeOverworld(BiomeKeys.SNOWY_SLOPES);
 
         //mountain
-        BiomePlacement.removeOverworld(BiomeKeys.FROZEN_PEAKS);
         BiomePlacement.removeOverworld(BiomeKeys.GROVE);
         BiomePlacement.removeOverworld(BiomeKeys.CHERRY_GROVE);
 
@@ -62,6 +70,5 @@ public class WawaBiomeGeneration {
 
         //caves
         BiomePlacement.removeOverworld(BiomeKeys.LUSH_CAVES);
-        BiomePlacement.removeOverworld(BiomeKeys.DEEP_DARK);
     }
 }

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stick",
+  "ingredients": [
+    {
+      "item": "wasteland-wandering:stripped_mutfruit_log"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "id": "minecraft:stick"
+  }
+}

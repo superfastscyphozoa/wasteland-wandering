@@ -1,7 +1,11 @@
-// 1.21.1	2025-01-29T19:56:41.9421666	Wasteland Wandering/Recipes
+// 1.21.1	2025-01-29T23:10:06.6454107	Wasteland Wandering/Recipes
+0f6964dab5d7cf8ae41dfc713ed50a5a9e880312 data\wasteland-wandering\advancement\recipes\misc\stick_from_stripped_mutfruit_log.json
 91a44bbea57b9a1fb9ecbd8e1847e7bf21bf5790 data\wasteland-wandering\advancement\recipes\combat\molotov_cocktail_from_string.json
 4deb061e91e61e0fe166c8f086acb76be6c44b33 data\wasteland-wandering\advancement\recipes\combat\dynamite_from_tnt.json
+e540353274b38718b199e42f3abf5f9cc6ff8a8e data\wasteland-wandering\recipe\stick_from_stripped_mutfruit_log.json
 cbbdfb048e5c32a87ba8d91b1d32332c06207d8e data\wasteland-wandering\advancement\recipes\combat\molotov_cocktail_from_paper.json
 3495b6430777ad1fc83b3f3fe13ed84e9bd06275 data\wasteland-wandering\recipe\dynamite_from_tnt.json
+3f669ede7d7e89f6241b10afd042c956cca13014 data\wasteland-wandering\advancement\recipes\misc\stick_from_mutfruit_log.json
 a69af6705ca914df0210e014e300b20eeae77abf data\wasteland-wandering\recipe\molotov_cocktail_from_paper.json
+a4d6b3292e03f85596716ea5a43184eea39d9337 data\wasteland-wandering\recipe\stick_from_mutfruit_log.json
 4741511355bf5a831bb8e33889515576e52ee1f1 data\wasteland-wandering\recipe\molotov_cocktail_from_string.json

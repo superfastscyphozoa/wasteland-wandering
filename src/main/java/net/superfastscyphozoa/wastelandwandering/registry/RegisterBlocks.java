@@ -100,6 +100,26 @@ public class RegisterBlocks {
 
     //wood
 
+    public static final Block MUTFRUIT_LOG = registerBlock("mutfruit_log",
+            new ThinLogBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.TERRACOTTA_WHITE)
+                    .instrument(NoteBlockInstrument.BASS)
+                    .strength(2.0F)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .burnable()
+            )
+    );
+
+    public static final Block STRIPPED_MUTFRUIT_LOG = registerBlock("stripped_mutfruit_log",
+            new ThinLogBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.TERRACOTTA_WHITE)
+                    .instrument(NoteBlockInstrument.BASS)
+                    .strength(2.0F)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .burnable()
+            )
+    );
+
     public static final Block WASTEWOOD_SAPLING = registerBlock("wastewood_sapling",
             new SaplingBlock(WawaSaplingGenerators.WASTEWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
@@ -176,6 +196,14 @@ public class RegisterBlocks {
 
             entries.addAfter(Blocks.LILY_OF_THE_VALLEY, RegisterBlocks.CARROT_FLOWER);
 
+            entries.addAfter(Blocks.CHERRY_LOG, RegisterBlocks.MUTFRUIT_LOG);
+
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+
+            entries.addBefore(Blocks.BAMBOO_BLOCK, RegisterBlocks.STRIPPED_MUTFRUIT_LOG);
+            entries.addBefore(RegisterBlocks.STRIPPED_MUTFRUIT_LOG, RegisterBlocks.MUTFRUIT_LOG);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
