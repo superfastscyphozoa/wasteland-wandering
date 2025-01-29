@@ -38,11 +38,13 @@ public abstract class PlayerEntityMixin {
             method = "onKilledOther",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;)V")
     )
-    private void convertIVBag(ServerWorld world, LivingEntity other, CallbackInfoReturnable<Boolean> cir){
+    private void playerKilledEntity(ServerWorld world, LivingEntity other, CallbackInfoReturnable<Boolean> cir){
         PlayerEntity player = (PlayerEntity) (Object) this;
 
-        if (player.getStackInHand(Hand.OFF_HAND).isOf(RegisterItems.IV_BAG)){
-            IVBagItem.convertToBloodPack(player);
+        if (player.getStackInHand(Hand.MAIN_HAND).isOf(RegisterItems.IV_BAG)){
+            IVBagItem.convertToBloodPack(player, Hand.MAIN_HAND);
+        } else if (player.getStackInHand(Hand.OFF_HAND).isOf(RegisterItems.IV_BAG)){
+            IVBagItem.convertToBloodPack(player, Hand.OFF_HAND);
         }
     }
 

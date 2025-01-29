@@ -11,17 +11,17 @@ public class IVBagItem extends Item {
         super(settings);
     }
 
-    public static void convertToBloodPack(PlayerEntity player){
-        ItemStack offHandStack = player.getStackInHand(Hand.OFF_HAND);
+    public static void convertToBloodPack(PlayerEntity player, Hand hand){
+        ItemStack ivBagStack = player.getStackInHand(hand);
 
-        offHandStack.decrement(1);
+        ivBagStack.decrement(1);
 
         ItemStack bloodPack = new ItemStack(RegisterItems.BLOOD_PACK);
         ItemStack glowingBloodPack = new ItemStack(RegisterItems.GLOWING_BLOOD_PACK);
 
-        if (offHandStack.isEmpty()) {
+        if (ivBagStack.isEmpty()) {
 
-            player.setStackInHand(Hand.OFF_HAND, bloodPack);
+            player.setStackInHand(hand, bloodPack);
         } else {
 
             if (!player.getInventory().insertStack(bloodPack)) {

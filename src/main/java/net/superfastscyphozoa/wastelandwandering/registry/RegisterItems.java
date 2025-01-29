@@ -20,7 +20,7 @@ public class RegisterItems {
 
     //chems and health items
 
-    public static final Item STIMPAK = registerItem("stimpak", new Item(new Item.Settings()));
+    public static final Item STIMPAK = registerItem("stimpak", new StimpakItem(new Item.Settings()));
 
     public static final Item RADAWAY = registerItem("radaway", new Item(new Item.Settings()));
 
