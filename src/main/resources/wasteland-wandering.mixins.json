@@ -4,9 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "entity.ChickenEntityMixin",
-    "entity.PlayerEntityMixin",
-    "world.BiomeParametersMixin",
-    "world.SurfaceRulesMixin"
+    "entity.PlayerEntityMixin"
   ],
   "client": [
     "entity.client.ChickenEntityRendererMixin",

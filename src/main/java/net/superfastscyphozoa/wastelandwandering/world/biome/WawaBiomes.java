@@ -12,6 +12,9 @@ public class WawaBiomes {
         RegistryEntryLookup<PlacedFeature> placedFeatureLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
         RegistryEntryLookup<ConfiguredCarver<?>> configuredCarverLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER);
 
-        context.register(WawaBiomeKeys.WASTED_FOREST, WawaOverworldBiomeCreator.createWastedForest(placedFeatureLookup, configuredCarverLookup));
+        context.register(WawaBiomeKeys.WASTED_FOREST, WawaOverworldBiomeCreator.createWastedForest(placedFeatureLookup, configuredCarverLookup, false));
+        context.register(WawaBiomeKeys.WASTED_GLADE, WawaOverworldBiomeCreator.createWastedForest(placedFeatureLookup, configuredCarverLookup, true));
+
+        context.register(WawaBiomeKeys.PRAIRIE, WawaOverworldBiomeCreator.createPrairie(placedFeatureLookup, configuredCarverLookup));
     }
 }

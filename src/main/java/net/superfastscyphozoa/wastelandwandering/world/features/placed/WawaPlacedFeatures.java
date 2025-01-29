@@ -27,4 +27,9 @@ public class WawaPlacedFeatures {
                                  List<PlacementModifier> modifiers) {
         context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
     }
+
+    protected static void register(Registerable<PlacedFeature> context, RegistryKey<PlacedFeature> key, RegistryEntry<ConfiguredFeature<?, ?>> configuration,
+                                   PlacementModifier... modifiers) {
+        register(context, key, configuration, List.of(modifiers));
+    }
 }

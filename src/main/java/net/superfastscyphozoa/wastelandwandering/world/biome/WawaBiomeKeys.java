@@ -9,6 +9,7 @@ import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 public abstract class WawaBiomeKeys {
 
     public static final RegistryKey<Biome> WASTED_FOREST = registerWawaBiomeKeys("wasted_forest");
+    public static final RegistryKey<Biome> WASTED_GLADE = registerWawaBiomeKeys("wasted_glade");
 
     public static final RegistryKey<Biome> PRAIRIE = registerWawaBiomeKeys("prairie");
 

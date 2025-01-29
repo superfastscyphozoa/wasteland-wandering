@@ -32,7 +32,9 @@ public class WawaTreeConfiguredFeatures {
                 BlockStateProvider.of(Blocks.OAK_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0), 0),
 
-                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines());
+                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines()
+                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT))
+                .forceDirt());
     }
 
     private static TreeFeatureConfig.Builder large_wastewood() {
@@ -42,27 +44,32 @@ public class WawaTreeConfiguredFeatures {
                 BlockStateProvider.of(Blocks.OAK_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0), 0),
 
-                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines());
+                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines()
+                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT))
+                .forceDirt());
     }
+
+    //mutfruit
 
     //radpine
 
     private static TreeFeatureConfig.Builder radpine() {
-        return (new TreeFeatureConfig.Builder( BlockStateProvider.of(Blocks.OAK_LOG),
+        return (new TreeFeatureConfig.Builder( BlockStateProvider.of(Blocks.SPRUCE_LOG),
                 new StraightTrunkPlacer(10, 4, 3),
 
                 BlockStateProvider.of(Blocks.OAK_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0), 0),
 
-                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines());
+                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines()
+                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT))
+                .forceDirt());
     }
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
 
         AlterGroundTreeDecorator leafLitterDecorator = new AlterGroundTreeDecorator(BlockStateProvider.of(RegisterBlocks.WASTEWOOD_LITTER));
 
-        WawaConfiguredFeatures.register(context, WASTEWOOD_KEY, Feature.TREE, wastewood()
-                .decorators(ImmutableList.of(leafLitterDecorator)).build());
+        WawaConfiguredFeatures.register(context, WASTEWOOD_KEY, Feature.TREE, wastewood().build());
         WawaConfiguredFeatures.register(context, LARGE_WASTEWOOD_KEY, Feature.TREE, large_wastewood()
                 .decorators(ImmutableList.of(leafLitterDecorator)).build());
 
