@@ -28,6 +28,5 @@ public class IVBagItem extends Item {
                 player.dropItem(bloodPack, false);
             }
         }
-
     }
 }

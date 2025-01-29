@@ -26,12 +26,11 @@ public class StimpakItem extends Item {
                 user.setHealth(user.getMaxHealth());
                 user.getHungerManager().add(20, 1.2F);
 
-                itemStack.decrement(1);
-
                 playUseSounds(world, user);
             }
 
-            user.getItemCooldownManager().set(this, 25);
+            itemStack.decrement(1);
+            user.getItemCooldownManager().set(this, 50);
 
             user.incrementStat(Stats.USED.getOrCreateStat(this));
             return TypedActionResult.success(itemStack, world.isClient());
