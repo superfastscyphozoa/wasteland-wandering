@@ -58,7 +58,7 @@
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "minecraft:pumpkin_seeds"
+              "name": "minecraft:wheat_seeds"
             }
           ]
         }
@@ -122,7 +122,7 @@
                   "condition": "minecraft:random_chance"
                 }
               ],
-              "name": "minecraft:pumpkin_seeds"
+              "name": "minecraft:wheat_seeds"
             }
           ]
         }

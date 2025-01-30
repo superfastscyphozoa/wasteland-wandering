@@ -19,28 +19,32 @@ public abstract class ChemItem extends Item {
         super(settings);
     }
 
-    private void onUseChem(World world, PlayerEntity user) {
+    private void onUseChem(ItemStack itemStack, World world, PlayerEntity user) {
         if (!world.isClient) {
             playUseSounds(world, user);
         }
 
-        if (chemCooldown()) {
+        if (chemCooldownLength() > 0) {
             user.getItemCooldownManager().set(this, chemCooldownLength());
         }
+
+        if (itemToReturnAfterChemUse() != null){
+            returnItemAfterChemUse(itemStack, user);
+        }
+
         chemEffects(world, user);
     }
 
     protected void chemEffects(World world, PlayerEntity user) {}
 
     // use chem
-
     @Override
     public ItemStack finishUsing(ItemStack itemStack, World world, LivingEntity user) {
         if (isEatenOrDrank(itemStack)){
             super.finishUsing(itemStack, world, user);
 
             if (user instanceof PlayerEntity playerEntity) {
-                onUseChem(world, playerEntity);
+                onUseChem(itemStack, world, playerEntity);
             }
 
             if (user instanceof ServerPlayerEntity serverPlayerEntity) {
@@ -62,7 +66,7 @@ public abstract class ChemItem extends Item {
             if (isEatenOrDrank(itemStack)){
                 return ItemUsage.consumeHeldItem(world, user, hand);
             } else {
-                onUseChem(world, user);
+                onUseChem(itemStack, world, user);
 
                 itemStack.decrementUnlessCreative(1, user);
                 user.incrementStat(Stats.USED.getOrCreateStat(this));
@@ -74,6 +78,7 @@ public abstract class ChemItem extends Item {
         }
     }
 
+    // chem use conditions
     protected boolean chemUseConditions(World world, PlayerEntity user, Hand hand) {
         return true;
     }
@@ -86,22 +91,34 @@ public abstract class ChemItem extends Item {
         }
     }
 
-    // cooldown
+    // return item after chem use
+    protected ItemStack itemToReturnAfterChemUse(){
+        return null;
+    }
 
+    private void returnItemAfterChemUse(ItemStack itemStack, PlayerEntity user) {
+        ItemStack returnedItem = itemToReturnAfterChemUse();
+
+        if (itemStack.isEmpty()) {
+            user.setStackInHand(user.getActiveHand(), returnedItem);
+        } else {
+            if (!user.isInCreativeMode()) {
+                if (!user.getInventory().insertStack(returnedItem)) {
+                    user.dropItem(returnedItem, false);
+                }
+            }
+        }
+    }
+
+    // cooldown
     protected int chemCooldownLength(){
         return 0;
     }
 
-    private boolean chemCooldown() {
-        return chemCooldownLength() > 0;
-    }
-
     //sound
-
     protected void playUseSounds(World world, PlayerEntity user) {}
 
     // check chem type
-
     private boolean isEatenOrDrank(ItemStack stack) {
         FoodComponent foodComponent = stack.get(DataComponentTypes.FOOD);
         return foodComponent != null;

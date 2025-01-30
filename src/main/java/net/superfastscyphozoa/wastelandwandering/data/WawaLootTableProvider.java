@@ -41,10 +41,10 @@ public class WawaLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(RegisterBlocks.IRRADIATED_GRASS_BLOCK, drops(RegisterBlocks.IRRADIATED_GRASS_BLOCK, Blocks.DIRT));
         addDrop(RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK, drops(RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK, Blocks.DIRT));
 
+        addDrop(RegisterBlocks.WASTEWOOD_LITTER, drops(RegisterBlocks.WASTEWOOD_LITTER, Blocks.DIRT));
+
         addDrop(RegisterBlocks.IRRADIATED_SHORT_GRASS, irradiatedShortPlantDrops(RegisterBlocks.IRRADIATED_SHORT_GRASS));
         addDrop(RegisterBlocks.IRRADIATED_TALL_GRASS, irradiatedTallPlantDrops(RegisterBlocks.IRRADIATED_TALL_GRASS, RegisterBlocks.IRRADIATED_SHORT_GRASS));
-
-        addDrop(RegisterBlocks.WASTEWOOD_LITTER);
 
         addDrop(RegisterBlocks.SCORCHED_SOIL);
 
@@ -96,7 +96,7 @@ public class WawaLootTableProvider extends FabricBlockLootTableProvider {
     //grass
 
     // change this value lmao - change to razorgrain maybe when its added
-    private final ItemConvertible grassSeeds = Items.PUMPKIN_SEEDS;
+    private final ItemConvertible grassSeeds = Items.WHEAT_SEEDS;
 
     public LootTable.Builder irradiatedShortPlantDrops(Block withShears) {
         RegistryWrapper.Impl<Enchantment> impl = registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);

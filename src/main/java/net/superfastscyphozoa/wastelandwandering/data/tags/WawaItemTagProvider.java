@@ -19,7 +19,11 @@ public class WawaItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
         getOrCreateTagBuilder(WawaTags.Items.CHEMS)
-                .add(RegisterItems.STIMPAK);
+                .add(RegisterItems.STIMPAK)
+                .addTag(WawaTags.Items.ALCOHOL);
+
+        getOrCreateTagBuilder(WawaTags.Items.ALCOHOL)
+                .add(RegisterItems.BEER, RegisterItems.VODKA);
 
         getOrCreateTagBuilder(WawaTags.Items.FUSE_LIGHTER)
                 .add(Items.FIRE_CHARGE, Items.FLINT_AND_STEEL);

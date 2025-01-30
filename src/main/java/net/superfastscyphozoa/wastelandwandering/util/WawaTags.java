@@ -22,6 +22,7 @@ public class WawaTags {
     public static class Items {
 
         public static final TagKey<Item> CHEMS = createTag("chems");
+        public static final TagKey<Item> ALCOHOL = createTag("alcohol");
 
         public static final TagKey<Item> FUSE_LIGHTER = createTag("fuse_lighter");
         public static final TagKey<Item> THROWN_EXPLOSIVE_NEEDS_LIGHTER = createTag("thrown_explosive_needs_lighter");

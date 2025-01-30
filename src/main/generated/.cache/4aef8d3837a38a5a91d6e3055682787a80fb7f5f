@@ -1,16 +1,16 @@
-// 1.21.1	2025-01-30T22:22:03.7050414	Wasteland Wandering/Block Loot Tables
+// 1.21.1	2025-01-31T03:15:20.8189089	Wasteland Wandering/Block Loot Tables
 7be26c4b699ca4d0cda3e07a20c009b22a8c6edc data\wasteland-wandering\loot_table\blocks\red_asphalt.json
 731f0ea0ffb1f894e6a4650431e07be82ee75bdc data\wasteland-wandering\loot_table\blocks\blue_asphalt.json
 319aa6be6c16db83757f46fb8e6015ed71d77f64 data\wasteland-wandering\loot_table\blocks\radpine_sapling.json
 dde8b0b0a5deb5d9375a353c98cdf68074068fa5 data\wasteland-wandering\loot_table\blocks\orange_asphalt.json
 eb831150601bd821f7b34b3072ebcda5c48a91ea data\wasteland-wandering\loot_table\blocks\white_asphalt.json
-e727784e4526f2a593eebb398dd1637791a0bcae data\wasteland-wandering\loot_table\blocks\wastewood_litter.json
+cb5cfe92e686ab134f9b57d7fd4105fd476c06c8 data\wasteland-wandering\loot_table\blocks\wastewood_litter.json
 2e9cb65d3c11ac7e23487b56e42f23baf4f91e87 data\wasteland-wandering\loot_table\blocks\scorched_soil.json
 86c66509425e2695fe73966b6676e1fb74d1ff11 data\wasteland-wandering\loot_table\blocks\irradiated_grass_block.json
 15381734ec735f57b34efdb3794411740d31121b data\wasteland-wandering\loot_table\blocks\green_asphalt.json
 29260e8e1a2df4a1368892af8f144e01ddc9355c data\wasteland-wandering\loot_table\blocks\light_blue_asphalt.json
 592e82ac179ab68b19b824587e6e86b57e9feae6 data\wasteland-wandering\loot_table\blocks\magenta_asphalt.json
-3235bf2e776c76042c9d1c7236ab67b814887b8f data\wasteland-wandering\loot_table\blocks\irradiated_short_grass.json
+fe7f9d089e52edffc3123a633252239b04e0e45a data\wasteland-wandering\loot_table\blocks\irradiated_short_grass.json
 983d7475b14da591143416d1c8f4768fbcd06aa8 data\wasteland-wandering\loot_table\blocks\mutfruit_log.json
 92014cd8121db5d41faf2d10f696c1f7140884ab data\wasteland-wandering\loot_table\blocks\wastewood_sapling.json
 4a20cd60278a1cc1e2d5b6d56033497584816e7e data\wasteland-wandering\loot_table\blocks\stripped_mutfruit_log.json
@@ -27,4 +27,4 @@ cb86a02945b443fbb8ddf3d4a1bf518e903f271a data\wasteland-wandering\loot_table\blo
 fbabae7d95c6fa1872243c449ddcdcbe2e1f843a data\wasteland-wandering\loot_table\blocks\purple_asphalt.json
 151966414b6a8048ccfdcba96bf51a4ca8606413 data\wasteland-wandering\loot_table\blocks\gray_asphalt.json
 6d094b5674d3b29d27823752167795882123beee data\wasteland-wandering\loot_table\blocks\black_asphalt.json
-8e909c1a866dc7bdf66c15f196366e601e52dacc data\wasteland-wandering\loot_table\blocks\irradiated_tall_grass.json
+3ea60458d90dfdd6cae6595dabb8d6b1256c3ff4 data\wasteland-wandering\loot_table\blocks\irradiated_tall_grass.json
