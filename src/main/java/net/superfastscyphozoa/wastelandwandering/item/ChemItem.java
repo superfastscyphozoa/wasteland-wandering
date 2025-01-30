@@ -20,14 +20,17 @@ public abstract class ChemItem extends Item {
     }
 
     private void onUseChem(ItemStack itemStack, World world, PlayerEntity user) {
+        //override playUseSounds to add sounds on use
         if (!world.isClient) {
             playUseSounds(world, user);
         }
 
+        //override chemCooldownLength to a number higher than zero to enable a cooldown
         if (chemCooldownLength() > 0) {
             user.getItemCooldownManager().set(this, chemCooldownLength());
         }
 
+        //override itemToReturnAfterChemUse to get an item after use
         if (itemToReturnAfterChemUse() != null){
             returnItemAfterChemUse(itemStack, user);
         }
@@ -35,6 +38,7 @@ public abstract class ChemItem extends Item {
         chemEffects(world, user);
     }
 
+    //the actual effect of the chem, override with your desired effects
     protected void chemEffects(World world, PlayerEntity user) {}
 
     // use chem
@@ -79,6 +83,8 @@ public abstract class ChemItem extends Item {
     }
 
     // chem use conditions
+
+    //override chemUseConditions to add conditions - you will be unable to use the chem if the conditions are not met
     protected boolean chemUseConditions(World world, PlayerEntity user, Hand hand) {
         return true;
     }

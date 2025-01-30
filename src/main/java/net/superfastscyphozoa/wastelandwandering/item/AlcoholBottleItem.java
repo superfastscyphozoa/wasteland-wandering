@@ -24,11 +24,6 @@ public class AlcoholBottleItem extends ChemItem {
     //drink
 
     @Override
-    protected ItemStack itemToReturnAfterChemUse() {
-        return Items.GLASS_BOTTLE.getDefaultStack();
-    }
-
-    @Override
     public int getMaxUseTime(ItemStack stack, LivingEntity user) {
         return 40;
     }
@@ -46,6 +41,11 @@ public class AlcoholBottleItem extends ChemItem {
     @Override
     public SoundEvent getEatSound() {
         return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
+    }
+
+    @Override
+    protected ItemStack itemToReturnAfterChemUse() {
+        return Items.GLASS_BOTTLE.getDefaultStack();
     }
 
     //damage entities
