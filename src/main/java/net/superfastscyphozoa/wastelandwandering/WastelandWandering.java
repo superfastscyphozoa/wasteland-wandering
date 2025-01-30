@@ -4,7 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.superfastscyphozoa.wastelandwandering.block.util.WawaFlammableBlocks;
 import net.superfastscyphozoa.wastelandwandering.block.util.WawaStrippableBlocks;
-import net.superfastscyphozoa.wastelandwandering.item.util.WawaFuels;
+import net.superfastscyphozoa.wastelandwandering.util.WawaFuels;
 import net.superfastscyphozoa.wastelandwandering.util.WawaItemGroups;
 import net.superfastscyphozoa.wastelandwandering.registry.*;
 import net.superfastscyphozoa.wastelandwandering.util.WawaTrades;

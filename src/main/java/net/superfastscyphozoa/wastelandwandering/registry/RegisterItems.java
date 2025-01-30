@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 import net.superfastscyphozoa.wastelandwandering.item.*;
-import net.superfastscyphozoa.wastelandwandering.item.util.WawaFoodComponents;
+import net.superfastscyphozoa.wastelandwandering.util.WawaFoodComponents;
 
 public class RegisterItems {
 

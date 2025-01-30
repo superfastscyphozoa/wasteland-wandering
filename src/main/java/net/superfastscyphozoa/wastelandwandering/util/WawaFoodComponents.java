@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.wastelandwandering.item.util;
+package net.superfastscyphozoa.wastelandwandering.util;
 
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
