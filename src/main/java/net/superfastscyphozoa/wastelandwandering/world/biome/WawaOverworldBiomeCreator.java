@@ -10,7 +10,7 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarver;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
+import net.superfastscyphozoa.wastelandwandering.world.features.placed.WawaTreePlacedFeatures;
 import net.superfastscyphozoa.wastelandwandering.world.features.placed.WawaVegetationPlacedFeatures;
 import org.jetbrains.annotations.Nullable;
 
@@ -83,6 +83,7 @@ public class WawaOverworldBiomeCreator {
         addBasicFeatures(generationSettings);
 
         if (glade) {
+            generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, WawaTreePlacedFeatures.PATCH_MUTFRUIT_TREE_PLACED_KEY);
             generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, WawaVegetationPlacedFeatures.PATCH_IRRADIATED_GRASS_PLACED_KEY);
         } else {
             generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, WawaVegetationPlacedFeatures.TREES_WASTED_FOREST);

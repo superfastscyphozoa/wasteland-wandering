@@ -98,7 +98,7 @@ public class RegisterBlocks {
             )
     );
 
-    //wood
+    //mutfruit tree
 
     public static final Block MUTFRUIT_LOG = registerBlock("mutfruit_log",
             new ThinLogBlock(AbstractBlock.Settings.create()
@@ -119,6 +119,13 @@ public class RegisterBlocks {
                     .burnable()
             )
     );
+
+    public static final Block MUTFRUIT_LEAVES = registerBlock("mutfruit_leaves", createWawaLeavesBlock(BlockSoundGroup.GRASS));
+
+    public static final Block MUTFRUIT_SAPLING = registerBlock("mutfruit_sapling",
+            new SaplingBlock(WawaSaplingGenerators.MUTFRUIT_TREE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+
+    //saplings
 
     public static final Block WASTEWOOD_SAPLING = registerBlock("wastewood_sapling",
             new SaplingBlock(WawaSaplingGenerators.WASTEWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
@@ -163,6 +170,23 @@ public class RegisterBlocks {
 
     //registry end
 
+    public static Block createWawaLeavesBlock(BlockSoundGroup soundGroup) {
+        return new LeavesBlock(
+                AbstractBlock.Settings.create()
+                        .mapColor(MapColor.TERRACOTTA_RED)
+                        .strength(0.2F)
+                        .ticksRandomly()
+                        .sounds(soundGroup)
+                        .nonOpaque()
+                        .allowsSpawning(Blocks::canSpawnOnLeaves)
+                        .suffocates(Blocks::never)
+                        .blockVision(Blocks::never)
+                        .burnable()
+                        .pistonBehavior(PistonBehavior.DESTROY)
+                        .solidBlock(Blocks::never)
+        );
+    }
+
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(WastelandWandering.MOD_ID, name), block);
@@ -197,6 +221,8 @@ public class RegisterBlocks {
             entries.addAfter(Blocks.LILY_OF_THE_VALLEY, RegisterBlocks.CARROT_FLOWER);
 
             entries.addAfter(Blocks.CHERRY_LOG, RegisterBlocks.MUTFRUIT_LOG);
+            entries.addAfter(Blocks.CHERRY_LEAVES, RegisterBlocks.MUTFRUIT_LEAVES);
+            entries.addAfter(Blocks.CHERRY_SAPLING, RegisterBlocks.MUTFRUIT_SAPLING);
 
         });
 

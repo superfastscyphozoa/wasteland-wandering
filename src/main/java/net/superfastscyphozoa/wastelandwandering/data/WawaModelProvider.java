@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.data.client.TexturedModel;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterBlocks;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
 
@@ -18,9 +19,12 @@ public class WawaModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerTintableCross(RegisterBlocks.WASTEWOOD_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(RegisterBlocks.RADPINE_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(RegisterBlocks.MUTFRUIT_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerTintableCross(RegisterBlocks.IRRADIATED_SHORT_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(RegisterBlocks.IRRADIATED_TALL_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        blockStateModelGenerator.registerSingleton(RegisterBlocks.MUTFRUIT_LEAVES, TexturedModel.LEAVES);
 
         blockStateModelGenerator.registerRotatable(RegisterBlocks.BLACK_ASPHALT);
         blockStateModelGenerator.registerRotatable(RegisterBlocks.GRAY_ASPHALT);

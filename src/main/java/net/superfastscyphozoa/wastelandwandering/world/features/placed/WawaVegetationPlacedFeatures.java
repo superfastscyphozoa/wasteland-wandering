@@ -33,6 +33,7 @@ public class WawaVegetationPlacedFeatures {
     }
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
+
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         RegistryEntry<ConfiguredFeature<?, ?>> singeRadShortGrass = configuredFeatureRegistryEntryLookup.getOrThrow(WawaVegetationConfiguredFeatures.SINGLE_RAD_SHORT_GRASS_KEY);
 

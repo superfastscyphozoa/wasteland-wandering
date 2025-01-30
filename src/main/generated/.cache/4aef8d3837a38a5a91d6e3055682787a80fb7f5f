@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-29T23:10:06.6523483	Wasteland Wandering/Block Loot Tables
+// 1.21.1	2025-01-30T22:22:03.7050414	Wasteland Wandering/Block Loot Tables
 7be26c4b699ca4d0cda3e07a20c009b22a8c6edc data\wasteland-wandering\loot_table\blocks\red_asphalt.json
 731f0ea0ffb1f894e6a4650431e07be82ee75bdc data\wasteland-wandering\loot_table\blocks\blue_asphalt.json
 319aa6be6c16db83757f46fb8e6015ed71d77f64 data\wasteland-wandering\loot_table\blocks\radpine_sapling.json
@@ -21,6 +21,7 @@ cb86a02945b443fbb8ddf3d4a1bf518e903f271a data\wasteland-wandering\loot_table\blo
 64513eefa55162f1d34b22b1f68e57e3f8c66539 data\wasteland-wandering\loot_table\blocks\patchy_irradiated_grass_block.json
 3166046089030e3f066f3aabe334c13ba8aa780c data\wasteland-wandering\loot_table\blocks\carrot_flower.json
 2dbce4e3f794eb80b87ae0c8043782ee1d397d56 data\wasteland-wandering\loot_table\blocks\cyan_asphalt.json
+8c45cb7137b13f4c75e32a9d459722d2ea95992b data\wasteland-wandering\loot_table\blocks\mutfruit_sapling.json
 244d5e7dcce13771f9329a190b7b35776094f360 data\wasteland-wandering\loot_table\blocks\poisoned_ivy.json
 71c20d10a843771a0c71503e44710d5b09dd8657 data\wasteland-wandering\loot_table\blocks\lime_asphalt.json
 fbabae7d95c6fa1872243c449ddcdcbe2e1f843a data\wasteland-wandering\loot_table\blocks\purple_asphalt.json

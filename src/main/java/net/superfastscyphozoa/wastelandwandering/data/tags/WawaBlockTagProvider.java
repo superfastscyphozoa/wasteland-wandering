@@ -56,10 +56,19 @@ public class WawaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.OVERWORLD_NATURAL_LOGS)
                 .add(RegisterBlocks.MUTFRUIT_LOG);
 
+        getOrCreateTagBuilder(BlockTags.LEAVES)
+                .add(RegisterBlocks.MUTFRUIT_LEAVES);
+
+        getOrCreateTagBuilder(BlockTags.SAPLINGS)
+                .add(RegisterBlocks.MUTFRUIT_SAPLING);
+
         //mineable
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .addTag(WawaTags.Blocks.ASPHALT);
+
+        getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
+                .add(RegisterBlocks.MUTFRUIT_LEAVES);
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(RegisterBlocks.IRRADIATED_GRASS_BLOCK, RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK, RegisterBlocks.SCORCHED_SOIL, RegisterBlocks.WASTEWOOD_LITTER);

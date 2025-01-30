@@ -55,6 +55,7 @@ public class WawaLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(RegisterBlocks.MUTFRUIT_LOG);
         addDrop(RegisterBlocks.STRIPPED_MUTFRUIT_LOG);
 
+        addDrop(RegisterBlocks.MUTFRUIT_SAPLING);
         addDrop(RegisterBlocks.WASTEWOOD_SAPLING);
         addDrop(RegisterBlocks.RADPINE_SAPLING);
 

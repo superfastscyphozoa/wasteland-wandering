@@ -7,7 +7,8 @@ import java.util.Optional;
 
 public class WawaSaplingGenerators {
     public static final SaplingGenerator WASTEWOOD =
-            new SaplingGenerator("wastewood", 0f, Optional.empty(),
+            new SaplingGenerator("wastewood", 0f,
+                    Optional.of(WawaTreeConfiguredFeatures.LARGE_WASTEWOOD_KEY),
                     Optional.empty(),
                     Optional.of(WawaTreeConfiguredFeatures.WASTEWOOD_KEY),
                     Optional.empty(),
@@ -15,9 +16,19 @@ public class WawaSaplingGenerators {
                     Optional.empty());
 
     public static final SaplingGenerator RADPINE =
-            new SaplingGenerator("radpine", 0f, Optional.empty(),
+            new SaplingGenerator("radpine", 0f,
+                    Optional.empty(),
                     Optional.empty(),
                     Optional.of(WawaTreeConfiguredFeatures.RADPINE_KEY),
+                    Optional.empty(),
+                    Optional.empty(),
+                    Optional.empty());
+
+    public static final SaplingGenerator MUTFRUIT_TREE =
+            new SaplingGenerator("mutfruit_tree", 0f,
+                    Optional.empty(),
+                    Optional.empty(),
+                    Optional.of(WawaTreeConfiguredFeatures.MUTFRUIT_TREE_KEY),
                     Optional.empty(),
                     Optional.empty(),
                     Optional.empty());

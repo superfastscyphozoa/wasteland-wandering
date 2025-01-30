@@ -62,6 +62,8 @@ public class WawaItemGroups {
                 entries.add(RegisterBlocks.CARROT_FLOWER);
 
                 entries.add(RegisterBlocks.MUTFRUIT_LOG);
+                entries.add(RegisterBlocks.MUTFRUIT_LEAVES);
+                entries.add(RegisterBlocks.MUTFRUIT_SAPLING);
 
                 entries.add(RegisterBlocks.WASTEWOOD_SAPLING);
                 entries.add(RegisterBlocks.RADPINE_SAPLING);
@@ -132,5 +134,4 @@ public class WawaItemGroups {
         Registry.register(Registries.ITEM_GROUP, WAWA_COMBAT_GROUP, WAWA_COMBAT);
         Registry.register(Registries.ITEM_GROUP, WAWA_INGREDIENTS_GROUP, WAWA_INGREDIENTS);
     }
-
 }

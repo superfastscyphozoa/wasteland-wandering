@@ -78,6 +78,7 @@
     ],
     [
       "minecraft:glow_lichen",
+      "wasteland-wandering:mutfruit_tree_patch_placed",
       "wasteland-wandering:patch_irradiated_grass_placed",
       "wasteland-wandering:patch_sparse_irradiated_grass_placed",
       "wasteland-wandering:patch_tall_irradiated_grass_placed",

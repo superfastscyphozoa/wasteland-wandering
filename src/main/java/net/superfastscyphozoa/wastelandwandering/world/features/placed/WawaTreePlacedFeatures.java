@@ -16,16 +16,27 @@ public class WawaTreePlacedFeatures {
     public static final RegistryKey<PlacedFeature> WASTEWOOD_PLACED_KEY = registerKey("wastewood_placed");
     public static final RegistryKey<PlacedFeature> LARGE_WASTEWOOD_PLACED_KEY = registerKey("large_wastewood_placed");
 
+    public static final RegistryKey<PlacedFeature> MUTFRUIT_TREE_PLACED_KEY = registerKey("mutfruit_tree_placed");
+    public static final RegistryKey<PlacedFeature> PATCH_MUTFRUIT_TREE_PLACED_KEY = registerKey("mutfruit_tree_patch_placed");
+
     public static final RegistryKey<PlacedFeature> RADPINE_PLACED_KEY = registerKey("radpine_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         RegistryEntry<ConfiguredFeature<?, ?>> wastewood = configuredFeatureRegistryEntryLookup.getOrThrow(WawaTreeConfiguredFeatures.WASTEWOOD_KEY);
         RegistryEntry<ConfiguredFeature<?, ?>> largeWastewood = configuredFeatureRegistryEntryLookup.getOrThrow(WawaTreeConfiguredFeatures.LARGE_WASTEWOOD_KEY);
+
+        RegistryEntry<ConfiguredFeature<?, ?>> mutfruit = configuredFeatureRegistryEntryLookup.getOrThrow(WawaTreeConfiguredFeatures.MUTFRUIT_TREE_KEY);
+
         RegistryEntry<ConfiguredFeature<?, ?>> radpine = configuredFeatureRegistryEntryLookup.getOrThrow(WawaTreeConfiguredFeatures.RADPINE_KEY);
 
         WawaPlacedFeatures.register(context, WASTEWOOD_PLACED_KEY, wastewood, Collections.singletonList(PlacedFeatures.wouldSurvive(RegisterBlocks.WASTEWOOD_SAPLING)));
         WawaPlacedFeatures.register(context, LARGE_WASTEWOOD_PLACED_KEY, largeWastewood, Collections.singletonList(PlacedFeatures.wouldSurvive(RegisterBlocks.WASTEWOOD_SAPLING)));
+
+        WawaPlacedFeatures.register(context, MUTFRUIT_TREE_PLACED_KEY, mutfruit, Collections.singletonList(PlacedFeatures.wouldSurvive(RegisterBlocks.MUTFRUIT_SAPLING)));
+        WawaPlacedFeatures.register(context, PATCH_MUTFRUIT_TREE_PLACED_KEY, mutfruit,
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.1f, 2),
+                        RegisterBlocks.MUTFRUIT_SAPLING));
 
         WawaPlacedFeatures.register(context, RADPINE_PLACED_KEY, radpine, Collections.singletonList(PlacedFeatures.wouldSurvive(RegisterBlocks.RADPINE_SAPLING)));
     }

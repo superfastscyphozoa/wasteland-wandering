@@ -10,6 +10,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
 import net.minecraft.world.gen.trunk.MegaJungleTrunkPlacer;
@@ -21,6 +22,9 @@ import static net.superfastscyphozoa.wastelandwandering.world.features.configure
 public class WawaTreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> WASTEWOOD_KEY = registerKey("wastewood");
     public static final RegistryKey<ConfiguredFeature<?, ?>> LARGE_WASTEWOOD_KEY = registerKey("large_wastewood");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MUTFRUIT_TREE_KEY = registerKey("mutfruit_tree");
+
     public static final RegistryKey<ConfiguredFeature<?, ?>> RADPINE_KEY = registerKey("radpine");
 
     //wastewood
@@ -32,8 +36,8 @@ public class WawaTreeConfiguredFeatures {
                 BlockStateProvider.of(Blocks.OAK_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0), 0),
 
-                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines()
-                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT))
+                new TwoLayersFeatureSize(1, 0, 2))
+                .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT))
                 .forceDirt());
     }
 
@@ -44,12 +48,23 @@ public class WawaTreeConfiguredFeatures {
                 BlockStateProvider.of(Blocks.OAK_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0), 0),
 
-                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines()
-                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT))
+                new TwoLayersFeatureSize(1, 0, 2))
+                .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT))
                 .forceDirt());
     }
 
     //mutfruit
+
+    private static TreeFeatureConfig.Builder mutfruit() {
+        return (new TreeFeatureConfig.Builder( BlockStateProvider.of(RegisterBlocks.MUTFRUIT_LOG),
+                new StraightTrunkPlacer(3, 2, 1),
+
+                BlockStateProvider.of(RegisterBlocks.MUTFRUIT_LEAVES),
+                new CherryFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), ConstantIntProvider.create(4),
+                        0.25F, 0.7F, 0.4F, 0.33333334F),
+                new TwoLayersFeatureSize(1, 0, 2))
+                .ignoreVines());
+    }
 
     //radpine
 
@@ -60,8 +75,8 @@ public class WawaTreeConfiguredFeatures {
                 BlockStateProvider.of(Blocks.OAK_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0), 0),
 
-                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines()
-                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT))
+                new TwoLayersFeatureSize(1, 0, 2))
+                .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT))
                 .forceDirt());
     }
 
@@ -72,6 +87,8 @@ public class WawaTreeConfiguredFeatures {
         WawaConfiguredFeatures.register(context, WASTEWOOD_KEY, Feature.TREE, wastewood().build());
         WawaConfiguredFeatures.register(context, LARGE_WASTEWOOD_KEY, Feature.TREE, large_wastewood()
                 .decorators(ImmutableList.of(leafLitterDecorator)).build());
+
+        WawaConfiguredFeatures.register(context, MUTFRUIT_TREE_KEY, Feature.TREE, mutfruit().build());
 
         WawaConfiguredFeatures.register(context, RADPINE_KEY, Feature.TREE, radpine().build());
 

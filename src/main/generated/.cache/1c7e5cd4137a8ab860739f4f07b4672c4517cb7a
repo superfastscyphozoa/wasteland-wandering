@@ -1,12 +1,15 @@
-// 1.21.1	2025-01-29T23:10:06.6523483	Wasteland Wandering/Tags for minecraft:block
+// 1.21.1	2025-01-30T22:22:03.7060385	Wasteland Wandering/Tags for minecraft:block
+6fadd4ac5794feac532185906f2aa1af39c559b8 data\minecraft\tags\block\mineable\shovel.json
+20b1dd5f4af5f47f14eae6f2fef92ece52cb3d8d data\wasteland-wandering\tags\block\asphalt.json
+95cadbfd73fb6f03d4a2404da41d27302a8129b8 data\minecraft\tags\block\saplings.json
+6fadd4ac5794feac532185906f2aa1af39c559b8 data\minecraft\tags\block\dirt.json
 7cc918cf1d960af78934334849115f94e32987a6 data\minecraft\tags\block\climbable.json
 7aafc1e178100fd5187177a0abafb689c4be7ca7 data\minecraft\tags\block\valid_spawn.json
-6fadd4ac5794feac532185906f2aa1af39c559b8 data\minecraft\tags\block\mineable\shovel.json
+9bb0c1d46afc405dd7a6d2c18e1be434253b81c2 data\minecraft\tags\block\mineable\hoe.json
 a9dde1f0eec2ba40a88f0ebc03369b0ec41fedad data\minecraft\tags\block\mineable\axe.json
 e853b2b65cfa4d0d6ea1de96cfd12e2d9439544f data\minecraft\tags\block\replaceable.json
-20b1dd5f4af5f47f14eae6f2fef92ece52cb3d8d data\wasteland-wandering\tags\block\asphalt.json
 a9dde1f0eec2ba40a88f0ebc03369b0ec41fedad data\minecraft\tags\block\logs_that_burn.json
 735fd43c92f761afa4f9816b50f02b55cab011df data\wasteland-wandering\tags\block\irradiated_grass.json
-6fadd4ac5794feac532185906f2aa1af39c559b8 data\minecraft\tags\block\dirt.json
 74712c80ef4b69869677551f4904782a477aad1c data\minecraft\tags\block\overworld_natural_logs.json
 23ce399c22d9814e0593f92e8c0456c670c18f82 data\minecraft\tags\block\mineable\pickaxe.json
+9bb0c1d46afc405dd7a6d2c18e1be434253b81c2 data\minecraft\tags\block\leaves.json
