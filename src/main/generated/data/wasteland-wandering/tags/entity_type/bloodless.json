@@ -1,0 +1,31 @@
+{
+  "values": [
+    "minecraft:allay",
+    "minecraft:vex",
+    "minecraft:skeleton",
+    "minecraft:bogged",
+    "minecraft:stray",
+    "minecraft:wither_skeleton",
+    "minecraft:skeleton_horse",
+    "minecraft:snow_golem",
+    "minecraft:iron_golem",
+    "minecraft:shulker",
+    "minecraft:spider",
+    "minecraft:cave_spider",
+    "minecraft:silverfish",
+    "minecraft:bee",
+    "minecraft:endermite",
+    "minecraft:enderman",
+    "minecraft:blaze",
+    "minecraft:breeze",
+    "minecraft:magma_cube",
+    "minecraft:guardian",
+    "minecraft:elder_guardian",
+    "minecraft:ender_dragon",
+    "minecraft:wither",
+    "minecraft:warden",
+    "minecraft:ghast",
+    "minecraft:phantom",
+    "minecraft:creeper"
+  ]
+}

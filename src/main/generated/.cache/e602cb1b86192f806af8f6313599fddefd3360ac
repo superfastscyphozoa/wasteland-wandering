@@ -1,11 +1,11 @@
-// 1.21.1	2025-01-31T03:15:20.8159165	Wasteland Wandering/Model Definitions
+// 1.21.1	2025-01-31T20:17:40.5913526	Wasteland Wandering/Model Definitions
 9ecd97f2f11ac6ee9ee76e744f8a2b2c72e5fd2d assets\wasteland-wandering\models\item\purple_asphalt.json
 3e4dc49a031486012aafcfbb4427c4980367dc9c assets\wasteland-wandering\models\item\oil.json
 3d10543f40d058264623c7e8b3d3e78ac98de7a4 assets\wasteland-wandering\models\block\red_asphalt.json
 a32b75b0430a863cba7bfbe2afcd737a42b66259 assets\wasteland-wandering\models\item\stimpak.json
 ce0a7b03b0f8a3712711a8adc9ac81a7195144a0 assets\wasteland-wandering\models\item\yellow_asphalt.json
-6f7c8fef8136ee40d7e73446b3a465be3191da84 assets\wasteland-wandering\blockstates\magenta_asphalt.json
 7b4cf7fc8b4d21833c391bfaeff0e061082be104 assets\wasteland-wandering\blockstates\lime_asphalt.json
+6f7c8fef8136ee40d7e73446b3a465be3191da84 assets\wasteland-wandering\blockstates\magenta_asphalt.json
 8caa0ed717afbd0270e394dc9ee30ceb6e7dec6d assets\wasteland-wandering\models\item\wastewood_sapling.json
 503a3c9ac0dba87780ebc6db5c09ff7ff091131e assets\wasteland-wandering\models\item\light_gray_asphalt.json
 f2466ce161d2cdf29ce13c47a91db563a07d019c assets\wasteland-wandering\models\item\gray_asphalt.json
@@ -20,8 +20,8 @@ af5c4197b72053e750a564033bc3bc72a79f41ac assets\wasteland-wandering\models\item\
 681d12cf9cdf8d2b39fb5c3728df59a9046b1616 assets\wasteland-wandering\blockstates\light_blue_asphalt.json
 f36cd1370e05797bfc012693ab7e1e148da93628 assets\wasteland-wandering\models\block\white_asphalt.json
 4f6e65217cd925f612003b156e1c9ac2b4ad76b2 assets\wasteland-wandering\blockstates\irradiated_tall_grass.json
-6bbfe5c9985963853eac65de05028c4e6c119362 assets\wasteland-wandering\blockstates\red_asphalt.json
 c796755715c797ee2de80dab8ad677f476db473c assets\wasteland-wandering\blockstates\wastewood_sapling.json
+6bbfe5c9985963853eac65de05028c4e6c119362 assets\wasteland-wandering\blockstates\red_asphalt.json
 bb950b450ae71a943ee3699477491b4e5e40d7f6 assets\wasteland-wandering\models\item\white_asphalt.json
 a0730216eac3fa7c0feec425234882ebf9c5f4b0 assets\wasteland-wandering\blockstates\mutfruit_leaves.json
 5d0983e246ba334d0dbb6533e6c0a506995b85ba assets\wasteland-wandering\models\block\mutfruit_sapling.json

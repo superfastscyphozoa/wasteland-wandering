@@ -10,9 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
-import net.superfastscyphozoa.wastelandwandering.item.IVBagItem;
-import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
 import net.superfastscyphozoa.wastelandwandering.util.WawaTags;
+import net.superfastscyphozoa.wastelandwandering.util.WawaUtil;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
@@ -40,12 +39,7 @@ public abstract class PlayerEntityMixin {
     )
     private void playerKilledEntity(ServerWorld world, LivingEntity other, CallbackInfoReturnable<Boolean> cir){
         PlayerEntity player = (PlayerEntity) (Object) this;
-
-        if (player.getStackInHand(Hand.MAIN_HAND).isOf(RegisterItems.IV_BAG)){
-            IVBagItem.convertToBloodPack(player, Hand.MAIN_HAND);
-        } else if (player.getStackInHand(Hand.OFF_HAND).isOf(RegisterItems.IV_BAG)){
-            IVBagItem.convertToBloodPack(player, Hand.OFF_HAND);
-        }
+        WawaUtil.onPlayerKillOther(player, other, world);
     }
 
     @WrapOperation(

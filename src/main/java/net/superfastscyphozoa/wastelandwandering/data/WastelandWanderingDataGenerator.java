@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 import net.superfastscyphozoa.wastelandwandering.data.tags.WawaBlockTagProvider;
+import net.superfastscyphozoa.wastelandwandering.data.tags.WawaEntityTypeTagProvider;
 import net.superfastscyphozoa.wastelandwandering.data.tags.WawaItemTagProvider;
 import net.superfastscyphozoa.wastelandwandering.world.biome.WawaBiomes;
 import net.superfastscyphozoa.wastelandwandering.world.features.configured.WawaConfiguredFeatures;
@@ -21,6 +22,7 @@ public class WastelandWanderingDataGenerator implements DataGeneratorEntrypoint 
 
 		pack.addProvider(WawaBlockTagProvider::new);
 		pack.addProvider(WawaItemTagProvider::new);
+		pack.addProvider(WawaEntityTypeTagProvider::new);
 
 		pack.addProvider(WawaWorldGenerator::new);
 

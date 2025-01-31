@@ -2,12 +2,10 @@ package net.superfastscyphozoa.wastelandwandering;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.superfastscyphozoa.wastelandwandering.block.util.WawaFlammableBlocks;
-import net.superfastscyphozoa.wastelandwandering.block.util.WawaStrippableBlocks;
-import net.superfastscyphozoa.wastelandwandering.util.WawaFuels;
 import net.superfastscyphozoa.wastelandwandering.util.WawaItemGroups;
 import net.superfastscyphozoa.wastelandwandering.registry.*;
 import net.superfastscyphozoa.wastelandwandering.util.WawaTrades;
+import net.superfastscyphozoa.wastelandwandering.util.WawaUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import net.superfastscyphozoa.wastelandwandering.world.gen.WastelandWanderingWorldGeneration;
@@ -27,10 +25,7 @@ public class WastelandWandering implements ModInitializer {
 		RegisterItems.registerWawaItems();
 		RegisterBlocks.registerWawaBlocks();
 
-		WawaStrippableBlocks.registerStrippableBlocks();
-		WawaFlammableBlocks.registerFlammableBlocks();
-
-		WawaFuels.registerFuels();
+		WawaUtil.registerWawaUtil();
 		WawaTrades.registerTrades();
 
 		RegisterParticles.registerWawaParticles();

@@ -1,6 +1,7 @@
 package net.superfastscyphozoa.wastelandwandering.util;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
@@ -8,7 +9,9 @@ import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 
 public class WawaTags {
+
     public static class Blocks {
+
         public static final TagKey<Block> IRRADIATED_GRASS = createTag("irradiated_grass");
 
         public static final TagKey<Block> ASPHALT = createTag("asphalt");
@@ -16,7 +19,6 @@ public class WawaTags {
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(WastelandWandering.MOD_ID, name));
         }
-
     }
 
     public static class Items {
@@ -36,6 +38,15 @@ public class WawaTags {
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(WastelandWandering.MOD_ID, name));
         }
+    }
 
+    public static class EntityTypes {
+
+        public static final TagKey<EntityType<?>> BLOODLESS = createTag("bloodless");
+        public static final TagKey<EntityType<?>> HAS_GLOWING_BLOOD = createTag("has_glowing_blood");
+
+        private static TagKey<EntityType<?>> createTag(String name) {
+            return TagKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(WastelandWandering.MOD_ID, name));
+        }
     }
 }
