@@ -35,7 +35,7 @@ public abstract class AbstractThrownExplosiveItem extends Item implements Projec
         boolean usingLighter = offHandStack.isIn(WawaTags.Items.FUSE_LIGHTER) || mainHandStack.isIn(WawaTags.Items.FUSE_LIGHTER);
 
         if (requiresLighter){
-            if (usingLighter){
+            if (usingLighter && !user.isSubmergedInWater()){
                 if (!world.isClient) {
                     spawnExplosiveEntity(world, user, handStack);
                     playUseSounds(world, user, true);

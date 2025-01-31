@@ -1,11 +1,13 @@
 package net.superfastscyphozoa.wastelandwandering.entity.projectile;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public abstract class ThrownExplosiveFuseEntity extends ThrownPhysicsEntity {
     public ThrownExplosiveFuseEntity(EntityType<? extends ThrownExplosiveFuseEntity> entityType, World world) {
@@ -49,6 +51,16 @@ public abstract class ThrownExplosiveFuseEntity extends ThrownPhysicsEntity {
                     fuseSoundPlayed = true;
                 }
             }
+        }
+    }
+
+    @Override
+    public void onExplodedBy(@Nullable Entity entity) {
+        super.onExplodedBy(entity);
+
+        this.discard();
+        if (!this.getWorld().isClient) {
+            this.explode();
         }
     }
 
