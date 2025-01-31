@@ -32,7 +32,7 @@ public class DynamiteEntity extends ThrownExplosiveFuseEntity {
     }
 
     protected static final ExplosionBehavior EXPLOSION_BEHAVIOR = new AdvancedExplosionBehavior(
-            false, true, Optional.of(1.22F), Optional.empty());
+            true, true, Optional.of(1.22F), Optional.empty());
 
     @Override
     protected void explode() {
