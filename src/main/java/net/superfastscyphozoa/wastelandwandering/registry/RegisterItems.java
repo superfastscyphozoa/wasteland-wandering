@@ -24,8 +24,8 @@ public class RegisterItems {
 
     public static final Item RADAWAY = registerItem("radaway", new Item(new Item.Settings()));
 
-    public static final Item BLOOD_PACK = registerItem("blood_pack", new Item(new Item.Settings()));
-    public static final Item GLOWING_BLOOD_PACK = registerItem("glowing_blood_pack", new Item(new Item.Settings()));
+    public static final Item BLOOD_PACK = registerItem("blood_pack", new BloodPackItem(new Item.Settings()));
+    public static final Item GLOWING_BLOOD_PACK = registerItem("glowing_blood_pack", new BloodPackItem(new Item.Settings()));
 
     //food
 

@@ -36,11 +36,6 @@ public class AlcoholBottleItem extends ChemItem implements BreakableItem {
 
     //drink
     @Override
-    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
-        return 40;
-    }
-
-    @Override
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.DRINK;
     }

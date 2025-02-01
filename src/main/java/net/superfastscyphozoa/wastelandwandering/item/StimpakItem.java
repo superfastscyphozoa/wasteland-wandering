@@ -15,21 +15,20 @@ public class StimpakItem extends ChemItem {
     @Override
     protected void chemEffects(World world, PlayerEntity user) {
         if (!world.isClient) {
-            user.setHealth(user.getMaxHealth());
-            user.getHungerManager().add(20, 1.2F);
+            user.heal(user.getMaxHealth());
         }
     }
 
     @Override
     protected boolean chemUseConditions(World world, PlayerEntity user, Hand hand) {
-        return ((user.getHealth() != user.getMaxHealth()) || (user.getHungerManager().isNotFull()));
+        return (user.getHealth() != user.getMaxHealth());
     }
 
     @Override
     protected void playUseSounds(World world, PlayerEntity user) {
         world.playSound(
                 null, user.getX(), user.getY(), user.getZ(),
-                SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH,
+                SoundEvents.BLOCK_NOTE_BLOCK_SNARE,
                 SoundCategory.NEUTRAL, 0.5F,
                 1.0F
         );
