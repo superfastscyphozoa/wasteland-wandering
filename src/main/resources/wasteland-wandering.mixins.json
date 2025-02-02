@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "entity.ChickenEntityMixin",
-    "entity.PlayerEntityMixin"
+    "entity.PlayerEntityMixin",
+    "tree.TreeDecoratorTypeInvoker"
   ],
   "client": [
     "entity.client.ChickenEntityRendererMixin",

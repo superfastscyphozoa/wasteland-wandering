@@ -2,9 +2,12 @@ package net.superfastscyphozoa.wastelandwandering.world.features.configured;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.PropaguleBlock;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
@@ -12,10 +15,14 @@ import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.RandomizedIntBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
+import net.minecraft.world.gen.treedecorator.AttachedToLeavesTreeDecorator;
 import net.minecraft.world.gen.trunk.MegaJungleTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterBlocks;
+
+import java.util.List;
 
 import static net.superfastscyphozoa.wastelandwandering.world.features.configured.WawaConfiguredFeatures.registerKey;
 
@@ -84,11 +91,25 @@ public class WawaTreeConfiguredFeatures {
 
         AlterGroundTreeDecorator leafLitterDecorator = new AlterGroundTreeDecorator(BlockStateProvider.of(RegisterBlocks.WASTEWOOD_LITTER));
 
+        AttachedToLeavesTreeDecorator mutfruitDecorator  = new AttachedToLeavesTreeDecorator(
+                0.3F,
+                1,
+                0,
+                new RandomizedIntBlockStateProvider(
+                        BlockStateProvider.of(RegisterBlocks.BUDDING_MUTFRUIT.getDefaultState()),
+                        PropaguleBlock.AGE,
+                        UniformIntProvider.create(0, 3)
+                ),
+                1,
+                List.of(Direction.DOWN)
+        );
+
         WawaConfiguredFeatures.register(context, WASTEWOOD_KEY, Feature.TREE, wastewood().build());
         WawaConfiguredFeatures.register(context, LARGE_WASTEWOOD_KEY, Feature.TREE, large_wastewood()
                 .decorators(ImmutableList.of(leafLitterDecorator)).build());
 
-        WawaConfiguredFeatures.register(context, MUTFRUIT_TREE_KEY, Feature.TREE, mutfruit().build());
+        WawaConfiguredFeatures.register(context, MUTFRUIT_TREE_KEY, Feature.TREE, mutfruit().
+                decorators(ImmutableList.of(mutfruitDecorator)).build());
 
         WawaConfiguredFeatures.register(context, RADPINE_KEY, Feature.TREE, radpine().build());
 

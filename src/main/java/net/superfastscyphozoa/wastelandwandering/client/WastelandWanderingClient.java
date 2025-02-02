@@ -30,6 +30,8 @@ public class WastelandWanderingClient implements ClientModInitializer {
     public void onInitializeClient() {
 
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.MUTFRUIT_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.BUDDING_MUTFRUIT, RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.WASTEWOOD_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.RADPINE_SAPLING, RenderLayer.getCutout());
 

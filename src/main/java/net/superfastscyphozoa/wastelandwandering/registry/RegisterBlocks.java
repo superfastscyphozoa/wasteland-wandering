@@ -120,7 +120,19 @@ public class RegisterBlocks {
             )
     );
 
-    public static final Block MUTFRUIT_LEAVES = registerBlock("mutfruit_leaves", createWawaLeavesBlock(BlockSoundGroup.GRASS));
+    public static final Block MUTFRUIT_LEAVES = registerBlock("mutfruit_leaves",
+            createWawaLeavesBlock(true, MapColor.PALE_YELLOW, BlockSoundGroup.GRASS));
+
+    public static final Block BUDDING_MUTFRUIT = registerBlock("budding_mutfruit", new BuddingFruitBlock(AbstractBlock.Settings.create()
+            .mapColor(MapColor.PALE_PURPLE)
+            .noCollision()
+            .breakInstantly()
+            .sounds(BlockSoundGroup.GRASS)
+            .burnable()
+            .pistonBehavior(PistonBehavior.DESTROY)
+            .ticksRandomly()
+            )
+    );
 
     public static final Block MUTFRUIT_SAPLING = registerBlock("mutfruit_sapling",
             new SaplingBlock(WawaSaplingGenerators.MUTFRUIT_TREE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
@@ -170,21 +182,25 @@ public class RegisterBlocks {
 
     //registry end
 
-    public static Block createWawaLeavesBlock(BlockSoundGroup soundGroup) {
-        return new LeavesBlock(
-                AbstractBlock.Settings.create()
-                        .mapColor(MapColor.TERRACOTTA_RED)
-                        .strength(0.2F)
-                        .ticksRandomly()
-                        .sounds(soundGroup)
-                        .nonOpaque()
-                        .allowsSpawning(Blocks::canSpawnOnLeaves)
-                        .suffocates(Blocks::never)
-                        .blockVision(Blocks::never)
-                        .burnable()
-                        .pistonBehavior(PistonBehavior.DESTROY)
-                        .solidBlock(Blocks::never)
-        );
+    public static Block createWawaLeavesBlock(boolean fruit, MapColor mapColor, BlockSoundGroup soundGroup) {
+        AbstractBlock.Settings settings = AbstractBlock.Settings.create()
+                .mapColor(mapColor)
+                .strength(0.2F)
+                .ticksRandomly()
+                .sounds(soundGroup)
+                .nonOpaque()
+                .allowsSpawning(Blocks::canSpawnOnLeaves)
+                .suffocates(Blocks::never)
+                .blockVision(Blocks::never)
+                .burnable()
+                .pistonBehavior(PistonBehavior.DESTROY)
+                .solidBlock(Blocks::never);
+
+        if (fruit){
+            return new FruitLeavesBlock(settings);
+        } else {
+            return new LeavesBlock(settings);
+        }
     }
 
     private static Block registerBlock(String name, Block block) {

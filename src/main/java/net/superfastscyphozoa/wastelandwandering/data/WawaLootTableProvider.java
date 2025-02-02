@@ -27,6 +27,7 @@ import net.minecraft.predicate.entity.LocationPredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.math.BlockPos;
+import net.superfastscyphozoa.wastelandwandering.block.BuddingFruitBlock;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterBlocks;
 
 import java.util.concurrent.CompletableFuture;
@@ -54,8 +55,8 @@ public class WawaLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(RegisterBlocks.MUTFRUIT_LOG);
         addDrop(RegisterBlocks.STRIPPED_MUTFRUIT_LOG);
-
         addDrop(RegisterBlocks.MUTFRUIT_SAPLING);
+
         addDrop(RegisterBlocks.WASTEWOOD_SAPLING);
         addDrop(RegisterBlocks.RADPINE_SAPLING);
 
@@ -80,7 +81,6 @@ public class WawaLootTableProvider extends FabricBlockLootTableProvider {
     // loot table builders
 
     //plant
-
     public LootTable.Builder wildPlantDrops(Block withShears, ItemConvertible veggie) {
         RegistryWrapper.Impl<Enchantment> impl = registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
         return dropsWithShears(
@@ -90,6 +90,18 @@ public class WawaLootTableProvider extends FabricBlockLootTableProvider {
                         ItemEntry.builder(veggie)
                                 .apply(ApplyBonusLootFunction.binomialWithBonusCount(impl.getOrThrow(Enchantments.FORTUNE), 0.5714286F, 3))
                 )
+        );
+    }
+
+    //this is mad bugged
+    public LootTable.Builder buddingFruitDrops(ItemConvertible drop, Block block) {
+        return LootTable.builder().pool(LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1.0F)).with(
+                                this.applyExplosionDecay(drop, ItemEntry.builder(drop).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0F))
+
+                                        .conditionally(BlockStatePropertyLootCondition.builder(block)
+                                                .properties(StatePredicate.Builder.create().exactMatch(BuddingFruitBlock.AGE, 3)))))
+                        )
         );
     }
 

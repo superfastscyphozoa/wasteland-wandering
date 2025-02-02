@@ -50,8 +50,11 @@ public class WawaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                         RegisterBlocks.ORANGE_ASPHALT,
                         RegisterBlocks.WHITE_ASPHALT);
 
-        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+        getOrCreateTagBuilder(WawaTags.Blocks.MUTFRUIT_LOGS)
                 .add(RegisterBlocks.MUTFRUIT_LOG, RegisterBlocks.STRIPPED_MUTFRUIT_LOG);
+
+        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+                .addTag(WawaTags.Blocks.MUTFRUIT_LOGS);
 
         getOrCreateTagBuilder(BlockTags.OVERWORLD_NATURAL_LOGS)
                 .add(RegisterBlocks.MUTFRUIT_LOG);
@@ -74,6 +77,6 @@ public class WawaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(RegisterBlocks.IRRADIATED_GRASS_BLOCK, RegisterBlocks.PATCHY_IRRADIATED_GRASS_BLOCK, RegisterBlocks.SCORCHED_SOIL, RegisterBlocks.WASTEWOOD_LITTER);
 
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                .add(RegisterBlocks.MUTFRUIT_LOG, RegisterBlocks.STRIPPED_MUTFRUIT_LOG);
+                .addTag(WawaTags.Blocks.MUTFRUIT_LOGS);
     }
 }

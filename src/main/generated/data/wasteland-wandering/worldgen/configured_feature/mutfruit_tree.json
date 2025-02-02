@@ -1,7 +1,36 @@
 {
   "type": "minecraft:tree",
   "config": {
-    "decorators": [],
+    "decorators": [
+      {
+        "type": "minecraft:attached_to_leaves",
+        "block_provider": {
+          "type": "minecraft:randomized_int_state_provider",
+          "property": "age",
+          "source": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "wasteland-wandering:budding_mutfruit",
+              "Properties": {
+                "age": "0"
+              }
+            }
+          },
+          "values": {
+            "type": "minecraft:uniform",
+            "max_inclusive": 3,
+            "min_inclusive": 0
+          }
+        },
+        "directions": [
+          "down"
+        ],
+        "exclusion_radius_xz": 1,
+        "exclusion_radius_y": 0,
+        "probability": 0.3,
+        "required_empty_blocks": 1
+      }
+    ],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
