@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.wastelandwandering.item;
+package net.superfastscyphozoa.wastelandwandering.item.chems;
 
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.component.DataComponentTypes;

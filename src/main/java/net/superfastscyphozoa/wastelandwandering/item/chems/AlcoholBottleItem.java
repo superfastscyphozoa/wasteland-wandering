@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.wastelandwandering.item;
+package net.superfastscyphozoa.wastelandwandering.item.chems;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -11,6 +11,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.superfastscyphozoa.wastelandwandering.item.BreakableItem;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterItems;
 
 public class AlcoholBottleItem extends ChemItem implements BreakableItem {

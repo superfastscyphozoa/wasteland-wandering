@@ -12,6 +12,9 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.superfastscyphozoa.wastelandwandering.WastelandWandering;
 import net.superfastscyphozoa.wastelandwandering.item.*;
+import net.superfastscyphozoa.wastelandwandering.item.chems.AlcoholBottleItem;
+import net.superfastscyphozoa.wastelandwandering.item.chems.BloodPackItem;
+import net.superfastscyphozoa.wastelandwandering.item.chems.StimpakItem;
 import net.superfastscyphozoa.wastelandwandering.util.WawaFoodComponents;
 
 public class RegisterItems {
