@@ -36,7 +36,7 @@ public class CarrotFlowerBlock extends BushyFlowerBlock implements PickablePlant
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        pickPlant(state, world, pos, player, hit);
+        pickPlant(state, world, pos, player);
         return ActionResult.SUCCESS;
     }
 }

@@ -1,14 +1,15 @@
 package net.superfastscyphozoa.wastelandwandering.block;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.event.GameEvent;
 
 public interface PickablePlant {
 
@@ -23,7 +24,7 @@ public interface PickablePlant {
         RESET_AGE
     }
 
-    default void pickPlant(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit){
+    default void pickPlant(BlockState state, World world, BlockPos pos, PlayerEntity player){
         ItemStack plantStack = new ItemStack(plantToPick());
         ItemStack inHand = player.getStackInHand(player.getActiveHand());
 
@@ -44,10 +45,16 @@ public interface PickablePlant {
             if (!world.isClient) {
                 switch (this.getPickType()) {
                     case DESTROY -> world.removeBlock(pos, false);
-                    //case RESET_AGE -> st
+                    case RESET_AGE -> resetAge(state, world, pos, player);
                 }
             }
         }
+    }
+
+    default void resetAge(BlockState state, World world, BlockPos pos, PlayerEntity player){
+        BlockState blockState = state.with(BuddingFruitBlock.AGE, 0);
+        world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
+        world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
     }
 
     default void playPickingSounds(World world, BlockPos pos, PlayerEntity player){

@@ -46,57 +46,49 @@ public class BuddingFruitBlock extends PlantBlock implements Fertilizable, Picka
         builder.add(AGE);
     }
 
+    // fruit type
+    FruitType getFruitType(){
+        return FruitType.MUTFRUIT;
+    }
+
+    enum FruitType {
+        MUTFRUIT
+    }
+
+    // pick fruit
     @Override
     public ItemConvertible plantToPick() {
-        return RegisterItems.MUTFRUIT;
+        return switch (this.getFruitType()) {
+            case MUTFRUIT -> RegisterItems.MUTFRUIT;
+        };
+    }
+
+    @Override
+    public PickType getPickType() {
+        return PickType.RESET_AGE;
     }
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (state.get(AGE) == 3) {
-            pickPlant(state, world, pos, player, hit);
+            pickPlant(state, world, pos, player);
             return ActionResult.SUCCESS;
         } else {
             return ActionResult.PASS;
         }
     }
 
-    @Nullable
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return super.getPlacementState(ctx).with(AGE, 3);
-    }
-
+    // voxel shape
     protected static final VoxelShape MUTFRUIT_SHAPE = Block.createCuboidShape(0.0, 10.0, 0.0, 16.0, 16.0, 16.0);
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return MUTFRUIT_SHAPE;
+        return switch (this.getFruitType()) {
+            case MUTFRUIT -> MUTFRUIT_SHAPE;
+        };
     }
 
-    @Override
-    protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return world.getBlockState(pos.up()).isOf(RegisterBlocks.MUTFRUIT_LEAVES);
-    }
-
-    @Override
-    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        return direction == Direction.UP && !state.canPlaceAt(world, pos)
-                ? Blocks.AIR.getDefaultState()
-                : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
-    }
-
-    @Override
-    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!isFullyGrown(state)) {
-            world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
-        }
-    }
-
-    private static boolean isFullyGrown(BlockState state) {
-        return state.get(AGE) == 3;
-    }
-
+    // bonemeal
     @Override
     public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
@@ -114,7 +106,42 @@ public class BuddingFruitBlock extends PlantBlock implements Fertilizable, Picka
         }
     }
 
+    // growth
+    @Override
+    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        if (!isFullyGrown(state)) {
+            world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
+        }
+    }
+
+    private static boolean isFullyGrown(BlockState state) {
+        return state.get(AGE) == 3;
+    }
+
     public static BlockState getBuddingFruitState(int age, Block block) {
         return block.getDefaultState().with(AGE, age);
+    }
+
+    // placement and state
+    @Override
+    protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        Block leavesBlock = switch (this.getFruitType()) {
+            case MUTFRUIT -> RegisterBlocks.MUTFRUIT_LEAVES;
+        };
+
+        return world.getBlockState(pos.up()).isOf(leavesBlock);
+    }
+
+    @Nullable
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        return super.getPlacementState(ctx).with(AGE, 3);
+    }
+
+    @Override
+    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        return direction == Direction.UP && !state.canPlaceAt(world, pos)
+                ? Blocks.AIR.getDefaultState()
+                : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 }

@@ -9,7 +9,6 @@ import net.minecraft.world.WorldView;
 import net.superfastscyphozoa.wastelandwandering.registry.RegisterBlocks;
 
 public class FruitLeavesBlock extends LeavesBlock implements Fertilizable  {
-
     public FruitLeavesBlock(Settings settings) {
         super(settings);
     }
