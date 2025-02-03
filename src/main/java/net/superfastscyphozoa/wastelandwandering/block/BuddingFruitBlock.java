@@ -70,9 +70,13 @@ public class BuddingFruitBlock extends PlantBlock implements Fertilizable, Picka
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (state.get(AGE) == 3) {
-            pickPlant(state, world, pos, player);
-            return ActionResult.SUCCESS;
+        if(pickConditions(player)) {
+            if (state.get(AGE) == 3) {
+                pickPlant(state, world, pos, player);
+                return ActionResult.SUCCESS;
+            } else {
+                return ActionResult.PASS;
+            }
         } else {
             return ActionResult.PASS;
         }

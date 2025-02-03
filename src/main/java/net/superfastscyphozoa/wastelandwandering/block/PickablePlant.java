@@ -24,15 +24,16 @@ public interface PickablePlant {
         RESET_AGE
     }
 
+    default boolean pickConditions(PlayerEntity player){
+        return (emptyHand(player) || inHand(player).isOf(plantToPick().asItem()));
+    }
+
     default void pickPlant(BlockState state, World world, BlockPos pos, PlayerEntity player){
         ItemStack plantStack = new ItemStack(plantToPick());
-        ItemStack inHand = player.getStackInHand(player.getActiveHand());
 
-        boolean emptyHand = inHand.isEmpty();
+        if (pickConditions(player)) {
 
-        if (emptyHand || inHand.isOf(plantToPick().asItem())) {
-
-            if (emptyHand){
+            if (emptyHand(player)){
                 player.setStackInHand(player.getActiveHand(), plantStack);
             } else {
                 if (!player.getInventory().insertStack(plantStack)) {
@@ -49,6 +50,14 @@ public interface PickablePlant {
                 }
             }
         }
+    }
+
+    default ItemStack inHand(PlayerEntity player){
+        return player.getStackInHand(player.getActiveHand());
+    }
+
+    default boolean emptyHand(PlayerEntity player){
+        return inHand(player).isEmpty();
     }
 
     default void resetAge(BlockState state, World world, BlockPos pos, PlayerEntity player){
